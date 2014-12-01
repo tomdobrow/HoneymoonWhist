@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Rules View Controller-->
@@ -213,7 +213,10 @@
                         <outlet property="card8Image" destination="e78-h8-mvA" id="w9c-7o-FZ7"/>
                         <outlet property="card9Image" destination="ScF-ca-Zad" id="J3p-2f-vL2"/>
                         <outlet property="deckImage" destination="qHA-48-Y6l" id="JTe-c1-AdJ"/>
+                        <outlet property="discardButton" destination="ADy-f6-L0c" id="Fw3-Sr-59t"/>
                         <outlet property="discardImage" destination="RPG-AY-gmx" id="XEe-fJ-xcc"/>
+                        <outlet property="keepButton" destination="Zvx-cH-Umb" id="LDf-Ax-rrP"/>
+                        <outlet property="sortButton" destination="ZNJ-OL-Ozj" id="pGo-bP-Sli"/>
                         <segue destination="dd5-Sg-RvM" kind="presentation" identifier="startBidding" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Z51-H3-Anb"/>
                     </connections>
                 </viewController>
@@ -271,11 +274,31 @@
                     <connections>
                         <outlet property="bidBar" destination="JJ9-IO-pAB" id="YwH-6M-KUH"/>
                         <outlet property="textView" destination="Ixv-Rk-tdS" id="Bkl-rw-pvk"/>
+                        <segue destination="szO-gh-IB7" kind="show" identifier="startPlaying" id="nhl-NC-CIJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mca-GA-8vC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="628.5" y="127.5"/>
+        </scene>
+        <!--Play View Controller-->
+        <scene sceneID="jce-ns-yEn">
+            <objects>
+                <viewController id="szO-gh-IB7" customClass="PlayViewController" customModule="Honeymoon_Whist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="71k-It-1K5"/>
+                        <viewControllerLayoutGuide type="bottom" id="O0Y-rQ-Qon"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z4t-uB-7Zv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XIc-7V-BhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134.5" y="127.5"/>
         </scene>
     </scenes>
 </document>

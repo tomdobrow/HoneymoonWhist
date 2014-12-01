@@ -27,6 +27,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var deckImage: UIImageView!
     @IBOutlet weak var discardImage: UIImageView!
     
+    @IBOutlet weak var keepButton: UIButton!
+    @IBOutlet weak var discardButton: UIButton!
+    @IBOutlet weak var sortButton: UIButton!
     
     var cardArray = [Int]()
     var sortedArray = [Int]()
@@ -52,8 +55,8 @@ class ViewController: UIViewController {
     }
     
     func setUpDeck () {
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png"))
-        
+
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
         
         images = ["2c","3c","4c","5c","6c","7c","8c","9c","10c","jc","qc","kc","ac","2d","3d","4d","5d","6d","7d","8d","9d","10d","jd","qd","kd","ad","2h","3h","4h","5h","6h","7h","8h","9h","10h","jh","qh","kh","ah","2s","3s","4s","5s","6s","7s","8s","9s","10s","js","qs","ks","as"]
         
@@ -99,6 +102,7 @@ class ViewController: UIViewController {
         }
         else {
             deckImage.image = nil
+            sortHand()
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
         
@@ -123,6 +127,7 @@ class ViewController: UIViewController {
         }
         else {
             deckImage.image = nil
+            sortHand()
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
         
@@ -135,10 +140,15 @@ class ViewController: UIViewController {
         }
         else {
             deckImage.image = nil
+            sortHand()
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
     }
     @IBAction func sortButtonTap(sender: AnyObject) {
+        sortHand()
+    }
+    
+    func sortHand() {
         sortedArray = sorted(cardArray)
         for (var i=0; i<sortedArray.count; i+=1) {
             var pic = view.viewWithTag(i+1) as UIImageView
@@ -148,18 +158,17 @@ class ViewController: UIViewController {
                 }, completion:nil)
             pic.image = UIImage(named: images[sortedArray[i]])
         }
-
     }
-    
-//    func sortHand() {
-//        sortedArray = sorted(cardArray)
-//        for (var i=0; i<sortedArray.count; i+=1) {
-//            var pic = view.viewWithTag(i+1) as UIImageView
-//            pic.image = UIImage(named: images[sortedArray[i]])
-//        }
-//        
-//    }
-//    
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "startBidding" {
+            keepButton.setTitle(nil, forState: nil)
+            discardButton.setTitle(nil, forState: nil)
+            sortButton.setTitle(nil, forState: nil)
+        }
+        
+    }
    
     
 

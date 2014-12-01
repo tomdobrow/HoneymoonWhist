@@ -15,6 +15,7 @@
 		A38A2B0F1A2B54B100C7A7A3 /* Honeymoon_WhistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2B0E1A2B54B100C7A7A3 /* Honeymoon_WhistTests.swift */; };
 		A38A2B191A2B7F3900C7A7A3 /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */; };
 		A38A2B1B1A2C7AE600C7A7A3 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */; };
+		A6EDAA8C1A2CF3B7009F574F /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		A38A2B0E1A2B54B100C7A7A3 /* Honeymoon_WhistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Honeymoon_WhistTests.swift; sourceTree = "<group>"; };
 		A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
 		A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				A38A2AF61A2B54B100C7A7A3 /* Supporting Files */,
 				A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */,
 				A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */,
+				A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */,
 			);
 			path = "Honeymoon Whist";
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A38A2AFB1A2B54B100C7A7A3 /* ViewController.swift in Sources */,
+				A6EDAA8C1A2CF3B7009F574F /* PlayViewController.swift in Sources */,
 				A38A2AF91A2B54B100C7A7A3 /* AppDelegate.swift in Sources */,
 				A38A2B1B1A2C7AE600C7A7A3 /* RulesViewController.swift in Sources */,
 				A38A2B191A2B7F3900C7A7A3 /* BidViewController.swift in Sources */,
@@ -415,6 +419,7 @@
 				A38A2B141A2B54B100C7A7A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A38A2B151A2B54B100C7A7A3 /* Build configuration list for PBXNativeTarget "Honeymoon WhistTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +428,7 @@
 				A38A2B171A2B54B100C7A7A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

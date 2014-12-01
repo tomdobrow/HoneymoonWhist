@@ -28,7 +28,6 @@ class BidViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png"))
         bidBar.selectedSegmentIndex = 0
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -78,7 +77,10 @@ class BidViewController: UIViewController {
             textView.text = "\n" + resultText + "\n" + textView.text
             var trumpSuit = "clubs"
             resultText = "Alright. Trump will be \(trumpSuit)"
+
             //prepare for segue to gameplay. pass the right player and the trump
+            self.performSegueWithIdentifier("startPlaying", sender: nil)
+            
         }
         textView.text = resultText + "\n" + textView.text
 
