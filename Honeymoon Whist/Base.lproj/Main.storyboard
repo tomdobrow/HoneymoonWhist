@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6TW-pZ-I1C">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--Rules View Controller-->
+        <scene sceneID="OZv-mO-Sqn">
+            <objects>
+                <viewController id="6TW-pZ-I1C" customClass="RulesViewController" customModule="Honeymoon_Whist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S3J-A0-B0x"/>
+                        <viewControllerLayoutGuide type="bottom" id="G8F-k9-SrH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qLH-ru-Am3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCn-Nu-Jp0">
+                                <rect key="frame" x="81" y="200" width="158" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <state key="normal" title="Play Against Computer">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="f5b-1h-tnD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WI-gL-zfQ">
+                                <rect key="frame" x="141" y="400" width="39" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <state key="normal" title="Rules">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LZ3-um-4RO" kind="presentation" id="rja-6E-Sa4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BhO-Fd-Gtx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-293" y="128"/>
+        </scene>
+        <!--Rules View Controller-->
+        <scene sceneID="U8p-pO-9IE">
+            <objects>
+                <viewController id="LZ3-um-4RO" customClass="RulesViewController" customModule="Honeymoon_Whist" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hJ3-4b-JWl"/>
+                        <viewControllerLayoutGuide type="bottom" id="37q-SC-uaK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y1g-Yw-VAb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDC-7h-VDT">
+                                <rect key="frame" x="142" y="530" width="37" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6TW-pZ-I1C" kind="show" id="xAs-hD-1xu"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o9A-M4-qCU">
+                                <rect key="frame" x="16" y="20" width="288" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Honeymoon Whist is a two player trick-based card game. Gameplay is divided into three parts: Hand Setting, Bidding, and Play of the Hand. We examine each briefly.
+    In Hand Setting the goal is to build a powerful 13 card hand from a limited card pool. Players alternate viewing the top two cards of the face-down deck, choosing one of the two to add to their hand, and one to discard. In all draws except for the very last, players view a single card, and either discard it in favor of the unseen second card or keep it and blindly discard the second. In setting one's hand, both high cards (ace, king, queen, etc.) and long suits (more than four cards in a suit) are integral for success.
+    In Bidding, players fight for the decision of which suit will be trump. The trump suit is stronger than all others, in that a trump card can lose only to a higher trump, while a non-trump card can lose both to a higher card in the same suit, and to any card in the trump suit (be it of a higher or lower value). It is obviously beneficial for players to elect their longest and strongest suit to be trump. Bids consist of a number between 1 and 7 corresponding to the number of tricks past book (default 6 tricks) that the bidder must make, given that they get to choose the trump suit. Each bid must be higher than the previous bid, and bidding ends as soon as either player passes. The player who chose last in Hand Setting bids first.
+    The player who wins the bid --the declarer-- plays first. This consists of players alternating between playing cards from their hand. Players must always follow suit if able. Whoever plays a 'higher' card wins the trick and leads the next card. Between two cards of the same suit, the higher card is simply the card with the higher value, where Ace is high and 2 is low. Between two cards of different suits, the card played first is higher (since the second player is not following suit) unless of course one of the cards is trump, in which case that card will take the trick. After all 13 tricks are played, the player who chose trump is awarded a point if they made at least as many tricks as they promised in bidding. Otherwise their opponent is awarded a point, and we say that the declarer was 'set.' If a player bids exactly 6 --a minor slam-- and they deliver on their promise, they are awarded an extra point. Similarly, if a player bids and makes exactly 7 --a major slam-- they are awarded an extra two points.</string>
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="NSColor" red="0.21568627450980393" green="0.24313725490196078" blue="0.30196078431372547" alpha="1" colorSpace="deviceRGB"/>
+                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="15" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B2S-VL-vDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-293" y="912"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Honeymoon_Whist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MEk-J3-kb9">
+                                <rect key="frame" x="0.0" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHA-48-Y6l">
+                                <rect key="frame" x="49" y="47" width="75" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPG-AY-gmx">
+                                <rect key="frame" x="199" y="47" width="75" height="100"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvx-cH-Umb">
+                                <rect key="frame" x="68" y="518" width="36" height="30"/>
+                                <state key="normal" title="Keep">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="keepButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ayw-xK-tqo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADy-f6-L0c">
+                                <rect key="frame" x="210" y="518" width="53" height="30"/>
+                                <state key="normal" title="Discard">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="discardButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ovg-I7-HbA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deck" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMV-mu-WwS">
+                                <rect key="frame" x="66" y="155" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Discard Pile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIs-bW-aqm">
+                                <rect key="frame" x="190" y="155" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h02-xA-mAd">
+                                <rect key="frame" x="22" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SD1-wA-up0">
+                                <rect key="frame" x="44" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GPd-y7-Mrq">
+                                <rect key="frame" x="66" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dBr-fh-n0Q">
+                                <rect key="frame" x="88" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIh-aD-DTS">
+                                <rect key="frame" x="110" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1oJ-oY-O1C">
+                                <rect key="frame" x="132" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e78-h8-mvA">
+                                <rect key="frame" x="154" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ScF-ca-Zad">
+                                <rect key="frame" x="176" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Odb-fg-sfP">
+                                <rect key="frame" x="198" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="79I-r0-nAQ">
+                                <rect key="frame" x="220" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gPU-uB-icM">
+                                <rect key="frame" x="242" y="333" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e9U-yK-3Q7">
+                                <rect key="frame" x="264" y="333" width="130" height="170"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="card10Image" destination="Odb-fg-sfP" id="zHu-py-srk"/>
+                        <outlet property="card11Image" destination="79I-r0-nAQ" id="NsO-Kt-4HG"/>
+                        <outlet property="card12Image" destination="gPU-uB-icM" id="SN7-bZ-RRA"/>
+                        <outlet property="card13Image" destination="e9U-yK-3Q7" id="h2K-br-Jq2"/>
+                        <outlet property="card1Image" destination="MEk-J3-kb9" id="GFB-RF-ayo"/>
+                        <outlet property="card2Image" destination="h02-xA-mAd" id="NyN-dz-oRL"/>
+                        <outlet property="card3Image" destination="SD1-wA-up0" id="IVd-y9-8I3"/>
+                        <outlet property="card4Image" destination="GPd-y7-Mrq" id="nbM-yd-yOH"/>
+                        <outlet property="card5Image" destination="dBr-fh-n0Q" id="fw9-Vg-xnc"/>
+                        <outlet property="card6Image" destination="CIh-aD-DTS" id="Zbk-XJ-7Cg"/>
+                        <outlet property="card7Image" destination="1oJ-oY-O1C" id="Cal-b6-Ib5"/>
+                        <outlet property="card8Image" destination="e78-h8-mvA" id="w9c-7o-FZ7"/>
+                        <outlet property="card9Image" destination="ScF-ca-Zad" id="J3p-2f-vL2"/>
+                        <outlet property="deckImage" destination="qHA-48-Y6l" id="JTe-c1-AdJ"/>
+                        <outlet property="discardImage" destination="RPG-AY-gmx" id="XEe-fJ-xcc"/>
+                        <segue destination="dd5-Sg-RvM" kind="showDetail" identifier="startBidding" id="Z51-H3-Anb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="128"/>
+        </scene>
+        <!--Bid View Controller-->
+        <scene sceneID="vCQ-34-u67">
+            <objects>
+                <viewController id="dd5-Sg-RvM" customClass="BidViewController" customModule="Honeymoon_Whist" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BYv-v3-zOW"/>
+                        <viewControllerLayoutGuide type="bottom" id="EQM-qJ-M6a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zlY-cD-COd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JJ9-IO-pAB">
+                                <rect key="frame" x="16" y="270" width="288" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                    <segment title="5"/>
+                                    <segment title="6"/>
+                                    <segment title="7"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dV7-th-6nO">
+                                <rect key="frame" x="127" y="328" width="66" height="30"/>
+                                <state key="normal" title="Place Bid">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="placeBid:" destination="dd5-Sg-RvM" eventType="touchUpInside" id="OMp-U0-iCZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="bidBar" destination="JJ9-IO-pAB" id="YwH-6M-KUH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mca-GA-8vC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629" y="128"/>
+        </scene>
+    </scenes>
+</document>
