@@ -40,11 +40,10 @@ class ViewController: UIViewController {
     var yourCards = [Int]()
     
     override func viewDidLoad() {
-        setUpDeck()
-        
-        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        setUpDeck()
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,15 +77,18 @@ class ViewController: UIViewController {
         
     }
     @IBAction func keepButtonTap(sender: AnyObject) {
+
         if (cardNumber < 50) {
             
             if activeCards < 13 {
                 activeCards += 1
                 var pic = view.viewWithTag(activeCards) as UIImageView
-                pic.image = UIImage(named: images[deck[cardNumber]])
+                pic.image = nil
                 UIView.animateWithDuration(1.0, delay:0.0, options:nil, animations: {
                     pic.center = CGPoint(x:200, y:200)
                     }, completion:nil)
+                for (var l=0; l<100000000; l++) {}
+                pic.image = UIImage(named: images[deck[cardNumber]])
                 
                 cardArray.append(deck[cardNumber])
             }
@@ -96,6 +98,7 @@ class ViewController: UIViewController {
         }
         else {
             deckImage.image = nil
+            self.performSegueWithIdentifier("startBidding", sender: nil)
         }
         sortHand()
         
@@ -117,6 +120,7 @@ class ViewController: UIViewController {
         }
         else {
             deckImage.image = nil
+            self.performSegueWithIdentifier("startBidding", sender: nil)
         }
         sortHand()
         
@@ -129,6 +133,7 @@ class ViewController: UIViewController {
         }
         else {
             deckImage.image = nil
+            self.performSegueWithIdentifier("startBidding", sender: nil)
         }
     }
     
