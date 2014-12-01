@@ -84,6 +84,10 @@ class ViewController: UIViewController {
                 activeCards += 1
                 var pic = view.viewWithTag(activeCards) as UIImageView
                 pic.image = UIImage(named: images[deck[cardNumber]])
+                UIView.animateWithDuration(1.0, delay:0.0, options:nil, animations: {
+                    pic.center = CGPoint(x:200, y:200)
+                    }, completion:nil)
+                
                 cardArray.append(deck[cardNumber])
             }
             cardNumber += 2
