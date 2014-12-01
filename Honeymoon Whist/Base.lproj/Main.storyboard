@@ -292,9 +292,65 @@
                     <view key="view" contentMode="scaleToFill" id="z4t-uB-7Zv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-na-Kl1">
+                                <rect key="frame" x="0.0" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vd-Cb-WLK">
+                                <rect key="frame" x="22" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiT-S8-vNI">
+                                <rect key="frame" x="44" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Fw-1v-5Dj">
+                                <rect key="frame" x="66" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVJ-9A-jhI">
+                                <rect key="frame" x="88" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ns-gX-esQ">
+                                <rect key="frame" x="110" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-Xt-Tvz">
+                                <rect key="frame" x="132" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14x-SI-gwA">
+                                <rect key="frame" x="154" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QmZ-gr-Pvx">
+                                <rect key="frame" x="176" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRz-6W-aaQ">
+                                <rect key="frame" x="198" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6oW-3h-15S">
+                                <rect key="frame" x="220" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yve-xQ-OlM">
+                                <rect key="frame" x="242" y="433" width="130" height="170"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFH-Hx-xll">
+                                <rect key="frame" x="264" y="433" width="130" height="170"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="card10Image" destination="SRz-6W-aaQ" id="ec4-gn-Jyj"/>
+                        <outlet property="card11Image" destination="6oW-3h-15S" id="Prz-85-Uz5"/>
+                        <outlet property="card12Image" destination="Yve-xQ-OlM" id="6bf-G3-mog"/>
+                        <outlet property="card13Image" destination="nFH-Hx-xll" id="Feb-Gw-25f"/>
+                        <outlet property="card1Image" destination="k7c-na-Kl1" id="G1d-Fg-jSr"/>
+                        <outlet property="card2Image" destination="4vd-Cb-WLK" id="PYA-E5-7k1"/>
+                        <outlet property="card3Image" destination="kiT-S8-vNI" id="zBA-VD-hvQ"/>
+                        <outlet property="card4Image" destination="3Fw-1v-5Dj" id="mmf-pq-ZJo"/>
+                        <outlet property="card5Image" destination="IVJ-9A-jhI" id="qr5-Ny-MH7"/>
+                        <outlet property="card6Image" destination="3Ns-gX-esQ" id="4xb-eq-Imf"/>
+                        <outlet property="card7Image" destination="JkH-Xt-Tvz" id="cVJ-D9-ED7"/>
+                        <outlet property="card8Image" destination="14x-SI-gwA" id="OlI-uS-7bx"/>
+                        <outlet property="card9Image" destination="QmZ-gr-Pvx" id="DJd-D0-EGQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIc-7V-BhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,6 +8,10 @@
 
 import UIKit
 
+var cardArray = [Int]()
+var images = [String]()
+var deck = [Int]()
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var card1Image: UIImageView!
@@ -30,17 +34,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var keepButton: UIButton!
     @IBOutlet weak var discardButton: UIButton!
     @IBOutlet weak var sortButton: UIButton!
-    
-    var cardArray = [Int]()
-    var sortedArray = [Int]()
-    
+
     var cardNumber: Int = 0
     var activeCards: Int = 0
-    
-    var images = [String]()
-    var deck = [Int]()
-    
-    var yourCards = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,14 +145,14 @@ class ViewController: UIViewController {
     }
     
     func sortHand() {
-        sortedArray = sorted(cardArray)
-        for (var i=0; i<sortedArray.count; i+=1) {
+        cardArray = sorted(cardArray)
+        for (var i=0; i<cardArray.count; i+=1) {
             var pic = view.viewWithTag(i+1) as UIImageView
             var center = pic.center
             UIView.animateWithDuration(1.0, delay:0.0, options:nil, animations: {
                 pic.center = center
                 }, completion:nil)
-            pic.image = UIImage(named: images[sortedArray[i]])
+            pic.image = UIImage(named: images[cardArray[i]])
         }
     }
 

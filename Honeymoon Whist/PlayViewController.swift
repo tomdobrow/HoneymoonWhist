@@ -9,11 +9,32 @@
 import UIKit
 
 class PlayViewController: UIViewController {
-
+    
+    @IBOutlet weak var card1Image: UIImageView!
+    @IBOutlet weak var card2Image: UIImageView!
+    @IBOutlet weak var card3Image: UIImageView!
+    @IBOutlet weak var card4Image: UIImageView!
+    @IBOutlet weak var card5Image: UIImageView!
+    @IBOutlet weak var card6Image: UIImageView!
+    @IBOutlet weak var card7Image: UIImageView!
+    @IBOutlet weak var card8Image: UIImageView!
+    @IBOutlet weak var card9Image: UIImageView!
+    @IBOutlet weak var card10Image: UIImageView!
+    @IBOutlet weak var card11Image: UIImageView!
+    @IBOutlet weak var card12Image: UIImageView!
+    @IBOutlet weak var card13Image: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
+        
+        for (index, card) in enumerate(cardArray) {
+            var pic = view.viewWithTag(index+1) as UIImageView
+            pic.image = UIImage(named: images[card])
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
