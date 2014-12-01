@@ -13,9 +13,9 @@ import UIKit
 class RulesViewController: UIViewController {
 
     override func viewDidLoad() {
-        
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png"))
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     

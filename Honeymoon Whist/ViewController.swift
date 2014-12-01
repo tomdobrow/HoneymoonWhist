@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     }
     
     func setUpDeck () {
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png"))
         
         
         images = ["2c","3c","4c","5c","6c","7c","8c","9c","10c","jc","qc","kc","ac","2d","3d","4d","5d","6d","7d","8d","9d","10d","jd","qd","kd","ad","2h","3h","4h","5h","6h","7h","8h","9h","10h","jh","qh","kh","ah","2s","3s","4s","5s","6s","7s","8s","9s","10s","js","qs","ks","as"]
@@ -83,11 +83,12 @@ class ViewController: UIViewController {
             if activeCards < 13 {
                 activeCards += 1
                 var pic = view.viewWithTag(activeCards) as UIImageView
-                pic.image = nil
-                UIView.animateWithDuration(1.0, delay:0.0, options:nil, animations: {
-                    pic.center = CGPoint(x:200, y:200)
+                UIView.animateWithDuration(0.5, delay:0.0, options:nil, animations: {
+                    var picBound = self.deckImage.bounds
+                    var x = picBound.width
+                    pic.bounds = picBound//CGPoint(x:-100, y:800)
+                    pic.center = CGPoint(x: self.deckImage.center.x, y: self.deckImage.center.y)
                     }, completion:nil)
-                for (var l=0; l<100000000; l++) {}
                 pic.image = UIImage(named: images[deck[cardNumber]])
                 
                 cardArray.append(deck[cardNumber])
@@ -100,7 +101,6 @@ class ViewController: UIViewController {
             deckImage.image = nil
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
-        sortHand()
         
     }
     @IBAction func discardButtonTap(sender: AnyObject) {
@@ -111,6 +111,9 @@ class ViewController: UIViewController {
             if activeCards < 13 {
                 activeCards += 1
                 var pic = view.viewWithTag(activeCards) as UIImageView
+                UIView.animateWithDuration(0.5, delay:0.0, options:nil, animations: {
+                    pic.center = CGPoint(x:0, y:0)
+                    }, completion:nil)
                 pic.image = UIImage(named: images[deck[cardNumber]])
                 cardArray.append(deck[cardNumber])
             }
@@ -122,7 +125,6 @@ class ViewController: UIViewController {
             deckImage.image = nil
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
-        sortHand()
         
     }
     
@@ -136,16 +138,28 @@ class ViewController: UIViewController {
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
     }
-    
-    func sortHand() {
+    @IBAction func sortButtonTap(sender: AnyObject) {
         sortedArray = sorted(cardArray)
         for (var i=0; i<sortedArray.count; i+=1) {
             var pic = view.viewWithTag(i+1) as UIImageView
+            var center = pic.center
+            UIView.animateWithDuration(1.0, delay:0.0, options:nil, animations: {
+                pic.center = center
+                }, completion:nil)
             pic.image = UIImage(named: images[sortedArray[i]])
         }
-        
+
     }
     
+//    func sortHand() {
+//        sortedArray = sorted(cardArray)
+//        for (var i=0; i<sortedArray.count; i+=1) {
+//            var pic = view.viewWithTag(i+1) as UIImageView
+//            pic.image = UIImage(named: images[sortedArray[i]])
+//        }
+//        
+//    }
+//    
    
     
 
