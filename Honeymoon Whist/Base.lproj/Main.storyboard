@@ -214,7 +214,7 @@
                         <outlet property="card9Image" destination="ScF-ca-Zad" id="J3p-2f-vL2"/>
                         <outlet property="deckImage" destination="qHA-48-Y6l" id="JTe-c1-AdJ"/>
                         <outlet property="discardImage" destination="RPG-AY-gmx" id="XEe-fJ-xcc"/>
-                        <segue destination="dd5-Sg-RvM" kind="showDetail" identifier="startBidding" id="Z51-H3-Anb"/>
+                        <segue destination="dd5-Sg-RvM" kind="presentation" identifier="startBidding" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Z51-H3-Anb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -242,8 +242,14 @@
                                     <action selector="placeBid:" destination="dd5-Sg-RvM" eventType="touchUpInside" id="OMp-U0-iCZ"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ixv-Rk-tdS">
+                                <rect key="frame" x="57" y="28" width="260" height="200"/>
+                                <color key="backgroundColor" red="0.83567841198979598" green="0.83567841198979598" blue="0.83567841198979598" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JJ9-IO-pAB">
-                                <rect key="frame" x="16" y="542" width="343" height="29"/>
+                                <rect key="frame" x="16" y="320" width="343" height="29"/>
                                 <segments>
                                     <segment title="Pass"/>
                                     <segment title="1"/>
@@ -258,12 +264,6 @@
                                     <action selector="bidBarChange:" destination="dd5-Sg-RvM" eventType="valueChanged" id="DyY-yk-HQi"/>
                                 </connections>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ixv-Rk-tdS">
-                                <rect key="frame" x="57" y="28" width="260" height="200"/>
-                                <color key="backgroundColor" red="0.83567841198979598" green="0.83567841198979598" blue="0.83567841198979598" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

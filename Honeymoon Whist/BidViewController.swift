@@ -32,6 +32,10 @@ class BidViewController: UIViewController {
         bidBar.selectedSegmentIndex = 0
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
+        bidBar.selectedSegmentIndex = 0
+        self.view.backgroundColor = UIColor.clearColor()
     }
     
     override func didReceiveMemoryWarning() {
