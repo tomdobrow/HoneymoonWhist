@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>30FC2719-6E4F-4114-9349-7B3576EED812</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Honeymoon Whist</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>007835362A2667F5E69A0736F7E293EC817DBF5F</key>
+		<string>https://github.com/tomdobrow/HoneymoonWhist.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Honeymoon Whist.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>007835362A2667F5E69A0736F7E293EC817DBF5F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/tomdobrow/HoneymoonWhist.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>007835362A2667F5E69A0736F7E293EC817DBF5F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>007835362A2667F5E69A0736F7E293EC817DBF5F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Honeymoon%20Whist</string>
+		</dict>
+	</array>
+</dict>
+</plist>
