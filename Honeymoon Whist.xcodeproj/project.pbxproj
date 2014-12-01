@@ -16,6 +16,7 @@
 		A38A2B191A2B7F3900C7A7A3 /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */; };
 		A38A2B1B1A2C7AE600C7A7A3 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */; };
 		A6EDAA8C1A2CF3B7009F574F /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */; };
+		A6EDAA8E1A2CFF06009F574F /* WhistPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDAA8D1A2CFF06009F574F /* WhistPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +33,7 @@
 		A38A2AF31A2B54B100C7A7A3 /* Honeymoon Whist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Honeymoon Whist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38A2AF71A2B54B100C7A7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A38A2AF81A2B54B100C7A7A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A38A2AFA1A2B54B100C7A7A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A38A2AFA1A2B54B100C7A7A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A38A2AFD1A2B54B100C7A7A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A38A2AFF1A2B54B100C7A7A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A38A2B021A2B54B100C7A7A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -41,7 +42,8 @@
 		A38A2B0E1A2B54B100C7A7A3 /* Honeymoon_WhistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Honeymoon_WhistTests.swift; sourceTree = "<group>"; };
 		A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
 		A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
-		A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlayViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A6EDAA8D1A2CFF06009F574F /* WhistPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhistPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */,
 				A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */,
 				A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */,
+				A6EDAA8D1A2CFF06009F574F /* WhistPlayer.swift */,
 			);
 			path = "Honeymoon Whist";
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6EDAA8E1A2CFF06009F574F /* WhistPlayer.swift in Sources */,
 				A38A2AFB1A2B54B100C7A7A3 /* ViewController.swift in Sources */,
 				A6EDAA8C1A2CF3B7009F574F /* PlayViewController.swift in Sources */,
 				A38A2AF91A2B54B100C7A7A3 /* AppDelegate.swift in Sources */,

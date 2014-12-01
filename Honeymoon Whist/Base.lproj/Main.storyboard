@@ -293,50 +293,111 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-na-Kl1">
+                            <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-na-Kl1" userLabel="card1">
                                 <rect key="frame" x="0.0" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ywJ-D0-ZeE" appends="YES" id="Tcx-yG-rJW"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vd-Cb-WLK">
+                            <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vd-Cb-WLK" userLabel="card2">
                                 <rect key="frame" x="22" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="xSd-cG-qfO" appends="YES" id="pfY-6l-BSG"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiT-S8-vNI">
+                            <imageView tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiT-S8-vNI" userLabel="card3">
                                 <rect key="frame" x="44" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HOc-yP-SmH" appends="YES" id="ys8-Jz-Ap5"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Fw-1v-5Dj">
+                            <imageView tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Fw-1v-5Dj" userLabel="card4">
                                 <rect key="frame" x="66" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="R2U-YU-thg" appends="YES" id="8bI-k5-k5G"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVJ-9A-jhI">
+                            <imageView tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVJ-9A-jhI" userLabel="card5">
                                 <rect key="frame" x="88" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Tm3-SS-K3h" appends="YES" id="aaa-Nh-vtV"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ns-gX-esQ">
+                            <imageView tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ns-gX-esQ" userLabel="card6">
                                 <rect key="frame" x="110" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="XLp-ZY-Tvk" appends="YES" id="xQo-k6-LkJ"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-Xt-Tvz">
+                            <imageView tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-Xt-Tvz" userLabel="card7">
                                 <rect key="frame" x="132" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2B2-93-Sz9" appends="YES" id="4zm-O9-I2r"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14x-SI-gwA">
+                            <imageView tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14x-SI-gwA" userLabel="card8">
                                 <rect key="frame" x="154" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bnH-dj-K7i" appends="YES" id="jlB-jF-BbE"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QmZ-gr-Pvx">
+                            <imageView tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QmZ-gr-Pvx" userLabel="card9">
                                 <rect key="frame" x="176" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="WCY-eX-imF" appends="YES" id="L5R-Ku-4km"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRz-6W-aaQ">
+                            <imageView tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRz-6W-aaQ" userLabel="card10">
                                 <rect key="frame" x="198" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="98u-cf-iTF" appends="YES" id="HPk-dd-gR7"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6oW-3h-15S">
+                            <imageView tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6oW-3h-15S" userLabel="card11">
                                 <rect key="frame" x="220" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="q7w-dC-njN" appends="YES" id="6wQ-9y-99f"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yve-xQ-OlM">
+                            <imageView tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yve-xQ-OlM" userLabel="card12">
                                 <rect key="frame" x="242" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="zn9-bL-AAn" appends="YES" id="vef-sT-uEO"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFH-Hx-xll">
+                            <imageView tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFH-Hx-xll" userLabel="card13">
                                 <rect key="frame" x="264" y="433" width="130" height="170"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tCn-Wa-Bxb" appends="YES" id="gRr-0E-Sif"/>
+                                </connections>
+                            </imageView>
+                            <imageView tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ix-la-XdP" userLabel="card13">
+                                <rect key="frame" x="44" y="101" width="130" height="170"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <imageView tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSV-BU-AAU" userLabel="card13">
+                                <rect key="frame" x="198" y="101" width="130" height="170"/>
+                                <gestureRecognizers/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="aiCardImage" destination="YSV-BU-AAU" id="KEb-5I-dQQ"/>
                         <outlet property="card10Image" destination="SRz-6W-aaQ" id="ec4-gn-Jyj"/>
                         <outlet property="card11Image" destination="6oW-3h-15S" id="Prz-85-Uz5"/>
                         <outlet property="card12Image" destination="Yve-xQ-OlM" id="6bf-G3-mog"/>
@@ -350,9 +411,75 @@
                         <outlet property="card7Image" destination="JkH-Xt-Tvz" id="cVJ-D9-ED7"/>
                         <outlet property="card8Image" destination="14x-SI-gwA" id="OlI-uS-7bx"/>
                         <outlet property="card9Image" destination="QmZ-gr-Pvx" id="DJd-D0-EGQ"/>
+                        <outlet property="userCardImage" destination="5ix-la-XdP" id="scd-E8-y5x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIc-7V-BhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ywJ-D0-ZeE" userLabel="card1GR">
+                    <connections>
+                        <action selector="card1Tap:" destination="szO-gh-IB7" id="2Q2-dt-ILt"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="xSd-cG-qfO" userLabel="card2GR">
+                    <connections>
+                        <action selector="card2Tap:" destination="szO-gh-IB7" id="V7f-TQ-19M"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HOc-yP-SmH" userLabel="card3GR">
+                    <connections>
+                        <action selector="card3Tap:" destination="szO-gh-IB7" id="ucj-1g-wbY"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="R2U-YU-thg" userLabel="card4GR">
+                    <connections>
+                        <action selector="card4Tap:" destination="szO-gh-IB7" id="f4u-eN-2lP"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Tm3-SS-K3h" userLabel="card5GR">
+                    <connections>
+                        <action selector="card5Tap:" destination="szO-gh-IB7" id="4T7-3N-2Ur"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="XLp-ZY-Tvk" userLabel="card6GR">
+                    <connections>
+                        <action selector="card6Tap:" destination="szO-gh-IB7" id="Ny9-db-OTQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2B2-93-Sz9" userLabel="card7GR">
+                    <connections>
+                        <action selector="card7Tap:" destination="szO-gh-IB7" id="WuF-8a-BDN"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bnH-dj-K7i" userLabel="card8GR">
+                    <connections>
+                        <action selector="card8Tap:" destination="szO-gh-IB7" id="mkn-78-c0O"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="WCY-eX-imF" userLabel="card9GR">
+                    <connections>
+                        <action selector="card9Tap:" destination="szO-gh-IB7" id="xFJ-FZ-cPQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="98u-cf-iTF" userLabel="card10GR">
+                    <connections>
+                        <action selector="card10Tap:" destination="szO-gh-IB7" id="won-7h-nF5"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="q7w-dC-njN" userLabel="card11GR">
+                    <connections>
+                        <action selector="card11Tap:" destination="szO-gh-IB7" id="2F8-be-Ppc"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="zn9-bL-AAn" userLabel="card12GR">
+                    <connections>
+                        <action selector="card12Tap:" destination="szO-gh-IB7" id="4jx-oB-B4g"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="tCn-Wa-Bxb" userLabel="card13GR">
+                    <connections>
+                        <action selector="card13Tap:" destination="szO-gh-IB7" id="c5a-Oa-8WD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1134.5" y="127.5"/>
         </scene>

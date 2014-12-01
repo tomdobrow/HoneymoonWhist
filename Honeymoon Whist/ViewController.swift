@@ -8,7 +8,8 @@
 
 import UIKit
 
-var cardArray = [Int]()
+var userHand = [Int]()
+var aiHand = [1,2,3,4,5,6,7,8,9,10,11,12,13]
 var images = [String]()
 var deck = [Int]()
 
@@ -90,7 +91,7 @@ class ViewController: UIViewController {
                     }, completion:nil)
                 pic.image = UIImage(named: images[deck[cardNumber]])
                 
-                cardArray.append(deck[cardNumber])
+                userHand.append(deck[cardNumber])
             }
             cardNumber += 2
             deckImage.image = UIImage(named: images[deck[cardNumber]])
@@ -115,7 +116,7 @@ class ViewController: UIViewController {
                     pic.center = CGPoint(x:0, y:0)
                     }, completion:nil)
                 pic.image = UIImage(named: images[deck[cardNumber]])
-                cardArray.append(deck[cardNumber])
+                userHand.append(deck[cardNumber])
             }
             cardNumber += 1
             deckImage.image = UIImage(named: images[deck[cardNumber]])
@@ -145,14 +146,14 @@ class ViewController: UIViewController {
     }
     
     func sortHand() {
-        cardArray = sorted(cardArray)
-        for (var i=0; i<cardArray.count; i+=1) {
+        userHand = sorted(userHand)
+        for (var i=0; i<userHand.count; i+=1) {
             var pic = view.viewWithTag(i+1) as UIImageView
             var center = pic.center
             UIView.animateWithDuration(1.0, delay:0.0, options:nil, animations: {
                 pic.center = center
                 }, completion:nil)
-            pic.image = UIImage(named: images[cardArray[i]])
+            pic.image = UIImage(named: images[userHand[i]])
         }
     }
 

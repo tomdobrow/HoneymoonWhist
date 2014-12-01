@@ -24,16 +24,25 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var card12Image: UIImageView!
     @IBOutlet weak var card13Image: UIImageView!
     
+    @IBOutlet weak var userCardImage: UIImageView!
+    @IBOutlet weak var aiCardImage: UIImageView!
+    
+    var userLeads = true
+    var ai = WhistPlayer()
+    var userChoice = 0
+    var aiChoice = 0
+    var userTricksWon = 0
+    var aiTricksWon = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
         
-        for (index, card) in enumerate(cardArray) {
-            var pic = view.viewWithTag(index+1) as UIImageView
-            pic.image = UIImage(named: images[card])
-        }
+        loadHand()
+        
+        playGame()
         
     }
 
@@ -42,7 +51,58 @@ class PlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func loadHand() {
+        var maxIndex = 0
+        for (index, card) in enumerate(userHand) {
+            var pic = view.viewWithTag(index+1) as UIImageView
+            pic.image = UIImage(named: images[card])
+            maxIndex = index
+        }
+        for i in maxIndex...12 {
+            var pic = view.viewWithTag(i+1) as UIImageView
+            pic.image = nil
+        }
+    }
+    
+    func playGame() {
+        
+        if !userLeads {
+            var aiChoice = ai.chooseCard()
+        }
 
+    }
+    
+    func playCard(card: Int) {
+        
+        userCardImage.image = UIImage(named: images[userHand[card-1]])
+        
+    }
+    
+    func playTrick(userCard: Int, aiCard: Int) {
+        
+        var userCardIndex = userHand[userCard]
+        var aiCardIndex = aiHand[aiCard]
+        
+        userCardImage.image = UIImage(named: images[userCardIndex])
+        aiCardImage.image = UIImage(named: images[aiCardIndex])
+        
+        if userCardIndex > aiCardIndex {
+            userLeads = true
+            userTricksWon++
+        } else {
+            userLeads = false
+            aiTricksWon++
+        }
+        
+        userHand.removeAtIndex(userCard)
+        aiHand.removeAtIndex(aiCard)
+        loadHand()
+        
+        println(userTricksWon)
+        
+        playGame()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -53,4 +113,88 @@ class PlayViewController: UIViewController {
     }
     */
 
+    
+    @IBAction func card1Tap(sender: UITapGestureRecognizer) {
+        userChoice = 1
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card2Tap(sender: UITapGestureRecognizer) {
+        userChoice = 2
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card3Tap(sender: UITapGestureRecognizer) {
+        userChoice = 3
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card4Tap(sender: UITapGestureRecognizer) {
+        userChoice = 4
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card5Tap(sender: UITapGestureRecognizer) {
+        userChoice = 5
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card6Tap(sender: UITapGestureRecognizer) {
+        userChoice = 6
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card7Tap(sender: UITapGestureRecognizer) {
+        userChoice = 7
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card8Tap(sender: UITapGestureRecognizer) {
+        userChoice = 8
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card9Tap(sender: UITapGestureRecognizer) {
+        userChoice = 9
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card10Tap(sender: UITapGestureRecognizer) {
+        userChoice = 10
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card11Tap(sender: UITapGestureRecognizer) {
+        userChoice = 11
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card12Tap(sender: UITapGestureRecognizer) {
+        userChoice = 12
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    @IBAction func card13Tap(sender: UITapGestureRecognizer) {
+        userChoice = 13
+        playTrick(userChoice-1, aiCard: aiChoice)
+    }
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
