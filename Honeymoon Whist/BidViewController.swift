@@ -27,7 +27,7 @@ class BidViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png"))
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
         bidBar.selectedSegmentIndex = 0
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
