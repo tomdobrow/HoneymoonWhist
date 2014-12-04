@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A316AA351A30D3BA00188F8C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A316AA341A30D3BA00188F8C /* LaunchViewController.swift */; };
+		A316AA371A30D62A00188F8C /* NewLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */; };
 		A38A2AF91A2B54B100C7A7A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2AF81A2B54B100C7A7A3 /* AppDelegate.swift */; };
 		A38A2AFB1A2B54B100C7A7A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2AFA1A2B54B100C7A7A3 /* ViewController.swift */; };
 		A38A2AFE1A2B54B100C7A7A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38A2AFC1A2B54B100C7A7A3 /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A316AA341A30D3BA00188F8C /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewLaunchScreen.storyboard; sourceTree = "<group>"; };
 		A38A2AF31A2B54B100C7A7A3 /* Honeymoon Whist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Honeymoon Whist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38A2AF71A2B54B100C7A7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A38A2AF81A2B54B100C7A7A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */,
 				A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */,
 				A6EDAA8D1A2CFF06009F574F /* WhistPlayer.swift */,
+				A316AA341A30D3BA00188F8C /* LaunchViewController.swift */,
+				A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */,
 			);
 			path = "Honeymoon Whist";
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A38A2AFE1A2B54B100C7A7A3 /* Main.storyboard in Resources */,
+				A316AA371A30D62A00188F8C /* NewLaunchScreen.storyboard in Resources */,
 				A38A2B031A2B54B100C7A7A3 /* LaunchScreen.xib in Resources */,
 				A38A2B001A2B54B100C7A7A3 /* Images.xcassets in Resources */,
 			);
@@ -229,6 +236,7 @@
 				A6EDAA8C1A2CF3B7009F574F /* PlayViewController.swift in Sources */,
 				A38A2AF91A2B54B100C7A7A3 /* AppDelegate.swift in Sources */,
 				A38A2B1B1A2C7AE600C7A7A3 /* RulesViewController.swift in Sources */,
+				A316AA351A30D3BA00188F8C /* LaunchViewController.swift in Sources */,
 				A38A2B191A2B7F3900C7A7A3 /* BidViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
