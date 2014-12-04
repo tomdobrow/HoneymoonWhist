@@ -86,18 +86,18 @@ class ViewController: UIViewController {
             if activeCards < 13 {
                 activeCards += 1
                 var pic = view.viewWithTag(activeCards) as UIImageView
-                UIView.animateWithDuration(0.5, delay:0.0, options:nil, animations: {
-                    var picBound = self.deckImage.bounds
-                    var x = picBound.width
-                    pic.bounds = picBound//CGPoint(x:-100, y:800)
-                    pic.center = CGPoint(x: self.deckImage.center.x, y: self.deckImage.center.y)
-                    }, completion:nil)
+//                UIView.animateWithDuration(0.5, delay:0.0, options:nil, animations: {
+//                    var picBound = self.deckImage.bounds
+//                    var x = picBound.width
+//                    pic.bounds = picBound//CGPoint(x:-100, y:800)
+//                    pic.center = CGPoint(x: self.deckImage.center.x, y: self.deckImage.center.y)
+//                    }, completion:nil)
                 pic.image = UIImage(named: images[deck[cardNumber]])
                 
                 userHand.append(deck[cardNumber])
             }
             cardNumber += 2
-            deckImage.image = UIImage(named: images[deck[cardNumber]])
+            //deckImage.image = UIImage(named: images[deck[cardNumber]])
             botsTurn()
         }
         else {
@@ -137,14 +137,15 @@ class ViewController: UIViewController {
     
     //bot decides
     func botsTurn() {
-        if (cardNumber <= 50) {
-            deckImage.image = UIImage(named: images[deck[cardNumber]])
+        if (cardNumber < 50) {
             if ai.keepOrDiscard() {
                 aiHand.append(deck[cardNumber])
             } else {
                 aiHand.append(deck[cardNumber+1])
             }
             cardNumber += 2
+            deckImage.image = UIImage(named: images[deck[cardNumber]])
+
         }
         else {
             deckImage.image = nil
