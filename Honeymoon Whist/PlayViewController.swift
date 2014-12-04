@@ -28,6 +28,8 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var aiCardImage: UIImageView!
     @IBOutlet weak var userTricksImage: UIImageView!
     @IBOutlet weak var aiTricksImage: UIImageView!
+    @IBOutlet weak var userTricksLabel: UILabel!
+    @IBOutlet weak var aiTricksLabel: UILabel!
     
     var userLeads = false
 

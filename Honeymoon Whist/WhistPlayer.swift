@@ -38,7 +38,7 @@ class WhistPlayer {
                 }
             }
             for (var element=0; element<=cardsOfThisSuit.count; element+=1) {
-                if ()
+                if (true) {}
                 
                 
             }
