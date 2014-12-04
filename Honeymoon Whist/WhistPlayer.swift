@@ -13,8 +13,12 @@ class WhistPlayer {
 
     var hand = [Int]() //MAKE SURE IT"S SORTED
     
+    func keepOrDiscard() -> Bool {
+        return true
+    }
+    
     func chooseCard() -> Int {
-        return Int(arc4random_uniform(13))
+        return 0
     }
     
     func placeBid(currentBid: Int) -> Int {
