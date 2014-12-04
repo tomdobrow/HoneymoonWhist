@@ -139,12 +139,23 @@ class ViewController: UIViewController {
     
     //bot decides
     func botsTurn() {
-
+<<<<<<< HEAD
         //if (cardNumber <= 50) {
         if ai.keepOrDiscard() {
             ai.hand.append(deck[cardNumber])
         } else {
             ai.hand.append(deck[cardNumber+1])
+=======
+        if (cardNumber < 50) {
+            if ai.keepOrDiscard() {
+                aiHand.append(deck[cardNumber])
+            } else {
+                aiHand.append(deck[cardNumber+1])
+            }
+            cardNumber += 2
+            deckImage.image = UIImage(named: images[deck[cardNumber]])
+
+>>>>>>> 0fe9a978aba04a9bdd872b361e9a85615ef2d7bd
         }
         cardNumber += 2
         

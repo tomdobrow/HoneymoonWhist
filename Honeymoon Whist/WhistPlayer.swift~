@@ -44,6 +44,11 @@ class WhistPlayer {
             println("")
             
             for (var element=0; element<=cardsOfThisSuit.count; element+=1) {
+<<<<<<< HEAD
+=======
+                if (true) {}
+>>>>>>> 0fe9a978aba04a9bdd872b361e9a85615ef2d7bd
+                
                 
             }
                 

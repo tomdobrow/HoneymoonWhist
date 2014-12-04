@@ -26,6 +26,10 @@ class PlayViewController: UIViewController {
     
     @IBOutlet weak var userCardImage: UIImageView!
     @IBOutlet weak var aiCardImage: UIImageView!
+    @IBOutlet weak var userTricksImage: UIImageView!
+    @IBOutlet weak var aiTricksImage: UIImageView!
+    @IBOutlet weak var userTricksLabel: UILabel!
+    @IBOutlet weak var aiTricksLabel: UILabel!
     
     var userLeads = false
 
@@ -38,7 +42,10 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png"))
+
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
+        userTricksImage.image = UIImage(named: "b2fv")
+        aiTricksImage.image = UIImage(named: "b2fv")
         
         loadHand()
         
