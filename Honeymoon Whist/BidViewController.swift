@@ -67,8 +67,8 @@ class BidViewController: UIViewController {
                 currentBid = bidBar.selectedSegmentIndex
                 print(currentBid)
                 
-                bidBar.selectedSegmentIndex = 3
-                currentBid = 3
+                bidBar.selectedSegmentIndex = ai.placeBid(currentBid)
+                currentBid = bidBar.selectedSegmentIndex
                 resultText = NSString(format: "%.i", bidBar.selectedSegmentIndex )
             }
             else {

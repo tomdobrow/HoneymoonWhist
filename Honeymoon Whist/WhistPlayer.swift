@@ -22,6 +22,7 @@ class WhistPlayer {
     }
     
     func placeBid(currentBid: Int) -> Int {
+
         if (currentBid >= 7) {
             return 0
         }
@@ -32,13 +33,17 @@ class WhistPlayer {
             //element/13 = suit
             //element%13 = value
             var cardsOfThisSuit = [Int]()
-            for (var card=0; card<=13; card+=1) {
+            for (var card=0; card<13; card+=1) {
                 if ( hand[card]/13 == suit ) {
                     cardsOfThisSuit.append(hand[card])
                 }
             }
+            for element in cardsOfThisSuit{
+                print("\(element) ")
+            }
+            println("")
+            
             for (var element=0; element<=cardsOfThisSuit.count; element+=1) {
-                if ()
                 
                 
             }

@@ -103,6 +103,7 @@ class ViewController: UIViewController {
         else {
             deckImage.image = nil
             sortHand()
+            ai.hand = sorted(ai.hand)
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
         
@@ -130,6 +131,7 @@ class ViewController: UIViewController {
         else {
             deckImage.image = nil
             sortHand()
+            ai.hand = sorted(ai.hand)
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
         
@@ -137,19 +139,22 @@ class ViewController: UIViewController {
     
     //bot decides
     func botsTurn() {
-        if (cardNumber <= 50) {
-            deckImage.image = UIImage(named: images[deck[cardNumber]])
-            if ai.keepOrDiscard() {
-                aiHand.append(deck[cardNumber])
-            } else {
-                aiHand.append(deck[cardNumber+1])
-            }
-            cardNumber += 2
+        //if (cardNumber <= 50) {
+        if ai.keepOrDiscard() {
+            ai.hand.append(deck[cardNumber])
+        } else {
+            ai.hand.append(deck[cardNumber+1])
         }
-        else {
+        cardNumber += 2
+        
+        if (cardNumber > 51) {
             deckImage.image = nil
             sortHand()
+            ai.hand = sorted(ai.hand)
             self.performSegueWithIdentifier("startBidding", sender: nil)
+        }
+        else {
+            deckImage.image = UIImage(named: images[deck[cardNumber]])
         }
     }
     
