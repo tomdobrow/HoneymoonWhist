@@ -10,8 +10,12 @@ import Foundation
 
 class WhistPlayer {
     
+    func keepOrDiscard() -> Bool {
+        return true
+    }
+    
     func chooseCard() -> Int {
-        return Int(arc4random_uniform(13))
+        return 0
     }
     
 }

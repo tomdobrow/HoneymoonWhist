@@ -27,8 +27,8 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var userCardImage: UIImageView!
     @IBOutlet weak var aiCardImage: UIImageView!
     
-    var userLeads = true
-    var ai = WhistPlayer()
+    var userLeads = false
+
     var userChoice = 0
     var aiChoice = 0
     var userTricksWon = 0
@@ -51,6 +51,7 @@ class PlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //sets the image views for all the cards in the hand, nil for the rest
     func loadHand() {
         var maxIndex = 0
         for (index, card) in enumerate(userHand) {
@@ -58,49 +59,56 @@ class PlayViewController: UIViewController {
             pic.image = UIImage(named: images[card])
             maxIndex = index
         }
-        for i in maxIndex...12 {
-            var pic = view.viewWithTag(i+1) as UIImageView
-            pic.image = nil
+        
+        if userHand.count < 13 {
+            for i in maxIndex+1...12 {
+                var pic = view.viewWithTag(i+1) as UIImageView
+                pic.image = nil
+            }
         }
     }
     
+    //gets aiChoice and loads hand
     func playGame() {
         
-        if !userLeads {
-            var aiChoice = ai.chooseCard()
+        if userLeads {
+            
+        } else {
+            aiChoice = ai.chooseCard()
+            aiCardImage.image = UIImage(named: images[aiChoice])
         }
-
+        
+        loadHand()
     }
     
-    func playCard(card: Int) {
-        
-        userCardImage.image = UIImage(named: images[userHand[card-1]])
-        
-    }
-    
+    //plays a trick, called everytime a user chooses a card
     func playTrick(userCard: Int, aiCard: Int) {
         
-        var userCardIndex = userHand[userCard]
-        var aiCardIndex = aiHand[aiCard]
+        if userCard < userHand.count && aiCard < aiHand.count {
+            var userCardIndex = userHand[userCard]
+            var aiCardIndex = aiHand[aiCard]
         
-        userCardImage.image = UIImage(named: images[userCardIndex])
-        aiCardImage.image = UIImage(named: images[aiCardIndex])
+            userCardImage.image = UIImage(named: images[userCardIndex])
+            aiCardImage.image = UIImage(named: images[aiCardIndex])
+            
+            view.viewWithTag(userHand.count)?.userInteractionEnabled = false
+            
+            if userCardIndex > aiCardIndex {
+                userLeads = true
+                userTricksWon++
+            } else {
+                userLeads = false
+                aiTricksWon++
+            }
         
-        if userCardIndex > aiCardIndex {
-            userLeads = true
-            userTricksWon++
-        } else {
-            userLeads = false
-            aiTricksWon++
+            userHand.removeAtIndex(userCard)
+            aiHand.removeAtIndex(aiCard)
+            
+            playGame()
+            
         }
-        
-        userHand.removeAtIndex(userCard)
-        aiHand.removeAtIndex(aiCard)
-        loadHand()
-        
-        println(userTricksWon)
-        
-        playGame()
+        println(userCard, aiCard)
+        println(userHand.count, aiHand.count)
     }
     
     /*
@@ -113,7 +121,7 @@ class PlayViewController: UIViewController {
     }
     */
 
-    
+    //card image view taps
     @IBAction func card1Tap(sender: UITapGestureRecognizer) {
         userChoice = 1
         playTrick(userChoice-1, aiCard: aiChoice)

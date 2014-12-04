@@ -9,9 +9,10 @@
 import UIKit
 
 var userHand = [Int]()
-var aiHand = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+var aiHand = [Int]()
 var images = [String]()
 var deck = [Int]()
+var ai = WhistPlayer()
 
 class ViewController: UIViewController {
 
@@ -76,6 +77,8 @@ class ViewController: UIViewController {
             
         
     }
+    
+    //user keeps card
     @IBAction func keepButtonTap(sender: AnyObject) {
 
         if (cardNumber < 50) {
@@ -104,6 +107,8 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    //user discards card
     @IBAction func discardButtonTap(sender: AnyObject) {
         //card1Image.image = UIImage(named: images[deck[2]])
         //discardImage.image = UIImage(named: "b2fv")
@@ -130,10 +135,16 @@ class ViewController: UIViewController {
         
     }
     
+    //bot decides
     func botsTurn() {
-        if (cardNumber < 50) {
-            cardNumber += 2
+        if (cardNumber <= 50) {
             deckImage.image = UIImage(named: images[deck[cardNumber]])
+            if ai.keepOrDiscard() {
+                aiHand.append(deck[cardNumber])
+            } else {
+                aiHand.append(deck[cardNumber+1])
+            }
+            cardNumber += 2
         }
         else {
             deckImage.image = nil
@@ -141,6 +152,7 @@ class ViewController: UIViewController {
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
     }
+    
     @IBAction func sortButtonTap(sender: AnyObject) {
         sortHand()
     }
