@@ -63,30 +63,42 @@ class BidViewController: UIViewController {
         if (bidBar.selectedSegmentIndex != 0) {
             
             if (currentBid < bidBar.selectedSegmentIndex) {
-                resultText = NSString(format: "%.i", bidBar.selectedSegmentIndex )
                 currentBid = bidBar.selectedSegmentIndex
-                print(currentBid)
-                
+                resultText = NSString(format: "%.i", bidBar.selectedSegmentIndex )
+                textView.text = resultText + "\n" + textView.text
+
+                print("HELLO")
                 bidBar.selectedSegmentIndex = ai.placeBid(currentBid)
+                print("HI")
                 currentBid = bidBar.selectedSegmentIndex
-                resultText = NSString(format: "%.i", bidBar.selectedSegmentIndex )
+                resultText = NSString(format: "%.i", currentBid)
+                textView.text = resultText + "\n" + textView.text
+                print("SUP")
             }
             else {
                 print("TOO LOW")
                 resultText = "Must Bid Higher"
+                textView.text = resultText + "\n" + textView.text
             }
                     }
         else {
             resultText = "Pass"
             textView.text = "\n" + resultText + "\n" + textView.text
+            
             var trumpSuit = "clubs"
             resultText = "Alright. Trump will be \(trumpSuit)"
+            textView.text = resultText + "\n" + textView.text
 
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 10))
+            dispatch_after(delayTime, dispatch_get_main_queue()){
+                //changeColourOfPage()
+            }
+            
             //prepare for segue to gameplay. pass the right player and the trump
             self.performSegueWithIdentifier("startPlaying", sender: nil)
             
         }
-        textView.text = resultText + "\n" + textView.text
+        
 
     }
     

@@ -28,8 +28,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var card11Image: UIImageView!
     @IBOutlet weak var card12Image: UIImageView!
     @IBOutlet weak var card13Image: UIImageView!
+ 
     
-    @IBOutlet weak var deckImage: UIImageView!
+    @IBOutlet weak var cardChoice1: UIImageView!
+    @IBOutlet weak var cardChoice2: UIImageView!
     @IBOutlet weak var discardImage: UIImageView!
     
     @IBOutlet weak var keepButton: UIButton!
@@ -71,7 +73,8 @@ class ViewController: UIViewController {
             //deck[i] = deck[rand]
             //deck[rand] = temp
         }
-        deckImage.image = UIImage(named: images[deck[cardNumber]])
+        cardChoice1.image = UIImage(named: images[deck[cardNumber]])
+        cardChoice2.image = UIImage(named: "b2fv")
         discardImage.image = UIImage(named: "b2fv")
             
         
@@ -85,24 +88,40 @@ class ViewController: UIViewController {
             if activeCards < 13 {
                 activeCards += 1
                 var pic = view.viewWithTag(activeCards) as UIImageView
-//                UIView.animateWithDuration(0.5, delay:0.0, options:nil, animations: {
-//                    var picBound = self.deckImage.bounds
-//                    var x = picBound.width
-//                    pic.bounds = picBound//CGPoint(x:-100, y:800)
-//                    pic.center = CGPoint(x: self.deckImage.center.x, y: self.deckImage.center.y)
-//                    }, completion:nil)
-                pic.image = UIImage(named: images[deck[cardNumber]])
-                
-                userHand.append(deck[cardNumber])
+                var cardChoice1Center = cardChoice1.center
+                var cardChoice2Center = cardChoice2.center
+                var cardChoice1Bounds = cardChoice1.bounds
+                UIView.animateWithDuration(0.5, delay:0.0, options:nil, animations: {
+                    
+                    self.keepButton.hidden = true
+                    self.discardButton.hidden = true
+                    self.view.bringSubviewToFront(self.cardChoice1)
+                    self.view.bringSubviewToFront(self.cardChoice2)
+                    self.cardChoice1.center = pic.center
+                    self.cardChoice2.center = self.discardImage.center
+                    self.cardChoice1.bounds = CGRectMake(0, 0, pic.bounds.width, pic.bounds.height)
+                    }, completion: {
+                        (finished: Bool) in
+
+                        self.cardChoice1.center = cardChoice1Center
+                        self.cardChoice2.center = cardChoice2Center
+                        self.cardChoice1.bounds = cardChoice1Bounds
+                        pic.image = UIImage(named: images[deck[self.cardNumber]])
+                        userHand.append(deck[self.cardNumber])
+                        self.cardNumber += 2
+                        self.cardChoice1.image = UIImage(named: images[deck[self.cardNumber]])
+                        
+                        self.discardButton.hidden = false
+                        self.keepButton.hidden = false
+                        
+                        self.botsTurn()
+
+                    })
             }
-            cardNumber += 2
-            //deckImage.image = UIImage(named: images[deck[cardNumber]])
-            botsTurn()
         }
         else {
-            deckImage.image = nil
-            sortHand()
-            ai.hand = sorted(ai.hand)
+            cardChoice1.image = nil
+            cardChoice2.image = nil
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
         
@@ -117,20 +136,43 @@ class ViewController: UIViewController {
             if activeCards < 13 {
                 activeCards += 1
                 var pic = view.viewWithTag(activeCards) as UIImageView
+                var cardChoice1Center = cardChoice1.center
+                var cardChoice2Center = cardChoice2.center
+                var cardChoice2Bounds = cardChoice2.bounds
+                cardChoice1.image = UIImage(named: "b2fv")
+                cardChoice2.image = UIImage(named: images[deck[self.cardNumber]])
+                
                 UIView.animateWithDuration(0.5, delay:0.0, options:nil, animations: {
-                    pic.center = CGPoint(x:0, y:0)
-                    }, completion:nil)
-                pic.image = UIImage(named: images[deck[cardNumber]])
-                userHand.append(deck[cardNumber])
+                    self.keepButton.hidden = true
+                    self.discardButton.hidden = true
+                    self.view.bringSubviewToFront(self.cardChoice1)
+                    self.view.bringSubviewToFront(self.cardChoice2)
+                    self.cardChoice1.center = self.discardImage.center
+                    self.cardChoice2.center = pic.center
+                    self.cardChoice2.bounds = CGRectMake(0, 0, pic.bounds.width, pic.bounds.height)
+                    }, completion: { finished in
+                        
+                        
+                        self.cardChoice1.center = cardChoice1Center
+                        self.cardChoice2.center = cardChoice2Center
+                        self.cardChoice2.bounds = cardChoice2Bounds
+                        pic.image = UIImage(named: images[deck[self.cardNumber]])
+                        userHand.append(deck[self.cardNumber])
+                        self.cardNumber += 1
+                        self.cardChoice1.image = UIImage(named: images[deck[self.cardNumber]])
+                        self.cardChoice2.image = UIImage(named: "b2fv")
+                        
+                        self.discardButton.hidden = false
+                        self.keepButton.hidden = false
+                        
+                        self.botsTurn()
+                        
+                })
             }
-            cardNumber += 1
-            deckImage.image = UIImage(named: images[deck[cardNumber]])
-            botsTurn()
         }
         else {
-            deckImage.image = nil
-            sortHand()
-            ai.hand = sorted(ai.hand)
+            cardChoice1.image = nil
+            cardChoice2.image = nil
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
         
@@ -148,13 +190,12 @@ class ViewController: UIViewController {
         cardNumber += 2
         
         if (cardNumber > 51) {
-            deckImage.image = nil
-            sortHand()
-            ai.hand = sorted(ai.hand)
+            cardChoice1.image = nil
+            cardChoice2.image = nil
             self.performSegueWithIdentifier("startBidding", sender: nil)
         }
         else {
-            deckImage.image = UIImage(named: images[deck[cardNumber]])
+            cardChoice1.image = UIImage(named: images[deck[cardNumber]])
         }
     }
     
@@ -177,6 +218,8 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "startBidding" {
+            sortHand()
+            ai.hand = sorted(ai.hand)
             keepButton.setTitle(nil, forState: nil)
             discardButton.setTitle(nil, forState: nil)
             sortButton.setTitle(nil, forState: nil)
