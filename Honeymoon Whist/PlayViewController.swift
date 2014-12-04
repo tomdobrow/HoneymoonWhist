@@ -30,35 +30,33 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var aiTricksImage: UIImageView!
     @IBOutlet weak var userTricksLabel: UILabel!
     @IBOutlet weak var aiTricksLabel: UILabel!
-
-    
-    enum Suit {
-        case Clubs, Diamonds, Hearts, Spades
-    }
     
     var userLeads = false
-    var trump = Suit.Spades
-
+    var trump = 3
+    
     var userChoice = 0
     var aiChoice = 0
     var userTricksWon = 0
     var aiTricksWon = 0
     
+    var handImageCenterY: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-
+        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
         userTricksImage.image = UIImage(named: "b2fv")
         aiTricksImage.image = UIImage(named: "b2fv")
         
+        var cardImage = view.viewWithTag(1) as UIImageView
+        handImageCenterY = cardImage.center.y
+        
         loadHand()
-        
         nextTrick()
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,16 +64,12 @@ class PlayViewController: UIViewController {
     
     //sets the image views for all the cards in the hand, nil for the rest
     func loadHand() {
-        var maxIndex = 0
-        for (index, card) in enumerate(userHand) {
-            var pic = view.viewWithTag(index+1) as UIImageView
-            pic.image = UIImage(named: images[card])
-            maxIndex = index
-        }
         
-        if userHand.count < 13 {
-            for i in maxIndex+1...12 {
-                var pic = view.viewWithTag(i+1) as UIImageView
+        for i in 1...13 {
+            var pic = view.viewWithTag(i) as UIImageView
+            if pic.userInteractionEnabled {
+                pic.image = UIImage(named: images[userHand[i-1]])
+            } else {
                 pic.image = nil
             }
         }
@@ -83,29 +77,25 @@ class PlayViewController: UIViewController {
     
     //gets aiChoice and loads hand
     func nextTrick() {
-        
-        if userLeads {
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
+        dispatch_after(delayTime, dispatch_get_main_queue()){
             
-        } else {
-            aiChoice = ai.chooseCard()
-            aiCardImage.image = UIImage(named: images[ai.hand[aiChoice]])
+            if self.userLeads {
+                self.aiCardImage.image = nil
+                self.userCardImage.image = nil
+                
+            } else {
+                self.aiChoice = ai.chooseLead()
+                self.aiCardImage.image = UIImage(named: images[ai.hand[self.aiChoice]])
+                self.userCardImage.image = nil
+            }
         }
-        
-        loadHand()
-    }
-    
-    func getSuit(card: Int) -> Suit {
-        let i = (card)/13
-        if i == 0 { return Suit.Clubs }
-        else if i == 1 { return Suit.Diamonds }
-        else if i == 2 { return Suit.Hearts }
-        else { return Suit.Spades }
     }
     
     func userWins(userCard: Int, aiCard: Int) -> Bool {
         
-        let userSuit = getSuit(userCard)
-        let aiSuit = getSuit(aiCard)
+        let userSuit = cf.getSuit(userCard)
+        let aiSuit = cf.getSuit(aiCard)
         
         if userSuit == aiSuit {
             if userCard > aiCard { return true }
@@ -121,129 +111,163 @@ class PlayViewController: UIViewController {
         }
     }
     
+    func playIsValid(userCard: Int, aiCard: Int) -> Bool {
+        
+        var userDist = cf.getDistribution(userHand)
+        var aiDist = cf.getDistribution(ai.hand)
+        var userSuit = cf.getSuit(userHand[userCard])
+        var aiSuit = cf.getSuit(ai.hand[aiCard])
+        
+        if userSuit == aiSuit {
+            return true
+            
+        } else {
+            
+            if userLeads {
+                return true
+                
+            } else {
+                if userDist[aiSuit] == 0 { return true }
+                else { return false }
+                
+            }
+        }
+    }
+    
     //plays a trick, called everytime a user chooses a card
     func playTrick(userCard: Int, aiCard: Int) {
-
+        
         var userCardIndex = userHand[userCard]
         var aiCardIndex = ai.hand[aiCard]
         
-        if userCard < userHand.count && aiCard < ai.hand.count {
-
-            userCardImage.image = UIImage(named: images[userCardIndex])
-            aiCardImage.image = UIImage(named: images[aiCardIndex])
-            
-            view.viewWithTag(userHand.count)?.userInteractionEnabled = false
-            
-            if userWins(userCardIndex, aiCard: aiCardIndex) {
-                userLeads = true
-                userTricksWon++
-                userTricksLabel.text = String(userTricksWon)
-            } else {
-                userLeads = false
-                aiTricksWon++
-                aiTricksLabel.text = String(aiTricksWon)
-            }
+        userCardImage.image = UIImage(named: images[userCardIndex])
+        aiCardImage.image = UIImage(named: images[aiCardIndex])
         
-            userHand.removeAtIndex(userCard)
-            ai.hand.removeAtIndex(aiCard)
-            
-            nextTrick()
-            
+        view.viewWithTag(userHand.count)?.userInteractionEnabled = false
+        
+        if userWins(userCardIndex, aiCard: aiCardIndex) {
+            userLeads = true
+            userTricksWon++
+            userTricksLabel.text = String(userTricksWon)
+        } else {
+            userLeads = false
+            aiTricksWon++
+            aiTricksLabel.text = String(aiTricksWon)
         }
+        
+        userHand.removeAtIndex(userCard)
+        ai.hand.removeAtIndex(aiCard)
+        
+        loadHand()
+        //println("shiiit")
+        if userHand.count > 0 && ai.hand.count > 0 { nextTrick() }
+        else { println("GAMEOVER") }
     }
     
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
+    var tapCount = 0
+    var lastTapped = 0
+    
+    
+    func respondToCardTap() {
+        
+        var picTapped = view.viewWithTag(userChoice+1) as UIImageView
+        var picPrevious = view.viewWithTag(lastTapped+1) as UIImageView
+        
+        if !userLeads && playIsValid(userChoice, aiCard: aiChoice) || userLeads {
+            tapCount++
+            
+            if tapCount == 1 {
+                UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
+                    picTapped.center.y -= 30
+                    }, completion: nil)
+                
+            } else if tapCount == 2 {
+                
+                if lastTapped == userChoice {
+                    if userLeads { aiChoice = ai.chooseResponseTo(userHand[userChoice]) }
+                    playTrick(userChoice, aiCard: aiChoice)
+                    picTapped.center.y = handImageCenterY
+                    tapCount = 0
+                    lastTapped--
+                    
+                } else {
+                    UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
+                        picTapped.center.y -= 30
+                        }, completion: nil)
+                    UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
+                        picPrevious.center.y = self.handImageCenterY
+                        }, completion: nil)
+                    tapCount = 1
+                }
+                
+            } else {
+                println("shiiit")
+            }
+        }
+        
+        lastTapped = userChoice
+    }
+    
     //card image view taps
     @IBAction func card1Tap(sender: UITapGestureRecognizer) {
-        userChoice = 1
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 0
+        respondToCardTap()
     }
     @IBAction func card2Tap(sender: UITapGestureRecognizer) {
-        userChoice = 2
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 1
+        respondToCardTap()
     }
     @IBAction func card3Tap(sender: UITapGestureRecognizer) {
-        userChoice = 3
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 2
+        respondToCardTap()
     }
     @IBAction func card4Tap(sender: UITapGestureRecognizer) {
-        userChoice = 4
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 3
+        respondToCardTap()
     }
     @IBAction func card5Tap(sender: UITapGestureRecognizer) {
-        userChoice = 5
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 4
+        respondToCardTap()
     }
     @IBAction func card6Tap(sender: UITapGestureRecognizer) {
-        userChoice = 6
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 5
+        respondToCardTap()
     }
     @IBAction func card7Tap(sender: UITapGestureRecognizer) {
-        userChoice = 7
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 6
+        respondToCardTap()
     }
     @IBAction func card8Tap(sender: UITapGestureRecognizer) {
-        userChoice = 8
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 7
+        respondToCardTap()
     }
     @IBAction func card9Tap(sender: UITapGestureRecognizer) {
-        userChoice = 9
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 8
+        respondToCardTap()
     }
     @IBAction func card10Tap(sender: UITapGestureRecognizer) {
-        userChoice = 10
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 9
+        respondToCardTap()
     }
     @IBAction func card11Tap(sender: UITapGestureRecognizer) {
-        userChoice = 11
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 10
+        respondToCardTap()
     }
     @IBAction func card12Tap(sender: UITapGestureRecognizer) {
-        userChoice = 12
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 11
+        respondToCardTap()
     }
     @IBAction func card13Tap(sender: UITapGestureRecognizer) {
-        userChoice = 13
-        playTrick(userChoice-1, aiCard: aiChoice)
+        userChoice = 12
+        respondToCardTap()
     }
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -12,6 +12,7 @@ var userHand = [Int]()
 var images = [String]()
 var deck = [Int]()
 var ai = WhistPlayer()
+var cf = CardFunctions()
 
 class ViewController: UIViewController {
 

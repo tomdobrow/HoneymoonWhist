@@ -10,19 +10,34 @@ import Foundation
 
 
 class WhistPlayer {
-
+    
     var hand = [Int]() //MAKE SURE IT"S SORTED
     
     func keepOrDiscard() -> Bool {
         return true
     }
     
-    func chooseCard() -> Int {
+    func chooseLead() -> Int {
         return 0
     }
     
+    func chooseResponseTo(userCard: Int) -> Int {
+        
+        var userSuit = cf.getSuit(userCard)
+        var dist = cf.getDistribution(hand)
+        var cardsInSuit = [Int]()
+        
+        for (index, card) in enumerate(hand) {
+            if cf.getSuit(card) == userSuit { cardsInSuit.append(index) }
+        }
+        
+        if cardsInSuit.count > 0 { return cardsInSuit[0] }
+        else { return 0 }
+        
+    }
+    
     func placeBid(currentBid: Int) -> Int {
-
+        
         if (currentBid >= 7) {
             return 0
         }
@@ -39,7 +54,7 @@ class WhistPlayer {
                     cardsOfThisSuit.append(hand[card])
                 }
             }
-
+            
             for element in cardsOfThisSuit{
                 print("\(element) ")
             }
@@ -64,9 +79,9 @@ class WhistPlayer {
             else {
                 totalLosers += Double(((5-highCards)/2))
             }
-                
-        }
             
+        }
+        
         
         
         //print ("losers \(totalLosers)")
