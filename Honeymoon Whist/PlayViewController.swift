@@ -38,7 +38,7 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png"))
         
         loadHand()
         

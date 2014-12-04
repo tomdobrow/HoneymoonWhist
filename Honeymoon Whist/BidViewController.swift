@@ -66,6 +66,10 @@ class BidViewController: UIViewController {
                 resultText = NSString(format: "%.i", bidBar.selectedSegmentIndex )
                 currentBid = bidBar.selectedSegmentIndex
                 print(currentBid)
+                
+                bidBar.selectedSegmentIndex = 3
+                currentBid = 3
+                resultText = NSString(format: "%.i", bidBar.selectedSegmentIndex )
             }
             else {
                 print("TOO LOW")
