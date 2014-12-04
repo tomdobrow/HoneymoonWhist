@@ -9,7 +9,6 @@
 import UIKit
 
 var userHand = [Int]()
-var aiHand = [Int]()
 var images = [String]()
 var deck = [Int]()
 var ai = WhistPlayer()
@@ -182,11 +181,9 @@ class ViewController: UIViewController {
             discardButton.setTitle(nil, forState: nil)
             sortButton.setTitle(nil, forState: nil)
         }
-        
+        for card in ai.hand {
+            print("\(images[card]) ")
+        }
     }
-   
-    
-
-
 }
 

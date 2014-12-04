@@ -30,8 +30,14 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var aiTricksImage: UIImageView!
     @IBOutlet weak var userTricksLabel: UILabel!
     @IBOutlet weak var aiTricksLabel: UILabel!
+
+    
+    enum Suit {
+        case Clubs, Diamonds, Hearts, Spades
+    }
     
     var userLeads = false
+    var trump = Suit.Spades
 
     var userChoice = 0
     var aiChoice = 0
@@ -49,7 +55,7 @@ class PlayViewController: UIViewController {
         
         loadHand()
         
-        playGame()
+        nextTrick()
         
     }
 
@@ -76,46 +82,74 @@ class PlayViewController: UIViewController {
     }
     
     //gets aiChoice and loads hand
-    func playGame() {
+    func nextTrick() {
         
         if userLeads {
             
         } else {
             aiChoice = ai.chooseCard()
-            aiCardImage.image = UIImage(named: images[aiChoice])
+            aiCardImage.image = UIImage(named: images[ai.hand[aiChoice]])
         }
         
         loadHand()
     }
     
+    func getSuit(card: Int) -> Suit {
+        let i = (card)/13
+        if i == 0 { return Suit.Clubs }
+        else if i == 1 { return Suit.Diamonds }
+        else if i == 2 { return Suit.Hearts }
+        else { return Suit.Spades }
+    }
+    
+    func userWins(userCard: Int, aiCard: Int) -> Bool {
+        
+        let userSuit = getSuit(userCard)
+        let aiSuit = getSuit(aiCard)
+        
+        if userSuit == aiSuit {
+            if userCard > aiCard { return true }
+            else { return false }
+            
+        } else {
+            if userSuit == trump { return true }
+            else if aiSuit == trump { return false }
+            else {
+                if userLeads { return true }
+                else { return false }
+            }
+        }
+    }
+    
     //plays a trick, called everytime a user chooses a card
     func playTrick(userCard: Int, aiCard: Int) {
+
+        var userCardIndex = userHand[userCard]
+        var aiCardIndex = ai.hand[aiCard]
         
-        if userCard < userHand.count && aiCard < aiHand.count {
-            var userCardIndex = userHand[userCard]
-            var aiCardIndex = aiHand[aiCard]
-        
+        if userCard < userHand.count && aiCard < ai.hand.count {
+
             userCardImage.image = UIImage(named: images[userCardIndex])
             aiCardImage.image = UIImage(named: images[aiCardIndex])
             
             view.viewWithTag(userHand.count)?.userInteractionEnabled = false
             
-            if userCardIndex > aiCardIndex {
+            if userWins(userCardIndex, aiCard: aiCardIndex) {
                 userLeads = true
                 userTricksWon++
+                userTricksLabel.text = String(userTricksWon)
             } else {
                 userLeads = false
                 aiTricksWon++
+                aiTricksLabel.text = String(aiTricksWon)
             }
         
             userHand.removeAtIndex(userCard)
-            aiHand.removeAtIndex(aiCard)
+            ai.hand.removeAtIndex(aiCard)
             
-            playGame()
+            nextTrick()
             
         }
-        println(userCard, aiCard)
-        println(userHand.count, aiHand.count)
     }
     
     /*

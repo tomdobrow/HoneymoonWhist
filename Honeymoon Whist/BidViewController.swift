@@ -34,7 +34,7 @@ class BidViewController: UIViewController {
         
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
         self.view.backgroundColor = UIColor.clearColor()
-        aiHand = sorted(aiHand)
+        ai.hand = sorted(ai.hand)
     }
     
     override func didReceiveMemoryWarning() {
