@@ -21,6 +21,7 @@ class BidViewController: UIViewController {
     
     }
     
+    var highestBid = 0
     var bidValue = BidValue.Pass
     var currentBid = 0
     var userLeads = false
@@ -85,15 +86,18 @@ class BidViewController: UIViewController {
                 currentBid = bidBar.selectedSegmentIndex
                 resultText = NSString(format: "%.i", bidBar.selectedSegmentIndex )
                 textView.text = resultText + "\n" + textView.text
+                
+                highestBid = currentBid
 
-                //print("HELLO")
                 bidBar.selectedSegmentIndex = ai.placeBid(currentBid)
-                //print("HI")
                 currentBid = bidBar.selectedSegmentIndex
                 
                 if currentBid == 0 {
                     userLeads = true
                     endBidding(userLeads)
+                    
+                } else {
+                    highestBid = currentBid
                 }
             
                 resultText = NSString(format: "%.i", currentBid)
@@ -156,7 +160,7 @@ class BidViewController: UIViewController {
             let controller = segue.destinationViewController as PlayViewController
             controller.userLeads = userLeads
             controller.userIsOffense = userLeads
-            controller.bid = currentBid
+            controller.bid = highestBid
         }
     }
 }

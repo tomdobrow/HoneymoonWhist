@@ -24,6 +24,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var card12Image: UIImageView!
     @IBOutlet weak var card13Image: UIImageView!
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var userCardImage: UIImageView!
     @IBOutlet weak var aiCardImage: UIImageView!
     @IBOutlet weak var userTricksImage: UIImageView!
@@ -33,7 +34,7 @@ class PlayViewController: UIViewController {
     
     var userLeads = false
     var userIsOffense = false
-    var bid = 0
+    var bid = Int()
     
     var userChoice = 0
     var aiChoice = 0
@@ -47,7 +48,8 @@ class PlayViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        backgroundImage.image = UIImage(named: "background.png")
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         userTricksImage.image = UIImage(named: "b2fv")
         aiTricksImage.image = UIImage(named: "b2fv")
         
@@ -182,7 +184,7 @@ class PlayViewController: UIViewController {
         if userHand.count > 0 && ai.hand.count > 0 { nextTrick() }
         else {
             println("GAMEOVER")
-            if userIsOffense && userTricksWon >= bid || !userIsOffense && aiTricksWon < bid {
+            if (userIsOffense && (userTricksWon >= bid+6)) || (!userIsOffense && (aiTricksWon < bid+6)) {
                 println("YOU WIN")
             } else {
                 println("YOU LOSE")
