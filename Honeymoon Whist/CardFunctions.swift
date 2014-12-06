@@ -26,8 +26,20 @@ class CardFunctions {
         return [clubCount, diamondCount, heartCount, spadeCount]
     }
     
+    func getCardsInSuit(suit: Int, hand: [Int]) -> [Int] {
+        var cards = [Int]()
+        for (index,card) in enumerate(hand) {
+            if getSuit(card) == suit { cards.append(index) }
+        }
+        return cards
+    }
+    
     func getSuit(card: Int) -> Int {
         return card/13
+    }
+    
+    func getValue(card: Int) -> Int {
+        return card%13+2
     }
     
 }

@@ -32,7 +32,8 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var aiTricksLabel: UILabel!
     
     var userLeads = false
-    var trump = 3
+    var userIsOffense = false
+    var bid = 0
     
     var userChoice = 0
     var aiChoice = 0
@@ -46,7 +47,7 @@ class PlayViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         userTricksImage.image = UIImage(named: "b2fv")
         aiTricksImage.image = UIImage(named: "b2fv")
         
@@ -75,8 +76,24 @@ class PlayViewController: UIViewController {
         }
     }
     
+    func disableInteraction() {
+        for i in 1...userHand.count {
+            var pic = view.viewWithTag(i) as UIImageView
+            pic.userInteractionEnabled = false
+        }
+    }
+    
+    func enableInteraction() {
+        for i in 1...userHand.count {
+            var pic = view.viewWithTag(i) as UIImageView
+            pic.userInteractionEnabled = true
+        }
+    }
+    
     //gets aiChoice and loads hand
     func nextTrick() {
+        disableInteraction()
+        
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
         dispatch_after(delayTime, dispatch_get_main_queue()){
             
@@ -86,9 +103,11 @@ class PlayViewController: UIViewController {
                 
             } else {
                 self.aiChoice = ai.chooseLead()
-                self.aiCardImage.image = UIImage(named: images[ai.hand[self.aiChoice]])
+                if ai.hand.count > 0 { self.aiCardImage.image = UIImage(named: images[ai.hand[self.aiChoice]]) }
                 self.userCardImage.image = nil
             }
+            
+            self.enableInteraction()
         }
     }
     
@@ -161,7 +180,14 @@ class PlayViewController: UIViewController {
         loadHand()
         //println("shiiit")
         if userHand.count > 0 && ai.hand.count > 0 { nextTrick() }
-        else { println("GAMEOVER") }
+        else {
+            println("GAMEOVER")
+            if userIsOffense && userTricksWon >= bid || !userIsOffense && aiTricksWon < bid {
+                println("YOU WIN")
+            } else {
+                println("YOU LOSE")
+            }
+        }
     }
     
     /*
@@ -201,7 +227,7 @@ class PlayViewController: UIViewController {
                     
                 } else {
                     UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
-                        picTapped.center.y -= 30
+                        picTapped.center.y -= 50
                         }, completion: nil)
                     UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
                         picPrevious.center.y = self.handImageCenterY

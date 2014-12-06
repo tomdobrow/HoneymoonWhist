@@ -20,15 +20,25 @@ class BidViewController: UIViewController {
         case bid7
     
     }
+    
     var bidValue = BidValue.Pass
     var currentBid = 0
+    var userLeads = false
     
+    @IBOutlet weak var trumpSuitBar: UISegmentedControl!
     @IBOutlet weak var bidBar: UISegmentedControl!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var bidButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bidBar.selectedSegmentIndex = 0
+        trumpSuitBar.selectedSegmentIndex = 0
+        trumpSuitBar.alpha = 0
+        trumpSuitBar.userInteractionEnabled = false
+        playButton.alpha = 0
+        playButton.userInteractionEnabled = false
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -55,7 +65,16 @@ class BidViewController: UIViewController {
         default: bidValue = .Pass
         }
         //print (bidBar.selectedSegmentIndex)
+    }
+    @IBAction func trumpSuitChange(sender: AnyObject) {
         
+        switch trumpSuitBar.selectedSegmentIndex {
+        case 0: trump = 0
+        case 1: trump = 1
+        case 2: trump = 2
+        case 3: trump = 3
+        default: trump = 0
+        }
     }
     
     @IBAction func placeBid(sender: AnyObject) {
@@ -67,39 +86,96 @@ class BidViewController: UIViewController {
                 resultText = NSString(format: "%.i", bidBar.selectedSegmentIndex )
                 textView.text = resultText + "\n" + textView.text
 
-                print("HELLO")
+                //print("HELLO")
                 bidBar.selectedSegmentIndex = ai.placeBid(currentBid)
-                print("HI")
+                //print("HI")
                 currentBid = bidBar.selectedSegmentIndex
+                
+                if currentBid == 0 {
+                    userLeads = true
+                    endBidding(userLeads)
+                }
+            
                 resultText = NSString(format: "%.i", currentBid)
                 textView.text = resultText + "\n" + textView.text
-                print("SUP")
+                //print("SUP")
             }
             else {
                 print("TOO LOW")
-                resultText = "Must Bid Higher"
+                resultText = "Must bid higher or pass"
                 textView.text = resultText + "\n" + textView.text
             }
                     }
         else {
-            resultText = "Pass"
-            textView.text = "\n" + resultText + "\n" + textView.text
-            
-            var trumpSuit = "clubs"
-            resultText = "Alright. Trump will be \(trumpSuit)"
-            textView.text = resultText + "\n" + textView.text
-
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 10))
-            dispatch_after(delayTime, dispatch_get_main_queue()){
-                //changeColourOfPage()
-            }
-            
-            //prepare for segue to gameplay. pass the right player and the trump
-            self.performSegueWithIdentifier("startPlaying", sender: nil)
-            
+            endBidding(userLeads)
         }
-        
-
     }
     
+    func trumpString() -> String {
+        if trump == 0 { return "clubs" }
+        else if trump == 1 { return "diamonds" }
+        else if trump == 3 { return "hearts" }
+        else { return "spades" }
+    }
+    
+    func endBidding(userLeads: Bool) {
+        var resultText = ""
+        resultText = "Pass"
+        textView.text = "\n" + resultText + "\n" + textView.text
+        
+        if userLeads {
+            trumpSuitBar.alpha = 1.0
+            trumpSuitBar.userInteractionEnabled = true
+            bidBar.alpha = 0
+            bidBar.userInteractionEnabled = false
+            playButton.alpha = 1
+            playButton.userInteractionEnabled = true
+            bidButton.alpha = 0
+            bidButton.userInteractionEnabled = false
+            
+        } else {
+            trump = ai.chooseTrump()
+            resultText = "Alright. Trump will be \(trumpString())"
+            textView.text = resultText + "\n" + textView.text
+
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 3))
+            dispatch_after(delayTime, dispatch_get_main_queue()){
+                
+                //prepare for segue to gameplay. pass the right player and the trump
+                self.performSegueWithIdentifier("startPlaying", sender: nil)
+            }
+        }
+    }
+    
+    @IBAction func playButtonTap(sender: AnyObject) {
+        performSegueWithIdentifier("startPlaying", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "startPlaying" {
+            let controller = segue.destinationViewController as PlayViewController
+            controller.userLeads = userLeads
+            controller.userIsOffense = userLeads
+            controller.bid = currentBid
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,8 +13,9 @@ var images = [String]()
 var deck = [Int]()
 var ai = WhistPlayer()
 var cf = CardFunctions()
+var trump = 0
 
-class ViewController: UIViewController {
+class SetViewController: UIViewController {
 
     @IBOutlet weak var card1Image: UIImageView!
     @IBOutlet weak var card2Image: UIImageView!
@@ -30,7 +31,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var card12Image: UIImageView!
     @IBOutlet weak var card13Image: UIImageView!
  
-    
     @IBOutlet weak var cardChoice1: UIImageView!
     @IBOutlet weak var cardChoice2: UIImageView!
     @IBOutlet weak var discardImage: UIImageView!
@@ -38,9 +38,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var dealtCard: UIImageView!
     @IBOutlet weak var dealtCard2: UIImageView!
     
-    @IBOutlet weak var keepButton: UIButton!
-    @IBOutlet weak var discardButton: UIButton!
     @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var choice1Label: UILabel!
+    @IBOutlet weak var choice2Label: UILabel!
+    @IBOutlet weak var discardPileLabel: UILabel!
 
     var cardNumber: Int = 0
     var activeCards: Int = 0
@@ -50,6 +51,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         setUpDeck()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,9 +87,10 @@ class ViewController: UIViewController {
         var dealtCardCenter2 = dealtCard2.center
 
         UIView.animateWithDuration(0.5, delay:0.0, options:nil, animations: {
+            
+            self.cardChoice1.userInteractionEnabled = false
+            self.cardChoice2.userInteractionEnabled = false
 
-            self.keepButton.hidden = true
-            self.discardButton.hidden = true
             self.view.bringSubviewToFront(self.dealtCard)
             self.view.bringSubviewToFront(self.dealtCard2)
             
@@ -103,8 +106,8 @@ class ViewController: UIViewController {
                 self.cardChoice1.image = UIImage(named: images[deck[self.cardNumber]])
                 self.cardChoice2.image = UIImage(named: "b2fv")
              
-                self.discardButton.hidden = false
-                self.keepButton.hidden = false
+                self.cardChoice1.userInteractionEnabled = true
+                self.cardChoice2.userInteractionEnabled = true
                 
         })
         
@@ -112,8 +115,7 @@ class ViewController: UIViewController {
     }
     
     //user keeps card
-    @IBAction func keepButtonTap(sender: AnyObject) {
-
+    @IBAction func choice1ButtonTap(sender: UITapGestureRecognizer) {
         if (cardNumber < 50) {
             
             if activeCards < 13 {
@@ -129,8 +131,8 @@ class ViewController: UIViewController {
                 
                 UIView.animateWithDuration(0.4, delay:0.0, options:nil, animations: {
                     
-                    self.keepButton.hidden = true
-                    self.discardButton.hidden = true
+                    self.cardChoice1.userInteractionEnabled = false
+                    self.cardChoice2.userInteractionEnabled = false
                     
                     self.view.bringSubviewToFront(self.cardChoice1)
                     self.view.bringSubviewToFront(self.cardChoice2)
@@ -177,8 +179,8 @@ class ViewController: UIViewController {
                                 self.dealtCard2.center = dealtCardCenter2
                                 
                                 self.cardChoice2.image = UIImage(named: "b2fv")
-                                self.discardButton.hidden = false
-                                self.keepButton.hidden = false
+                                self.cardChoice1.userInteractionEnabled = true
+                                self.cardChoice2.userInteractionEnabled = true
                                 self.botsTurn()
                                 
                         })
@@ -192,8 +194,8 @@ class ViewController: UIViewController {
     }
     
     //user discards card
-    @IBAction func discardButtonTap(sender: AnyObject) {
-
+    
+    @IBAction func choice2ButtonTap(sender: UITapGestureRecognizer) {
         if (cardNumber < 50) {
             cardNumber += 1
             if activeCards < 13 {
@@ -211,8 +213,8 @@ class ViewController: UIViewController {
                 
                 UIView.animateWithDuration(0.4, delay:0.0, options:nil, animations: {
                     
-                    self.keepButton.hidden = true
-                    self.discardButton.hidden = true
+                    self.cardChoice1.userInteractionEnabled = false
+                    self.cardChoice2.userInteractionEnabled = false
                     
                     self.view.bringSubviewToFront(self.cardChoice1)
                     self.view.bringSubviewToFront(self.cardChoice2)
@@ -261,8 +263,8 @@ class ViewController: UIViewController {
                                 
                                 self.cardChoice2.image = UIImage(named: "b2fv")
                                 
-                                self.discardButton.hidden = false
-                                self.keepButton.hidden = false
+                                self.cardChoice1.userInteractionEnabled = true
+                                self.cardChoice2.userInteractionEnabled = true
                                 self.botsTurn()
                         })
                 })
@@ -278,7 +280,7 @@ class ViewController: UIViewController {
     func botsTurn() {
 
         //if (cardNumber <= 50) {
-        if ai.keepOrDiscard() {
+        if ai.keepOrDiscard(deck[cardNumber]) {
             ai.hand.append(deck[cardNumber])
         } else {
             ai.hand.append(deck[cardNumber+1])
@@ -323,10 +325,14 @@ class ViewController: UIViewController {
             cardChoice2.image = nil
             dealtCard.image = nil
             dealtCard2.image = nil
-            
-            keepButton.setTitle(nil, forState: nil)
-            discardButton.setTitle(nil, forState: nil)
+            choice1Label.text = nil
+            choice2Label.text = nil
+            discardPileLabel.text = nil            
             sortButton.setTitle(nil, forState: nil)
+        }
+        
+        for card in ai.hand {
+            print("\(images[card]) ")
         }
     }
 }

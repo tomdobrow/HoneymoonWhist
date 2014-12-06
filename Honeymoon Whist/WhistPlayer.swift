@@ -13,31 +13,50 @@ class WhistPlayer {
     
     var hand = [Int]() //MAKE SURE IT"S SORTED
     
-    func keepOrDiscard() -> Bool {
-        return true
+    func keepOrDiscard(card: Int) -> Bool {
+        if cf.getValue(card) > 10 { return true }
+        else { return false }
     }
     
     func chooseLead() -> Int {
-        return 0
+        return hand.count-1
     }
     
     func chooseResponseTo(userCard: Int) -> Int {
         
         var userSuit = cf.getSuit(userCard)
         var dist = cf.getDistribution(hand)
-        var cardsInSuit = [Int]()
+        var cardsInSuit = cf.getCardsInSuit(userSuit, hand: hand)
         
-        for (index, card) in enumerate(hand) {
-            if cf.getSuit(card) == userSuit { cardsInSuit.append(index) }
+        if cardsInSuit.count > 0 {
+            for card in cardsInSuit {
+                if hand[card] > userCard { return card }
+            }
+            return cardsInSuit[0]
         }
-        
-        if cardsInSuit.count > 0 { return cardsInSuit[0] }
-        else { return 0 }
+        else {
+            var trumpCards = cf.getCardsInSuit(trump, hand: hand)
+            if trumpCards.count > 0 { return trumpCards[0] }
+            else { return 0 }
+        }
         
     }
     
+    func chooseTrump() -> Int {
+        var dist = cf.getDistribution(hand)
+        var longestSuit = 0
+        var trump = 0
+        for (index, suit) in enumerate(dist) {
+            if suit >= longestSuit {
+                longestSuit = suit
+                trump = index
+            }
+        }
+        return trump
+    }
+    
     func placeBid(currentBid: Int) -> Int {
-        
+
         if (currentBid >= 7) {
             return 0
         }
@@ -90,6 +109,5 @@ class WhistPlayer {
         if (myBid <= currentBid) {
             return 0
         } else { return myBid }
-    }
-    
+   }
 }
