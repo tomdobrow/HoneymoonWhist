@@ -10,8 +10,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var rulesButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!
+    
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "titlepage")!)
+        
     }
     
 }

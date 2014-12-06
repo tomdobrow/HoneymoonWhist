@@ -330,10 +330,10 @@ class SetViewController: UIViewController {
             discardPileLabel.text = nil            
             sortButton.setTitle(nil, forState: nil)
         }
-        
-        for card in ai.hand {
-            print("\(images[card]) ")
-        }
+//        
+//        for card in ai.hand {
+//            print("\(images[card]) ")
+//        }
     }
 }
 

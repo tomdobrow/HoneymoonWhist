@@ -14,8 +14,32 @@ class WhistPlayer {
     var hand = [Int]() //MAKE SURE IT"S SORTED
     
     func keepOrDiscard(card: Int) -> Bool {
-        if cf.getValue(card) > 10 { return true }
-        else { return false }
+        if cf.getValue(card) > 10 {
+            return true
+        }
+        var dist = cf.getDistribution(hand)
+        //var longestSuit = 0
+        var bestSuit = 0
+        var secondBestSuit = 0
+        var longestSuit = 0
+        var secondLongestSuit = 0
+        for (index, suit) in enumerate(dist) {
+            if (suit > longestSuit) {
+                longestSuit = suit
+                bestSuit = index
+            }
+            else if (suit > secondLongestSuit) {
+                secondLongestSuit = suit
+                secondBestSuit = index
+            }
+        }
+        if (cf.getSuit(card) == bestSuit) {
+            if (longestSuit > secondLongestSuit) {
+                return true
+            }
+        }
+        
+        return false
     }
     
     func chooseLead() -> Int {
@@ -73,22 +97,23 @@ class WhistPlayer {
                     cardsOfThisSuit.append(hand[card])
                 }
             }
-            
-            for element in cardsOfThisSuit{
-                print("\(element) ")
-            }
-            println("")
-            
+//            var daCard = 0
+//            for element in cardsOfThisSuit{
+//                daCard = (element%13)+2
+//                print("\(daCard) ")
+//            }
+//            println("")
+//            
             var outsideTopRun = 0
             var highCards = 0
             
-            for (var element=0; element<=cardsOfThisSuit.count; element+=1) {
-                if (hand[element] != 13*suit + element + 13 - cardsOfThisSuit.count) {
+            for (var element=0; element<cardsOfThisSuit.count; element+=1) {
+                if (cardsOfThisSuit[element] != (13*suit + element + 13 - cardsOfThisSuit.count)) {
                     outsideTopRun += 1
                 }
             }
-            for (var element=0; element<=cardsOfThisSuit.count; element+=1) {
-                if ((hand[element] == (13*suit+12)) | (hand[element] == (13*suit+11)) | (hand[element] == (13*suit+10)) | (hand[element] == (13*suit+9))  | (hand[element] == (13*suit+8))) {
+            for (var element=0; element<cardsOfThisSuit.count; element+=1) {
+                if ((cardsOfThisSuit[element] == (13*suit+12)) | (cardsOfThisSuit[element] == (13*suit+11)) | (cardsOfThisSuit[element] == (13*suit+10)) | (cardsOfThisSuit[element] == (13*suit+9))  | (cardsOfThisSuit[element] == (13*suit+8))) {
                     highCards += 1
                 }
             }
@@ -98,12 +123,15 @@ class WhistPlayer {
             else {
                 totalLosers += Double(((5-highCards)/2))
             }
+            //println(outsideTopRun)
+            //println(highCards)
             
         }
         
         
         
         //print ("losers \(totalLosers)")
+        print(totalLosers)
         var myBid = Int(7 - ceil(totalLosers)) //Book
         //print("bid \(myBid)")
         if (myBid <= currentBid) {

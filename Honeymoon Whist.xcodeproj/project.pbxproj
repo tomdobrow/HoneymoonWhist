@@ -17,6 +17,7 @@
 		A38A2B0F1A2B54B100C7A7A3 /* Honeymoon_WhistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2B0E1A2B54B100C7A7A3 /* Honeymoon_WhistTests.swift */; };
 		A38A2B191A2B7F3900C7A7A3 /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */; };
 		A38A2B1B1A2C7AE600C7A7A3 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */; };
+		A394C31C1A339FCA003FF188 /* Campanile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A394C31B1A339FC9003FF188 /* Campanile.ttf */; };
 		A69B2CE41A30FC270057EC09 /* CardFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B2CE31A30FC270057EC09 /* CardFunctions.swift */; };
 		A6B03DE71A32201E0051F816 /* LaunchScreenUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03DE61A32201E0051F816 /* LaunchScreenUIView.swift */; };
 		A6B03DE91A3222CF0051F816 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03DE81A3222CF0051F816 /* HomeViewController.swift */; };
@@ -49,6 +50,7 @@
 		A38A2B0E1A2B54B100C7A7A3 /* Honeymoon_WhistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Honeymoon_WhistTests.swift; sourceTree = "<group>"; };
 		A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
 		A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		A394C31B1A339FC9003FF188 /* Campanile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Campanile.ttf; path = "../Honeymoon Whist/Campanile.ttf"; sourceTree = "<group>"; };
 		A69B2CE31A30FC270057EC09 /* CardFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFunctions.swift; sourceTree = "<group>"; };
 		A6B03DE61A32201E0051F816 /* LaunchScreenUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenUIView.swift; sourceTree = "<group>"; };
 		A6B03DE81A3222CF0051F816 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		A38A2B0C1A2B54B100C7A7A3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A394C31B1A339FC9003FF188 /* Campanile.ttf */,
 				A38A2B0D1A2B54B100C7A7A3 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -223,6 +226,7 @@
 				A316AA371A30D62A00188F8C /* NewLaunchScreen.storyboard in Resources */,
 				A38A2B031A2B54B100C7A7A3 /* LaunchScreen.xib in Resources */,
 				A38A2B001A2B54B100C7A7A3 /* Images.xcassets in Resources */,
+				A394C31C1A339FCA003FF188 /* Campanile.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
