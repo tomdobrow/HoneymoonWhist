@@ -48,8 +48,7 @@ class PlayViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        backgroundImage.image = UIImage(named: "background.png")
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         userTricksImage.image = UIImage(named: "b2fv")
         aiTricksImage.image = UIImage(named: "b2fv")
         
