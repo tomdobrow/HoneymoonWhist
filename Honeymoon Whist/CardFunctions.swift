@@ -26,6 +26,20 @@ class CardFunctions {
         return [clubCount, diamondCount, heartCount, spadeCount]
     }
     
+    func getLongestSuit(hand: [Int]) -> Int {
+        var dist = getDistribution(hand)
+        var maxLength = 0
+        var longestSuit = 0
+        for (index,suit) in enumerate(dist) {
+            if suit > maxLength {
+                longestSuit = index
+                maxLength = suit
+                println(longestSuit)
+            }
+        }
+        return longestSuit
+    }
+    
     func getCardsInSuit(suit: Int, hand: [Int]) -> [Int] {
         var cards = [Int]()
         for (index,card) in enumerate(hand) {

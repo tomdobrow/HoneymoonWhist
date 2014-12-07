@@ -24,6 +24,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var card12Image: UIImageView!
     @IBOutlet weak var card13Image: UIImageView!
     
+    @IBOutlet weak var cardsOnTable: UIView!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var userCardImage: UIImageView!
     @IBOutlet weak var aiCardImage: UIImageView!
@@ -48,14 +49,21 @@ class PlayViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        backgroundImage.image = UIImage(named: "background.png")
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         userTricksImage.image = UIImage(named: "b2fv")
         aiTricksImage.image = UIImage(named: "b2fv")
         
         var cardImage = view.viewWithTag(1) as UIImageView
         handImageCenterY = cardImage.center.y
         
+        var t = CATransform3DIdentity
+        //Add the perspective!!!
+        t.m34 = 1.0 / -500.0
+        t = CATransform3DRotate(t, 45.0 * CGFloat(M_PI) / 180.0, 1, 0, 0)
+        
+        cardsOnTable.layer.transform = t
+
+        //defaultVariables()
         loadHand()
         nextTrick()
     }
@@ -65,6 +73,21 @@ class PlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func defaultVariables() {
+        ai.hand.append(0)
+        userHand.append(0)
+
+        for i in 0...51 {
+            deck.append(i)
+            if cf.getValue(i) > 11 {
+                ai.hand.append(i)
+                userHand.append(i)
+            }
+        }
+
+        images = ["2c","3c","4c","5c","6c","7c","8c","9c","10c","jc","qc","kc","ac","2d","3d","4d","5d","6d","7d","8d","9d","10d","jd","qd","kd","ad","2h","3h","4h","5h","6h","7h","8h","9h","10h","jh","qh","kh","ah","2s","3s","4s","5s","6s","7s","8s","9s","10s","js","qs","ks","as"]
+    }
+
     //sets the image views for all the cards in the hand, nil for the rest
     func loadHand() {
         
@@ -164,6 +187,11 @@ class PlayViewController: UIViewController {
         userCardImage.image = UIImage(named: images[userCardIndex])
         aiCardImage.image = UIImage(named: images[aiCardIndex])
         
+        //check if user is void in trump
+        if !userLeads && cf.getSuit(aiCardIndex) == trump && cf.getSuit(userCardIndex) != trump {
+            ai.opponentIsVoidInTrump = true
+        }
+        
         view.viewWithTag(userHand.count)?.userInteractionEnabled = false
         
         if userWins(userCardIndex, aiCard: aiCardIndex) {
@@ -206,43 +234,68 @@ class PlayViewController: UIViewController {
     
     
     func respondToCardTap() {
-        
-        var picTapped = view.viewWithTag(userChoice+1) as UIImageView
-        var picPrevious = view.viewWithTag(lastTapped+1) as UIImageView
-        
+
         if !userLeads && playIsValid(userChoice, aiCard: aiChoice) || userLeads {
-            tapCount++
-            
-            if tapCount == 1 {
-                UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
-                    picTapped.center.y -= 30
-                    }, completion: nil)
+            var picTapped = view.viewWithTag(userChoice+1) as UIImageView
+            if picTapped.center.y >= handImageCenterY {
                 
-            } else if tapCount == 2 {
-                
-                if lastTapped == userChoice {
-                    if userLeads { aiChoice = ai.chooseResponseTo(userHand[userChoice]) }
-                    playTrick(userChoice, aiCard: aiChoice)
-                    picTapped.center.y = handImageCenterY
-                    tapCount = 0
-                    lastTapped--
-                    
-                } else {
+                for i in 1...13 {
+                    var pic = view.viewWithTag(i) as UIImageView
                     UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
-                        picTapped.center.y -= 50
+                        pic.center.y = self.handImageCenterY
                         }, completion: nil)
-                    UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
-                        picPrevious.center.y = self.handImageCenterY
-                        }, completion: nil)
-                    tapCount = 1
                 }
                 
+                UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
+                    picTapped.center.y = self.handImageCenterY - 40
+                }, completion: nil)
+                
             } else {
-                println("shiiit")
+                
+                if userLeads { aiChoice = ai.chooseResponseTo(userHand[userChoice]) }
+                playTrick(userChoice, aiCard: aiChoice)
+                picTapped.center.y = handImageCenterY
+                
             }
         }
         
-        lastTapped = userChoice
+        
+//        var picTapped = view.viewWithTag(userChoice+1) as UIImageView
+//        var picPrevious = view.viewWithTag(lastTapped+1) as UIImageView
+//        
+//        if !userLeads && playIsValid(userChoice, aiCard: aiChoice) || userLeads {
+//            tapCount++
+//            
+//            if tapCount == 1 {
+//                UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
+//                    picTapped.center.y -= 40
+//                    }, completion: nil)
+//                
+//            } else if tapCount == 2 {
+//                
+//                if lastTapped == userChoice {
+//                    if userLeads { aiChoice = ai.chooseResponseTo(userHand[userChoice]) }
+//                    playTrick(userChoice, aiCard: aiChoice)
+//                    picTapped.center.y = handImageCenterY
+//                    tapCount = 0
+//                    lastTapped--
+//                    
+//                } else {
+//                    UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
+//                        picTapped.center.y -= 40
+//                        }, completion: nil)
+//                    UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
+//                        picPrevious.center.y = self.handImageCenterY
+//                        }, completion: nil)
+//                    tapCount = 1
+//                }
+//                
+//            } else {
+//                println("shiiit")
+//            }
+//        }
+//        
+//        lastTapped = userChoice
     }
     
     //card image view taps
