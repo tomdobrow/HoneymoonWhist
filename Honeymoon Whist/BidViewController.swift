@@ -161,6 +161,7 @@ class BidViewController: UIViewController {
             controller.userLeads = userLeads
             controller.userIsOffense = userLeads
             controller.bid = highestBid
+            ai.isOnOffense = !userLeads
         }
     }
 }

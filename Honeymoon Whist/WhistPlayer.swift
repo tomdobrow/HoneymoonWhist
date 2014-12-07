@@ -13,6 +13,7 @@ class WhistPlayer {
     
     var hand = [Int]() //MAKE SURE IT"S SORTED
     var opponentIsVoidInTrump = false
+    var isOnOffense = false
     
     func keepOrDiscard(card: Int) -> Bool {
         if cf.getValue(card) > 10 {
@@ -44,7 +45,7 @@ class WhistPlayer {
     }
     
     func chooseLead() -> Int {
-        if !opponentIsVoidInTrump {
+        if !opponentIsVoidInTrump && isOnOffense {
             var trumpCards = cf.getCardsInSuit(trump, hand: hand)
             if trumpCards.count > 0 {
                 return trumpCards[trumpCards.count-1]
