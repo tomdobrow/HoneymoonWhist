@@ -14,6 +14,9 @@ var deck = [Int]()
 var ai = WhistPlayer()
 var cf = CardFunctions()
 var trump = 0
+var slowAnimation = 0.0
+var fastAnimation = 0.0
+var dealAnimation = 0.0
 
 class SetViewController: UIViewController {
 
@@ -86,7 +89,7 @@ class SetViewController: UIViewController {
         var dealtCardCenter = dealtCard.center
         var dealtCardCenter2 = dealtCard2.center
 
-        UIView.animateWithDuration(0.5, delay:0.0, options:nil, animations: {
+        UIView.animateWithDuration(dealAnimation, delay:0.0, options:nil, animations: {
             
             self.cardChoice1.userInteractionEnabled = false
             self.cardChoice2.userInteractionEnabled = false
@@ -129,7 +132,7 @@ class SetViewController: UIViewController {
                     deckImage.image = nil
                 }
                 
-                UIView.animateWithDuration(0.4, delay:0.0, options:nil, animations: {
+                UIView.animateWithDuration(slowAnimation, delay:0.0, options:nil, animations: {
                     
                     self.cardChoice1.userInteractionEnabled = false
                     self.cardChoice2.userInteractionEnabled = false
@@ -158,7 +161,7 @@ class SetViewController: UIViewController {
                         var dealtCardCenter = self.dealtCard.center
                         var dealtCardCenter2 = self.dealtCard2.center
                         
-                        UIView.animateWithDuration(0.2, delay:0.0, options:nil, animations: {
+                        UIView.animateWithDuration(fastAnimation, delay:0.0, options:nil, animations: {
                         
                             if (self.cardNumber < 50) {
                                 self.view.bringSubviewToFront(self.dealtCard)
@@ -211,7 +214,7 @@ class SetViewController: UIViewController {
                     deckImage.image = nil
                 }
                 
-                UIView.animateWithDuration(0.4, delay:0.0, options:nil, animations: {
+                UIView.animateWithDuration(slowAnimation, delay:0.0, options:nil, animations: {
                     
                     self.cardChoice1.userInteractionEnabled = false
                     self.cardChoice2.userInteractionEnabled = false
@@ -240,7 +243,7 @@ class SetViewController: UIViewController {
                         var dealtCardCenter = self.dealtCard.center
                         var dealtCardCenter2 = self.dealtCard2.center
                         
-                        UIView.animateWithDuration(0.2, delay:0.0, options:nil, animations: {
+                        UIView.animateWithDuration(fastAnimation, delay:0.0, options:nil, animations: {
                             
                             if (self.cardNumber < 50) {
                                 self.view.bringSubviewToFront(self.dealtCard)
@@ -306,7 +309,7 @@ class SetViewController: UIViewController {
         for (var i=0; i<userHand.count; i+=1) {
             var pic = view.viewWithTag(i+1) as UIImageView
             var center = pic.center
-            UIView.animateWithDuration(1.0, delay:0.0, options:nil, animations: {
+            UIView.animateWithDuration(fastAnimation, delay:0.0, options:nil, animations: {
                 pic.center = center
                 }, completion:nil)
             pic.image = UIImage(named: images[userHand[i]])
@@ -330,10 +333,10 @@ class SetViewController: UIViewController {
             discardPileLabel.text = nil            
             sortButton.setTitle(nil, forState: nil)
         }
-//        
-//        for card in ai.hand {
-//            print("\(images[card]) ")
-//        }
+        
+        for card in ai.hand {
+            print("\(images[card]) ")
+        }
     }
 }
 

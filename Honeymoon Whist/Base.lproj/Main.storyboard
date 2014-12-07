@@ -380,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mca-GA-8vC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480.5" y="120.5"/>
+            <point key="canvasLocation" x="592.5" y="120.5"/>
         </scene>
         <!--Play View Controller-->
         <scene sceneID="jce-ns-yEn">

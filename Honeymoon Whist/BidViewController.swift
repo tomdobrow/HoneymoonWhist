@@ -118,7 +118,7 @@ class BidViewController: UIViewController {
     func trumpString() -> String {
         if trump == 0 { return "clubs" }
         else if trump == 1 { return "diamonds" }
-        else if trump == 3 { return "hearts" }
+        else if trump == 2 { return "hearts" }
         else { return "spades" }
     }
     

@@ -187,6 +187,11 @@ class PlayViewController: UIViewController {
         userCardImage.image = UIImage(named: images[userCardIndex])
         aiCardImage.image = UIImage(named: images[aiCardIndex])
         
+        //check if user is void in trump
+        if !userLeads && cf.getSuit(aiCardIndex) == trump && cf.getSuit(userCardIndex) != trump {
+            ai.opponentIsVoidInTrump = true
+        }
+        
         view.viewWithTag(userHand.count)?.userInteractionEnabled = false
         
         if userWins(userCardIndex, aiCard: aiCardIndex) {

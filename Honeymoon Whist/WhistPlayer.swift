@@ -12,6 +12,7 @@ import Foundation
 class WhistPlayer {
     
     var hand = [Int]() //MAKE SURE IT"S SORTED
+    var opponentIsVoidInTrump = false
     
     func keepOrDiscard(card: Int) -> Bool {
         if cf.getValue(card) > 10 {
@@ -43,7 +44,16 @@ class WhistPlayer {
     }
     
     func chooseLead() -> Int {
-        return hand.count-1
+        if !opponentIsVoidInTrump {
+            var trumpCards = cf.getCardsInSuit(trump, hand: hand)
+            if trumpCards.count > 0 {
+                return trumpCards[trumpCards.count-1]
+            } else {
+                return hand.count-1
+            }
+        } else {
+            return hand.count-1
+        }
     }
     
     func chooseResponseTo(userCard: Int) -> Int {
@@ -51,6 +61,8 @@ class WhistPlayer {
         var userSuit = cf.getSuit(userCard)
         var dist = cf.getDistribution(hand)
         var cardsInSuit = cf.getCardsInSuit(userSuit, hand: hand)
+        var longestSuit = cf.getLongestSuit(hand)
+        var cardsInLongest = cf.getCardsInSuit(longestSuit, hand: hand)
         
         if cardsInSuit.count > 0 {
             for card in cardsInSuit {
@@ -61,7 +73,7 @@ class WhistPlayer {
         else {
             var trumpCards = cf.getCardsInSuit(trump, hand: hand)
             if trumpCards.count > 0 { return trumpCards[0] }
-            else { return 0 }
+            else { return cardsInLongest[0] }
         }
         
     }
@@ -107,38 +119,38 @@ class WhistPlayer {
             var outsideTopRun = 0
             var highCards = 0
             
-            for (var element=0; element<cardsOfThisSuit.count; element+=1) {
+            for element in 0...cardsOfThisSuit.count-1 {
                 if (cardsOfThisSuit[element] != (13*suit + element + 13 - cardsOfThisSuit.count)) {
                     outsideTopRun += 1
                 }
-            }
-            for (var element=0; element<cardsOfThisSuit.count; element+=1) {
+
                 if ((cardsOfThisSuit[element] == (13*suit+12)) | (cardsOfThisSuit[element] == (13*suit+11)) | (cardsOfThisSuit[element] == (13*suit+10)) | (cardsOfThisSuit[element] == (13*suit+9))  | (cardsOfThisSuit[element] == (13*suit+8))) {
                     highCards += 1
                 }
             }
-            if ( (5-highCards)/2 ) > outsideTopRun {
+            if ((5-highCards)/2 ) > outsideTopRun {
                 totalLosers += Double(outsideTopRun)
             }
             else {
                 totalLosers += Double(((5-highCards)/2))
             }
-            var maxLength = 0
-            for element in cf.getDistribution(hand) {
-                if (element > maxLength) {
-                    maxLength = element
-                }
-            }
-            
-            totalLosers -= abs(Double(maxLength)-5) / 2.0
         }
         
-    
+        var maxLength = 0
+        for element in cf.getDistribution(hand) {
+            if (element > maxLength) {
+                maxLength = element
+            }
+        }
+        
+        let cock = (Double(maxLength)-5.0)/2.0
+        if cock > 0 { totalLosers -= cock }
         
         //print ("losers \(totalLosers)")
         //print(totalLosers)
         var myBid = Int(7 - ceil(totalLosers)) //Book
-        //print("bid \(myBid)")
+
+        println("\(myBid) \(currentBid)")
         if (myBid <= currentBid) {
             return 0
         } else { return myBid }
