@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A316AA351A30D3BA00188F8C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A316AA341A30D3BA00188F8C /* LaunchViewController.swift */; };
 		A316AA371A30D62A00188F8C /* NewLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */; };
+		A354D9451A348DE800655813 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A354D9441A348DE800655813 /* CreditsViewController.swift */; };
 		A38A2AF91A2B54B100C7A7A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2AF81A2B54B100C7A7A3 /* AppDelegate.swift */; };
 		A38A2AFB1A2B54B100C7A7A3 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2AFA1A2B54B100C7A7A3 /* SetViewController.swift */; };
 		A38A2AFE1A2B54B100C7A7A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38A2AFC1A2B54B100C7A7A3 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		A316AA341A30D3BA00188F8C /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewLaunchScreen.storyboard; sourceTree = "<group>"; };
+		A354D9441A348DE800655813 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		A38A2AF31A2B54B100C7A7A3 /* Honeymoon Whist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Honeymoon Whist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38A2AF71A2B54B100C7A7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A38A2AF81A2B54B100C7A7A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				A69B2CE31A30FC270057EC09 /* CardFunctions.swift */,
 				A6B03DE61A32201E0051F816 /* LaunchScreenUIView.swift */,
 				A6B03DE81A3222CF0051F816 /* HomeViewController.swift */,
+				A354D9441A348DE800655813 /* CreditsViewController.swift */,
 			);
 			path = "Honeymoon Whist";
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				A6B03DE71A32201E0051F816 /* LaunchScreenUIView.swift in Sources */,
 				A6EDAA8E1A2CFF06009F574F /* WhistPlayer.swift in Sources */,
 				A69B2CE41A30FC270057EC09 /* CardFunctions.swift in Sources */,
+				A354D9451A348DE800655813 /* CreditsViewController.swift in Sources */,
 				A38A2AFB1A2B54B100C7A7A3 /* SetViewController.swift in Sources */,
 				A6EDAA8C1A2CF3B7009F574F /* PlayViewController.swift in Sources */,
 				A6B03DE91A3222CF0051F816 /* HomeViewController.swift in Sources */,
