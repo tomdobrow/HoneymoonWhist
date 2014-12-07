@@ -33,6 +33,9 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var userTricksLabel: UILabel!
     @IBOutlet weak var aiTricksLabel: UILabel!
     
+    @IBOutlet weak var ttImageView: UIImageView!
+    @IBOutlet weak var trashTalkLabel: UILabel!
+    
     var userLeads = false
     var userIsOffense = false
     var bid = Int()
@@ -48,7 +51,7 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        ttImageView.hidden = true
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         userTricksImage.image = UIImage(named: "b2fv")
         aiTricksImage.image = UIImage(named: "b2fv")
@@ -85,7 +88,7 @@ class PlayViewController: UIViewController {
             }
         }
 
-        images = ["2c","3c","4c","5c","6c","7c","8c","9c","10c","jc","qc","kc","ac","2d","3d","4d","5d","6d","7d","8d","9d","10d","jd","qd","kd","ad","2h","3h","4h","5h","6h","7h","8h","9h","10h","jh","qh","kh","ah","2s","3s","4s","5s","6s","7s","8s","9s","10s","js","qs","ks","as"]
+        images = ["2c","3c","4c","5c","6c","7c","8c","9c","10c","jc","qc","kc","ac","2d","3d","4d","5d","6d","7d","8d","9d","10d","jd","qd","kd","ad","2s","3s","4s","5s","6s","7s","8s","9s","10s","js","qs","ks","as","2h","3h","4h","5h","6h","7h","8h","9h","10h","jh","qh","kh","ah"]
     }
 
     //sets the image views for all the cards in the hand, nil for the rest
@@ -143,14 +146,46 @@ class PlayViewController: UIViewController {
         
         if userSuit == aiSuit {
             if userCard > aiCard { return true }
-            else { return false }
+            else {
+                ttImageView.hidden = false
+                view.bringSubviewToFront(trashTalkLabel)
+                trashTalkLabel.text = "Pathetic!"
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
+                dispatch_after(delayTime, dispatch_get_main_queue()){
+                    self.trashTalkLabel.text = ""
+                    self.ttImageView.hidden = true
+                }
+                return false
+            }
             
         } else {
             if userSuit == trump { return true }
-            else if aiSuit == trump { return false }
+            else if aiSuit == trump {
+                ttImageView.hidden = false
+                view.bringSubviewToFront(trashTalkLabel)
+                trashTalkLabel.text = "Ouch!"
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
+                dispatch_after(delayTime, dispatch_get_main_queue()){
+                    self.trashTalkLabel.text = ""
+                    self.ttImageView.hidden = true
+                }
+
+                return false
+            }
             else {
                 if userLeads { return true }
-                else { return false }
+                else {
+                    ttImageView.hidden = false
+                    view.bringSubviewToFront(trashTalkLabel)
+                    trashTalkLabel.text = "You Suck!"
+                    let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
+                    dispatch_after(delayTime, dispatch_get_main_queue()){
+                        self.trashTalkLabel.text = ""
+                        self.ttImageView.hidden = true
+                    }
+
+                    return false
+                }
             }
         }
     }

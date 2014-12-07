@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
+
+var audioPlayerShuffle = AVAudioPlayer()
 
 var userHand = [Int]()
 var images = [String]()
@@ -14,9 +17,9 @@ var deck = [Int]()
 var ai = WhistPlayer()
 var cf = CardFunctions()
 var trump = 0
-var slowAnimation = 0.0
-var fastAnimation = 0.0
-var dealAnimation = 0.0
+var slowAnimation = 0.3
+var fastAnimation = 0.2
+var dealAnimation = 0.4
 
 class SetViewController: UIViewController {
 
@@ -63,10 +66,14 @@ class SetViewController: UIViewController {
     }
     
     func setUpDeck () {
+        
+        let soundURL = NSBundle.mainBundle().URLForResource("shuffling-cards-4", withExtension: "mp3")
+        audioPlayerShuffle = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+        audioPlayerShuffle.play()
 
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
         
-        images = ["2c","3c","4c","5c","6c","7c","8c","9c","10c","jc","qc","kc","ac","2d","3d","4d","5d","6d","7d","8d","9d","10d","jd","qd","kd","ad","2h","3h","4h","5h","6h","7h","8h","9h","10h","jh","qh","kh","ah","2s","3s","4s","5s","6s","7s","8s","9s","10s","js","qs","ks","as"]
+        images = ["2c","3c","4c","5c","6c","7c","8c","9c","10c","jc","qc","kc","ac","2d","3d","4d","5d","6d","7d","8d","9d","10d","jd","qd","kd","ad","2s","3s","4s","5s","6s","7s","8s","9s","10s","js","qs","ks","as","2h","3h","4h","5h","6h","7h","8h","9h","10h","jh","qh","kh","ah"]
         
         //var deck = [Int]()
         for (var i = 0; i < 52; i+=1) {
@@ -86,10 +93,13 @@ class SetViewController: UIViewController {
         deckImage.image = UIImage(named: "b2fv")
         dealtCard.image = UIImage(named: "b2fv")
         dealtCard2.image = UIImage(named: "b2fv")
+        //dealtCard.center = deckImage.center
+        //dealtCard2.center = deckImage.center
+        
         var dealtCardCenter = dealtCard.center
         var dealtCardCenter2 = dealtCard2.center
 
-        UIView.animateWithDuration(dealAnimation, delay:0.0, options:nil, animations: {
+        UIView.animateWithDuration(dealAnimation, delay:0.2, options:nil, animations: {
             
             self.cardChoice1.userInteractionEnabled = false
             self.cardChoice2.userInteractionEnabled = false
@@ -103,7 +113,7 @@ class SetViewController: UIViewController {
             //self.cardChoice1.bounds = CGRectMake(0, 0, pic.bounds.width, pic.bounds.height)
             }, completion: {
                 (finished: Bool) in
-                
+                //print("Hello")
                 self.dealtCard.center = dealtCardCenter
                 self.dealtCard2.center = dealtCardCenter2
                 self.cardChoice1.image = UIImage(named: images[deck[self.cardNumber]])

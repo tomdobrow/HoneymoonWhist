@@ -19,6 +19,10 @@
 		A38A2B191A2B7F3900C7A7A3 /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */; };
 		A38A2B1B1A2C7AE600C7A7A3 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */; };
 		A394C31C1A339FCA003FF188 /* Campanile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A394C31B1A339FC9003FF188 /* Campanile.ttf */; };
+		A3AA15371A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3AA15361A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 */; };
+		A3AA15391A34BAE7008520AE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA15381A34BAE7008520AE /* AVFoundation.framework */; };
+		A3AA153B1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3AA153A1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 */; };
+		A3AA153D1A34C16B008520AE /* shuffling-cards-4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3AA153C1A34C16B008520AE /* shuffling-cards-4.mp3 */; };
 		A69B2CE41A30FC270057EC09 /* CardFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B2CE31A30FC270057EC09 /* CardFunctions.swift */; };
 		A6B03DE71A32201E0051F816 /* LaunchScreenUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03DE61A32201E0051F816 /* LaunchScreenUIView.swift */; };
 		A6B03DE91A3222CF0051F816 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03DE81A3222CF0051F816 /* HomeViewController.swift */; };
@@ -53,6 +57,10 @@
 		A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
 		A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		A394C31B1A339FC9003FF188 /* Campanile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Campanile.ttf; path = "../Honeymoon Whist/Campanile.ttf"; sourceTree = "<group>"; };
+		A3AA15361A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "gangstagrass- dirty pickin.mp3"; sourceTree = "<group>"; };
+		A3AA15381A34BAE7008520AE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A3AA153A1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Fleetwood Mac - Go Your Own Way (HQ).mp3"; sourceTree = "<group>"; };
+		A3AA153C1A34C16B008520AE /* shuffling-cards-4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "shuffling-cards-4.mp3"; sourceTree = "<group>"; };
 		A69B2CE31A30FC270057EC09 /* CardFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFunctions.swift; sourceTree = "<group>"; };
 		A6B03DE61A32201E0051F816 /* LaunchScreenUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenUIView.swift; sourceTree = "<group>"; };
 		A6B03DE81A3222CF0051F816 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3AA15391A34BAE7008520AE /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,10 @@
 		A38A2AEA1A2B54B100C7A7A3 = {
 			isa = PBXGroup;
 			children = (
+				A3AA15381A34BAE7008520AE /* AVFoundation.framework */,
+				A3AA15361A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 */,
+				A3AA153A1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 */,
+				A3AA153C1A34C16B008520AE /* shuffling-cards-4.mp3 */,
 				A38A2AF51A2B54B100C7A7A3 /* Honeymoon Whist */,
 				A38A2B0B1A2B54B100C7A7A3 /* Honeymoon WhistTests */,
 				A38A2AF41A2B54B100C7A7A3 /* Products */,
@@ -227,7 +240,10 @@
 			files = (
 				A38A2AFE1A2B54B100C7A7A3 /* Main.storyboard in Resources */,
 				A316AA371A30D62A00188F8C /* NewLaunchScreen.storyboard in Resources */,
+				A3AA15371A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 in Resources */,
 				A38A2B031A2B54B100C7A7A3 /* LaunchScreen.xib in Resources */,
+				A3AA153D1A34C16B008520AE /* shuffling-cards-4.mp3 in Resources */,
+				A3AA153B1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 in Resources */,
 				A38A2B001A2B54B100C7A7A3 /* Images.xcassets in Resources */,
 				A394C31C1A339FCA003FF188 /* Campanile.ttf in Resources */,
 			);

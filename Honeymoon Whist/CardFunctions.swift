@@ -19,11 +19,11 @@ class CardFunctions {
         for card in hand {
             if getSuit(card) == 0 { clubCount++ }
             else if getSuit(card) == 1 { diamondCount++ }
-            else if getSuit(card) == 2 { heartCount++ }
-            else { spadeCount++ }
+            else if getSuit(card) == 2 { spadeCount++ }
+            else { heartCount++ }
         }
         
-        return [clubCount, diamondCount, heartCount, spadeCount]
+        return [clubCount, diamondCount, spadeCount, heartCount]
     }
     
     func getLongestSuit(hand: [Int]) -> Int {

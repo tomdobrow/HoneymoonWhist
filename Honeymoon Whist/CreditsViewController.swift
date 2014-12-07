@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Tom. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class CreditsViewController: UIViewController {
     
+    @IBOutlet weak var testImage: UIImageView!
     @IBOutlet weak var scrollText: UITextView!
     
     override func viewDidLoad() {
@@ -25,10 +25,13 @@ class CreditsViewController: UIViewController {
     }
     
     func animate() {
-        UIView.animateWithDuration(2.0, delay:0.0, options:nil, animations: {
-            
-            self.scrollText.center = CGPoint(x:self.scrollText.center.x, y:-100)
-        }, completion: nil)
+        
+//        UIView.animateWithDuration(4.0, options: nil, animations: {
+//            
+//            self.testImage.center = 0
+//            
+//        }, completion: nil)
+        
     }
     
 }
