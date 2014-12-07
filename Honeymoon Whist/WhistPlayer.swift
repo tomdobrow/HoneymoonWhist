@@ -123,15 +123,20 @@ class WhistPlayer {
             else {
                 totalLosers += Double(((5-highCards)/2))
             }
-            //println(outsideTopRun)
-            //println(highCards)
+            var maxLength = 0
+            for element in cf.getDistribution(hand) {
+                if (element > maxLength) {
+                    maxLength = element
+                }
+            }
             
+            totalLosers -= abs(Double(maxLength)-5) / 2.0
         }
         
-        
+    
         
         //print ("losers \(totalLosers)")
-        print(totalLosers)
+        //print(totalLosers)
         var myBid = Int(7 - ceil(totalLosers)) //Book
         //print("bid \(myBid)")
         if (myBid <= currentBid) {
