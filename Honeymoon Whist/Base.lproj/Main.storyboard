@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="6TW-pZ-I1C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="szO-gh-IB7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -502,11 +502,6 @@
                                     <outletCollection property="gestureRecognizers" destination="tCn-Wa-Bxb" appends="YES" id="gRr-0E-Sif"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5ix-la-XdP" userLabel="card13">
-                                <rect key="frame" x="145" y="356" width="80" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4RY-Rn-heb">
                                 <rect key="frame" x="16" y="310" width="75" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -521,11 +516,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="YSV-BU-AAU" userLabel="card13">
-                                <rect key="frame" x="145" y="228" width="80" height="120"/>
+                            <view contentMode="scaleToFill" id="Lfb-oY-LME" userLabel="cardsOnTable">
+                                <rect key="frame" x="122" y="180" width="130" height="281"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                            </imageView>
+                                <subviews>
+                                    <imageView tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="YSV-BU-AAU" userLabel="aiCard">
+                                        <rect key="frame" x="25" y="8" width="80" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5ix-la-XdP" userLabel="userCard">
+                                        <rect key="frame" x="25" y="153" width="80" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -547,6 +554,7 @@
                         <outlet property="card7Image" destination="JkH-Xt-Tvz" id="cVJ-D9-ED7"/>
                         <outlet property="card8Image" destination="14x-SI-gwA" id="OlI-uS-7bx"/>
                         <outlet property="card9Image" destination="QmZ-gr-Pvx" id="DJd-D0-EGQ"/>
+                        <outlet property="cardsOnTable" destination="Lfb-oY-LME" id="75T-cd-9q4"/>
                         <outlet property="userCardImage" destination="5ix-la-XdP" id="scd-E8-y5x"/>
                         <outlet property="userTricksImage" destination="beG-oa-Zqb" id="IFf-wa-ddy"/>
                         <outlet property="userTricksLabel" destination="4RY-Rn-heb" id="nRt-3j-3TN"/>
@@ -619,7 +627,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="866.5" y="120.5"/>
+            <point key="canvasLocation" x="1057.5" y="120.5"/>
         </scene>
     </scenes>
     <resources>
