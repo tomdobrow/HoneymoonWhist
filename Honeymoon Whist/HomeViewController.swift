@@ -27,5 +27,10 @@ class HomeViewController: UIViewController {
 //        audioPlayer2.play()
         
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "playGame" {
+            audioPlayer.stop()
+        }
+    }
 
 }
