@@ -26,6 +26,9 @@ class BidViewController: UIViewController {
     var currentBid = 0
     var userLeads = false
     
+    
+    @IBOutlet weak var yourBubble: UIImageView!
+    @IBOutlet weak var hisBubble: UIImageView!
     @IBOutlet weak var trumpSuitBar: UISegmentedControl!
     @IBOutlet weak var bidBar: UISegmentedControl!
     @IBOutlet weak var playButton: UIButton!
@@ -41,6 +44,8 @@ class BidViewController: UIViewController {
         trumpSuitBar.userInteractionEnabled = false
         playButton.alpha = 0
         playButton.userInteractionEnabled = false
+        yourBubble.hidden = true
+        hisBubble.hidden = true
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -86,6 +91,8 @@ class BidViewController: UIViewController {
             if (currentBid < bidBar.selectedSegmentIndex) {
                 currentBid = bidBar.selectedSegmentIndex
                 
+                hisBubble.hidden = false
+                yourBubble.hidden = false
                 yourBidLabel.text = NSString(format: "%.i", bidBar.selectedSegmentIndex )
                 hisBidLabel.text = "Hmm.."
                 let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
@@ -98,31 +105,37 @@ class BidViewController: UIViewController {
                     
                     if self.currentBid == 0 {
                         self.userLeads = true
+                        self.hisBubble.hidden = false
+                        self.yourBubble.hidden = true
                         self.hisBidLabel.text = "Pass"
                         self.yourBidLabel.text = ""
+                        self.yourBubble.hidden = true
+                        
                         self.endBidding(self.userLeads)
                         
                     } else {
+                        self.hisBubble.hidden = false
                         self.hisBidLabel.text = NSString(format: "%.i", self.bidBar.selectedSegmentIndex )
                         self.highestBid = self.currentBid
                     }
                     
                 }
-                
-            
-            
-                //hisBidLabel.text = NSString(format: "%.i", bidBar.selectedSegmentIndex )
-                //yourBidLabel.text = "Hmm.."
             }
             else {
                 print("TOO LOW")
+                hisBubble.hidden = false
+                yourBubble.hidden = false
                 hisBidLabel.text = "Too Low"
                 yourBidLabel.text = "Oops.."
             }
         }
         else {
+            yourBubble.hidden = false
             yourBidLabel.text = "Pass"
-            endBidding(userLeads)
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
+            dispatch_after(delayTime, dispatch_get_main_queue()){
+                self.endBidding(self.userLeads)
+            }
         }
     }
     
@@ -147,11 +160,13 @@ class BidViewController: UIViewController {
             
         } else {
             trump = ai.chooseTrump()
+            hisBubble.hidden = false
             hisBidLabel.text = "\(trumpString())"
             yourBidLabel.text = ""
+            yourBubble.hidden = true
             //textView.text = resultText + "\n" + textView.text
 
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 3))
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 2))
             dispatch_after(delayTime, dispatch_get_main_queue()){
                 
                 //prepare for segue to gameplay. pass the right player and the trump
@@ -161,9 +176,11 @@ class BidViewController: UIViewController {
     }
     
     @IBAction func playButtonTap(sender: AnyObject) {
+        hisBubble.hidden = true
+        yourBubble.hidden = false
         yourBidLabel.text = "\(trumpString())"
         hisBidLabel.text = ""
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 3))
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
         dispatch_after(delayTime, dispatch_get_main_queue()){
             
             //prepare for segue to gameplay. pass the right player and the trump

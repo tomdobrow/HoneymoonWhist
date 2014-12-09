@@ -8,6 +8,10 @@
 
 import UIKit
 
+import AVFoundation
+var soundPlayer = AVAudioPlayer()
+var soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
+
 class PlayViewController: UIViewController {
     
     @IBOutlet weak var card1Image: UIImageView!
@@ -35,6 +39,7 @@ class PlayViewController: UIViewController {
     
     @IBOutlet weak var ttImageView: UIImageView!
     @IBOutlet weak var trashTalkLabel: UILabel!
+    @IBOutlet weak var runItBackLabel: UIButton!
     
     var userLeads = false
     var userIsOffense = false
@@ -66,6 +71,7 @@ class PlayViewController: UIViewController {
         
         cardsOnTable.layer.transform = t
 
+        runItBackLabel.hidden = true
         //defaultVariables()
         loadHand()
         nextTrick()
@@ -138,14 +144,19 @@ class PlayViewController: UIViewController {
             self.enableInteraction()
         }
     }
-    
+
     func userWins(userCard: Int, aiCard: Int) -> Bool {
         
         let userSuit = cf.getSuit(userCard)
         let aiSuit = cf.getSuit(aiCard)
         
         if userSuit == aiSuit {
-            if userCard > aiCard { return true }
+            if userCard > aiCard {
+                soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
+                soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                soundPlayer.play()
+                return true
+            }
             else {
                 ttImageView.hidden = false
                 view.bringSubviewToFront(trashTalkLabel)
@@ -159,7 +170,12 @@ class PlayViewController: UIViewController {
             }
             
         } else {
-            if userSuit == trump { return true }
+            if userSuit == trump {
+                soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
+                soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                soundPlayer.play()
+                return true
+            }
             else if aiSuit == trump {
                 ttImageView.hidden = false
                 view.bringSubviewToFront(trashTalkLabel)
@@ -173,7 +189,12 @@ class PlayViewController: UIViewController {
                 return false
             }
             else {
-                if userLeads { return true }
+                if userLeads {
+                    soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
+                    soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                    soundPlayer.play()
+                    return true
+                }
                 else {
                     ttImageView.hidden = false
                     view.bringSubviewToFront(trashTalkLabel)
@@ -248,14 +269,39 @@ class PlayViewController: UIViewController {
         if userHand.count > 0 && ai.hand.count > 0 { nextTrick() }
         else {
             println("GAMEOVER")
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
+            dispatch_after(delayTime, dispatch_get_main_queue()){
+                self.userCardImage.image = nil
+                self.aiCardImage.image = nil
+                self.userTricksImage.image = nil
+                self.aiTricksImage.image = nil
+                self.userTricksLabel.text = ""
+                self.aiTricksLabel.text = ""
+                self.runItBackLabel.hidden = false
+                
+            }
+            
+            
             if (userIsOffense && (userTricksWon >= bid+6)) || (!userIsOffense && (aiTricksWon < bid+6)) {
+                soundURL = NSBundle.mainBundle().URLForResource("winGame", withExtension: "mp3")
+                soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                soundPlayer.play()
                 println("YOU WIN")
             } else {
                 println("YOU LOSE")
             }
         }
+        
+        
     }
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "runItBack" {
+            
+            userHand = []
+            deck = []
+            ai.hand = []
+        }
+    }
     /*
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
