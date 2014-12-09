@@ -74,9 +74,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
+<<<<<<< HEAD
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.93000000000000005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Man Vs. Machine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lkq-C4-92Q">
+=======
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.93000000000000005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Man vs. Machine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lkq-C4-92Q">
-
+>>>>>>> e63fa547d61ebe1c8d5c541144670fd4f35b3e3a
                                 <rect key="frame" x="43" y="596" width="289" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -879,8 +881,10 @@ How do I know if I won the trick?
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-
+<<<<<<< HEAD
+        <segue reference="BSo-NB-9Ts"/>
+=======
         <segue reference="doG-hI-TpE"/>
-
+>>>>>>> e63fa547d61ebe1c8d5c541144670fd4f35b3e3a
     </inferredMetricsTieBreakers>
 </document>

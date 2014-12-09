@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A316AA351A30D3BA00188F8C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A316AA341A30D3BA00188F8C /* LaunchViewController.swift */; };
 		A316AA371A30D62A00188F8C /* NewLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */; };
 		A330B58A1A37A90400EF2A9F /* winTrick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A330B5891A37A90400EF2A9F /* winTrick.mp3 */; };
 		A330B58C1A37ABC400EF2A9F /* winGame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A330B58B1A37ABC400EF2A9F /* winGame.mp3 */; };
@@ -26,7 +25,10 @@
 		A3AA153B1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3AA153A1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 */; };
 		A3AA153D1A34C16B008520AE /* shuffling-cards-4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3AA153C1A34C16B008520AE /* shuffling-cards-4.mp3 */; };
 		A69B2CE41A30FC270057EC09 /* CardFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B2CE31A30FC270057EC09 /* CardFunctions.swift */; };
-		A6B03DE71A32201E0051F816 /* LaunchScreenUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03DE61A32201E0051F816 /* LaunchScreenUIView.swift */; };
+		A69DCDEF1A37A0A600FB5E18 /* RulesOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DCDEE1A37A0A600FB5E18 /* RulesOverviewController.swift */; };
+		A69DCDF11A37A1BF00FB5E18 /* RulesSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DCDF01A37A1BF00FB5E18 /* RulesSettingController.swift */; };
+		A69DCDF31A37A56200FB5E18 /* RulesBiddingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DCDF21A37A56200FB5E18 /* RulesBiddingController.swift */; };
+		A69DCDF51A37A58900FB5E18 /* RulesPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DCDF41A37A58900FB5E18 /* RulesPlayingController.swift */; };
 		A6B03DE91A3222CF0051F816 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03DE81A3222CF0051F816 /* HomeViewController.swift */; };
 		A6EDAA8C1A2CF3B7009F574F /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */; };
 		A6EDAA8E1A2CFF06009F574F /* WhistPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EDAA8D1A2CFF06009F574F /* WhistPlayer.swift */; };
@@ -43,7 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A316AA341A30D3BA00188F8C /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewLaunchScreen.storyboard; sourceTree = "<group>"; };
 		A330B5891A37A90400EF2A9F /* winTrick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winTrick.mp3; sourceTree = "<group>"; };
 		A330B58B1A37ABC400EF2A9F /* winGame.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winGame.mp3; sourceTree = "<group>"; };
@@ -66,7 +67,10 @@
 		A3AA153A1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Fleetwood Mac - Go Your Own Way (HQ).mp3"; sourceTree = "<group>"; };
 		A3AA153C1A34C16B008520AE /* shuffling-cards-4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "shuffling-cards-4.mp3"; sourceTree = "<group>"; };
 		A69B2CE31A30FC270057EC09 /* CardFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFunctions.swift; sourceTree = "<group>"; };
-		A6B03DE61A32201E0051F816 /* LaunchScreenUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenUIView.swift; sourceTree = "<group>"; };
+		A69DCDEE1A37A0A600FB5E18 /* RulesOverviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesOverviewController.swift; sourceTree = "<group>"; };
+		A69DCDF01A37A1BF00FB5E18 /* RulesSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesSettingController.swift; sourceTree = "<group>"; };
+		A69DCDF21A37A56200FB5E18 /* RulesBiddingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesBiddingController.swift; sourceTree = "<group>"; };
+		A69DCDF41A37A58900FB5E18 /* RulesPlayingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesPlayingController.swift; sourceTree = "<group>"; };
 		A6B03DE81A3222CF0051F816 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlayViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A6EDAA8D1A2CFF06009F574F /* WhistPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhistPlayer.swift; sourceTree = "<group>"; };
@@ -94,6 +98,10 @@
 		A38A2AEA1A2B54B100C7A7A3 = {
 			isa = PBXGroup;
 			children = (
+				A69DCDF41A37A58900FB5E18 /* RulesPlayingController.swift */,
+				A69DCDF21A37A56200FB5E18 /* RulesBiddingController.swift */,
+				A69DCDF01A37A1BF00FB5E18 /* RulesSettingController.swift */,
+				A69DCDEE1A37A0A600FB5E18 /* RulesOverviewController.swift */,
 				A3AA15381A34BAE7008520AE /* AVFoundation.framework */,
 				A3AA15361A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 */,
 				A330B58B1A37ABC400EF2A9F /* winGame.mp3 */,
@@ -119,19 +127,17 @@
 			isa = PBXGroup;
 			children = (
 				A38A2AF81A2B54B100C7A7A3 /* AppDelegate.swift */,
-				A38A2AFA1A2B54B100C7A7A3 /* SetViewController.swift */,
 				A38A2AFC1A2B54B100C7A7A3 /* Main.storyboard */,
+				A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */,
 				A38A2AFF1A2B54B100C7A7A3 /* Images.xcassets */,
 				A38A2B011A2B54B100C7A7A3 /* LaunchScreen.xib */,
 				A38A2AF61A2B54B100C7A7A3 /* Supporting Files */,
+				A38A2AFA1A2B54B100C7A7A3 /* SetViewController.swift */,
 				A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */,
 				A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */,
 				A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */,
 				A6EDAA8D1A2CFF06009F574F /* WhistPlayer.swift */,
-				A316AA341A30D3BA00188F8C /* LaunchViewController.swift */,
-				A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */,
 				A69B2CE31A30FC270057EC09 /* CardFunctions.swift */,
-				A6B03DE61A32201E0051F816 /* LaunchScreenUIView.swift */,
 				A6B03DE81A3222CF0051F816 /* HomeViewController.swift */,
 				A354D9441A348DE800655813 /* CreditsViewController.swift */,
 			);
@@ -271,16 +277,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6B03DE71A32201E0051F816 /* LaunchScreenUIView.swift in Sources */,
+				A69DCDF51A37A58900FB5E18 /* RulesPlayingController.swift in Sources */,
 				A6EDAA8E1A2CFF06009F574F /* WhistPlayer.swift in Sources */,
 				A69B2CE41A30FC270057EC09 /* CardFunctions.swift in Sources */,
 				A354D9451A348DE800655813 /* CreditsViewController.swift in Sources */,
 				A38A2AFB1A2B54B100C7A7A3 /* SetViewController.swift in Sources */,
 				A6EDAA8C1A2CF3B7009F574F /* PlayViewController.swift in Sources */,
+				A69DCDF11A37A1BF00FB5E18 /* RulesSettingController.swift in Sources */,
 				A6B03DE91A3222CF0051F816 /* HomeViewController.swift in Sources */,
+				A69DCDF31A37A56200FB5E18 /* RulesBiddingController.swift in Sources */,
 				A38A2AF91A2B54B100C7A7A3 /* AppDelegate.swift in Sources */,
 				A38A2B1B1A2C7AE600C7A7A3 /* RulesViewController.swift in Sources */,
-				A316AA351A30D3BA00188F8C /* LaunchViewController.swift in Sources */,
+				A69DCDEF1A37A0A600FB5E18 /* RulesOverviewController.swift in Sources */,
 				A38A2B191A2B7F3900C7A7A3 /* BidViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
