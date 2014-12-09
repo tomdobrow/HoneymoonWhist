@@ -9,10 +9,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Rules View Controller-->
+        <!--View Controller-->
         <scene sceneID="Wso-oJ-xsY">
             <objects>
-                <viewController id="gBa-6F-THU" customClass="RulesViewController" customModule="Honeymoon_Whist" sceneMemberID="viewController">
+                <viewController id="gBa-6F-THU" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ed7-yu-FmH"/>
                         <viewControllerLayoutGuide type="bottom" id="pKv-dv-01g"/>
