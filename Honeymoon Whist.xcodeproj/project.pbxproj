@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A316AA351A30D3BA00188F8C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A316AA341A30D3BA00188F8C /* LaunchViewController.swift */; };
 		A316AA371A30D62A00188F8C /* NewLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */; };
-		A32E79CE1A350D8C00C21862 /* Bell MT in Resources */ = {isa = PBXBuildFile; fileRef = A32E79CD1A350D8C00C21862 /* Bell MT */; };
 		A354D9451A348DE800655813 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A354D9441A348DE800655813 /* CreditsViewController.swift */; };
 		A38A2AF91A2B54B100C7A7A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2AF81A2B54B100C7A7A3 /* AppDelegate.swift */; };
 		A38A2AFB1A2B54B100C7A7A3 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A2AFA1A2B54B100C7A7A3 /* SetViewController.swift */; };
@@ -44,7 +43,6 @@
 /* Begin PBXFileReference section */
 		A316AA341A30D3BA00188F8C /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		A316AA361A30D62A00188F8C /* NewLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewLaunchScreen.storyboard; sourceTree = "<group>"; };
-		A32E79CD1A350D8C00C21862 /* Bell MT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bell MT"; sourceTree = "<group>"; };
 		A354D9441A348DE800655813 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		A38A2AF31A2B54B100C7A7A3 /* Honeymoon Whist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Honeymoon Whist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38A2AF71A2B54B100C7A7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			children = (
 				A3AA15381A34BAE7008520AE /* AVFoundation.framework */,
 				A3AA15361A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 */,
-				A32E79CD1A350D8C00C21862 /* Bell MT */,
 				A3AA153A1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 */,
 				A3AA153C1A34C16B008520AE /* shuffling-cards-4.mp3 */,
 				A38A2AF51A2B54B100C7A7A3 /* Honeymoon Whist */,
@@ -244,7 +241,6 @@
 				A38A2AFE1A2B54B100C7A7A3 /* Main.storyboard in Resources */,
 				A316AA371A30D62A00188F8C /* NewLaunchScreen.storyboard in Resources */,
 				A3AA15371A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 in Resources */,
-				A32E79CE1A350D8C00C21862 /* Bell MT in Resources */,
 				A38A2B031A2B54B100C7A7A3 /* LaunchScreen.xib in Resources */,
 				A3AA153D1A34C16B008520AE /* shuffling-cards-4.mp3 in Resources */,
 				A3AA153B1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 in Resources */,

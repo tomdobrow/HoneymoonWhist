@@ -10,13 +10,17 @@ import UIKit
 
 class CreditsViewController: UIViewController {
     
-    @IBOutlet weak var testImage: UIImageView!
+    
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var scrollText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
-        animate()
+        view.bringSubviewToFront(backButton)
+        scrollText.text =
+        "Guy who did shit:\t\t                    Tom Dobrow \n\n\n\n\n\nGuy who didn't do shit:\t   Jack 'The Dong' Reuter"
+        
         
     }
     override func didReceiveMemoryWarning() {
@@ -24,13 +28,24 @@ class CreditsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        animate()
+    }
+    
     func animate() {
         
-//        UIView.animateWithDuration(4.0, options: nil, animations: {
-//            
-//            self.testImage.center = 0
-//            
-//        }, completion: nil)
+        //testImage.image = UIImage(named: "10c")
+        //testImage.center = CGPoint(x:100, y:100)
+        UIView.animateWithDuration(10.0, delay: 0.0, options: UIViewAnimationOptions.AllowAnimatedContent, animations:
+            {
+                
+                self.scrollText.center.x += 300
+                
+            }, completion: {
+                (finished: Bool) in
+                //println("sup")
+            })
         
     }
     

@@ -119,20 +119,22 @@ class WhistPlayer {
             var outsideTopRun = 0
             var highCards = 0
             
-            for element in 0...cardsOfThisSuit.count-1 {
-                if (cardsOfThisSuit[element] != (13*suit + element + 13 - cardsOfThisSuit.count)) {
-                    outsideTopRun += 1
-                }
+            if cardsOfThisSuit.count != 0 {
+                for element in 0...cardsOfThisSuit.count-1 {
+                    if (cardsOfThisSuit[element] != (13*suit + element + 13 - cardsOfThisSuit.count)) {
+                        outsideTopRun += 1
+                    }
 
-                if ((cardsOfThisSuit[element] == (13*suit+12)) | (cardsOfThisSuit[element] == (13*suit+11)) | (cardsOfThisSuit[element] == (13*suit+10)) | (cardsOfThisSuit[element] == (13*suit+9))  | (cardsOfThisSuit[element] == (13*suit+8))) {
-                    highCards += 1
+                    if ((cardsOfThisSuit[element] == (13*suit+12)) | (cardsOfThisSuit[element] == (13*suit+11)) | (cardsOfThisSuit[element] == (13*suit+10)) | (cardsOfThisSuit[element] == (13*suit+9))  | (cardsOfThisSuit[element] == (13*suit+8))) {
+                        highCards += 1
+                    }
                 }
-            }
-            if ((5-highCards)/2 ) > outsideTopRun {
-                totalLosers += Double(outsideTopRun)
-            }
-            else {
-                totalLosers += Double(((5-highCards)/2))
+                if ((5-highCards)/2 ) > outsideTopRun {
+                    totalLosers += Double(outsideTopRun)
+                }
+                else {
+                    totalLosers += Double(((5-highCards)/2))
+                }
             }
         }
         

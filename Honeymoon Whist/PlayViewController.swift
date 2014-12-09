@@ -233,6 +233,7 @@ class PlayViewController: UIViewController {
             userLeads = true
             userTricksWon++
             userTricksLabel.text = String(userTricksWon)
+            
         } else {
             userLeads = false
             aiTricksWon++

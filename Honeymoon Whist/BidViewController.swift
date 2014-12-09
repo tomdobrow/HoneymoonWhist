@@ -28,10 +28,11 @@ class BidViewController: UIViewController {
     
     @IBOutlet weak var trumpSuitBar: UISegmentedControl!
     @IBOutlet weak var bidBar: UISegmentedControl!
-    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var bidButton: UIButton!
     
+    @IBOutlet weak var yourBidLabel: UILabel!
+    @IBOutlet weak var hisBidLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         bidBar.selectedSegmentIndex = 0
@@ -79,53 +80,60 @@ class BidViewController: UIViewController {
     }
     
     @IBAction func placeBid(sender: AnyObject) {
-        var resultText: NSString = ""
+        //var resultText: NSString = ""
         if (bidBar.selectedSegmentIndex != 0) {
             
             if (currentBid < bidBar.selectedSegmentIndex) {
                 currentBid = bidBar.selectedSegmentIndex
-                resultText = NSString(format: "%.i", bidBar.selectedSegmentIndex )
-                textView.text = resultText + "\n" + textView.text
                 
-                highestBid = currentBid
-
-                bidBar.selectedSegmentIndex = ai.placeBid(currentBid)
-                currentBid = bidBar.selectedSegmentIndex
-                
-                if currentBid == 0 {
-                    userLeads = true
-                    endBidding(userLeads)
+                yourBidLabel.text = NSString(format: "%.i", bidBar.selectedSegmentIndex )
+                hisBidLabel.text = "Hmm.."
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
+                dispatch_after(delayTime, dispatch_get_main_queue()){
                     
-                } else {
-                    highestBid = currentBid
+                    self.highestBid = self.currentBid
+                    
+                    self.bidBar.selectedSegmentIndex = ai.placeBid(self.currentBid)
+                    self.currentBid = self.bidBar.selectedSegmentIndex
+                    
+                    if self.currentBid == 0 {
+                        self.userLeads = true
+                        self.hisBidLabel.text = "Pass"
+                        self.yourBidLabel.text = ""
+                        self.endBidding(self.userLeads)
+                        
+                    } else {
+                        self.hisBidLabel.text = NSString(format: "%.i", self.bidBar.selectedSegmentIndex )
+                        self.highestBid = self.currentBid
+                    }
+                    
                 }
+                
             
-                resultText = NSString(format: "%.i", currentBid)
-                textView.text = resultText + "\n" + textView.text
-                //print("SUP")
+            
+                //hisBidLabel.text = NSString(format: "%.i", bidBar.selectedSegmentIndex )
+                //yourBidLabel.text = "Hmm.."
             }
             else {
                 print("TOO LOW")
-                resultText = "Must bid higher or pass"
-                textView.text = resultText + "\n" + textView.text
+                hisBidLabel.text = "Too Low"
+                yourBidLabel.text = "Oops.."
             }
-                    }
+        }
         else {
+            yourBidLabel.text = "Pass"
             endBidding(userLeads)
         }
     }
     
     func trumpString() -> String {
-        if trump == 0 { return "clubs" }
-        else if trump == 1 { return "diamonds" }
-        else if trump == 2 { return "spades" }
-        else { return "hearts" }
+        if trump == 0 { return "Clubs" }
+        else if trump == 1 { return "Diamonds" }
+        else if trump == 2 { return "Spades" }
+        else { return "Hearts" }
     }
     
     func endBidding(userLeads: Bool) {
-        var resultText = ""
-        resultText = "Pass"
-        textView.text = "\n" + resultText + "\n" + textView.text
         
         if userLeads {
             trumpSuitBar.alpha = 1.0
@@ -139,8 +147,9 @@ class BidViewController: UIViewController {
             
         } else {
             trump = ai.chooseTrump()
-            resultText = "Alright. Trump will be \(trumpString())"
-            textView.text = resultText + "\n" + textView.text
+            hisBidLabel.text = "\(trumpString())"
+            yourBidLabel.text = ""
+            //textView.text = resultText + "\n" + textView.text
 
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 3))
             dispatch_after(delayTime, dispatch_get_main_queue()){
@@ -152,7 +161,14 @@ class BidViewController: UIViewController {
     }
     
     @IBAction func playButtonTap(sender: AnyObject) {
-        performSegueWithIdentifier("startPlaying", sender: nil)
+        yourBidLabel.text = "\(trumpString())"
+        hisBidLabel.text = ""
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 3))
+        dispatch_after(delayTime, dispatch_get_main_queue()){
+            
+            //prepare for segue to gameplay. pass the right player and the trump
+            self.performSegueWithIdentifier("startPlaying", sender: nil)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
