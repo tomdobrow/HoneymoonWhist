@@ -294,6 +294,7 @@ class PlayViewController: UIViewController {
         
         
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "runItBack" {
             
@@ -340,44 +341,10 @@ class PlayViewController: UIViewController {
                 
             }
         }
-        
-        
-//        var picTapped = view.viewWithTag(userChoice+1) as UIImageView
-//        var picPrevious = view.viewWithTag(lastTapped+1) as UIImageView
-//        
-//        if !userLeads && playIsValid(userChoice, aiCard: aiChoice) || userLeads {
-//            tapCount++
-//            
-//            if tapCount == 1 {
-//                UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
-//                    picTapped.center.y -= 40
-//                    }, completion: nil)
-//                
-//            } else if tapCount == 2 {
-//                
-//                if lastTapped == userChoice {
-//                    if userLeads { aiChoice = ai.chooseResponseTo(userHand[userChoice]) }
-//                    playTrick(userChoice, aiCard: aiChoice)
-//                    picTapped.center.y = handImageCenterY
-//                    tapCount = 0
-//                    lastTapped--
-//                    
-//                } else {
-//                    UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
-//                        picTapped.center.y -= 40
-//                        }, completion: nil)
-//                    UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
-//                        picPrevious.center.y = self.handImageCenterY
-//                        }, completion: nil)
-//                    tapCount = 1
-//                }
-//                
-//            } else {
-//                println("shiiit")
-//            }
-//        }
-//        
-//        lastTapped = userChoice
+    }
+    
+    @IBAction func playAgainButton(sender: AnyObject) {
+        self.performSegueWithIdentifier("runItBack", sender: nil)
     }
     
     //card image view taps

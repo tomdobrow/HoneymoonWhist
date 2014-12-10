@@ -504,10 +504,6 @@ How do I know if I won the trick?
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="uO7-Kf-gst">
-                                <rect key="frame" x="0.0" y="0.0" width="376" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WY6-Ux-cry">
                                 <rect key="frame" x="137" y="627" width="100" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -622,12 +618,12 @@ How do I know if I won the trick?
                         <outlet property="trumpSuitBar" destination="BAu-st-yLe" id="1aR-fZ-qTL"/>
                         <outlet property="yourBidLabel" destination="Y12-2g-bfk" id="akg-gr-z9a"/>
                         <outlet property="yourBubble" destination="dKO-wR-di3" id="gVS-Ht-6ll"/>
-                        <segue destination="szO-gh-IB7" kind="modal" identifier="startPlaying" modalTransitionStyle="crossDissolve" id="nhl-NC-CIJ"/>
+                        <segue destination="szO-gh-IB7" kind="modal" identifier="startPlaying" id="k0q-2S-ltC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mca-GA-8vC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="592.5" y="120.5"/>
+            <point key="canvasLocation" x="596.5" y="-301.5"/>
         </scene>
         <!--Play View Controller-->
         <scene sceneID="jce-ns-yEn">
@@ -751,7 +747,7 @@ How do I know if I won the trick?
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6TW-pZ-I1C" kind="modal" identifier="runItBack" id="BSo-NB-9Ts"/>
+                                    <action selector="playAgainButton:" destination="szO-gh-IB7" eventType="touchUpInside" id="nav-rj-Tgx"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="Lfb-oY-LME" userLabel="cardsOnTable">
@@ -833,6 +829,7 @@ How do I know if I won the trick?
                         <outlet property="userCardImage" destination="5ix-la-XdP" id="scd-E8-y5x"/>
                         <outlet property="userTricksImage" destination="beG-oa-Zqb" id="IFf-wa-ddy"/>
                         <outlet property="userTricksLabel" destination="4RY-Rn-heb" id="nRt-3j-3TN"/>
+                        <segue destination="6TW-pZ-I1C" kind="modal" identifier="runItBack" modalTransitionStyle="crossDissolve" id="jyd-qe-FOy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIc-7V-BhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -902,20 +899,7 @@ How do I know if I won the trick?
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1048.5" y="120.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="dEM-dd-PKM">
-            <objects>
-                <viewController id="uKp-go-c0m" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JC5-rn-MJN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FX5-DE-g4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
+            <point key="canvasLocation" x="596.5" y="440.5"/>
         </scene>
     </scenes>
     <resources>
