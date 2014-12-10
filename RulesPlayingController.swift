@@ -11,11 +11,11 @@ import Foundation
 class RulesPlayingController: RulesViewController {
     
     override func rightSwiped() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
-    override func upSwiped() {
-        self.performSegueWithIdentifier("rulesPlayingToHome", sender: nil)
+    override func downSwiped() {
+        self.dismissViewControllerAnimated(true, completion: nil)
 
     }
     

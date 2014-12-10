@@ -11,11 +11,16 @@ import Foundation
 class RulesBiddingController: RulesViewController {
     
     override func rightSwiped() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func leftSwiped() {
         self.performSegueWithIdentifier("biddingToPlaying", sender: nil)
+    }
+    
+    override func downSwiped() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
      
