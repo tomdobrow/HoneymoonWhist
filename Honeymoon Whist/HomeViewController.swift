@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-var audioPlayer = AVAudioPlayer()
+//var audioPlayer = AVAudioPlayer()
 //var audioPlayer2 = AVAudioPlayer()
 
 class HomeViewController: UIViewController {
@@ -19,8 +19,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         let soundURL = NSBundle.mainBundle().URLForResource("gangstagrass- dirty pickin", withExtension: "mp3")
-        audioPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
-        audioPlayer.play()
+        soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+        soundPlayer.play()
         
 //        let soundURL2 = NSBundle.mainBundle().URLForResource("Fleetwood Mac - Go Your Own Way (HQ)", withExtension: "mp3")
 //        audioPlayer2 = AVAudioPlayer(contentsOfURL: soundURL2, error: nil)
@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "playGame" {
-            audioPlayer.stop()
+            soundPlayer.stop()
         }
     }
 
