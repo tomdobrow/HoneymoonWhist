@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     
     override func viewDidLoad() {
-        let soundURL = NSBundle.mainBundle().URLForResource("gangstagrass- dirty pickin", withExtension: "mp3")
+        let soundURL = NSBundle.mainBundle().URLForResource("AppMusic", withExtension: "mp3")
         soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
         soundPlayer.play()
         
