@@ -56,6 +56,7 @@ class SetViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        setUpHand()
         setUpDeck()
 
     }
@@ -124,6 +125,17 @@ class SetViewController: UIViewController {
                 
         })
         
+        
+    }
+    
+    func setUpHand() {
+        var center = CGPoint(x: 68, y: view.bounds.height-135)
+        for i in 1...13 {
+            var pic = view.viewWithTag(i) as UIImageView
+            pic.center = center
+            center.x += 20
+            view.bringSubviewToFront(pic)
+        }
         
     }
     

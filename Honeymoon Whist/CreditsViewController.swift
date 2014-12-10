@@ -20,7 +20,7 @@ class CreditsViewController: UIViewController {
         scrollTextLeft.hidden = false
         scrollTextLeft.text = "Chief Developers:\n\n\nChief Designers:\n\n\nDesign Support:\n\n\nSpecial Thanks:"
         scrollTextRight.hidden = false
-        scrollTextRight.text = "Jack Reuter\nTom Dobrow\n\nTom Dobrow\nJackReuter\n\nDaniel Sandoval\nDanny Dobrow\n\npixabay.com"
+        scrollTextRight.text = "Jack Reuter\nTom Dobrow\n\nTom Dobrow\nJack Reuter\n\nDaniel Sandoval\nDanny Dobrow\n\npixabay.com"
         
         
     }

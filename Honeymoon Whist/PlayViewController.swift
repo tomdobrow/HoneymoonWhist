@@ -343,7 +343,7 @@ class PlayViewController: UIViewController {
         }
     }
     
-    @IBAction func playAgainButton(sender: AnyObject) {
+    @IBAction func playAgainButton(sender: UIButton) {
         self.performSegueWithIdentifier("runItBack", sender: nil)
     }
     
