@@ -24,6 +24,7 @@
 		A3AA15391A34BAE7008520AE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA15381A34BAE7008520AE /* AVFoundation.framework */; };
 		A3AA153B1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3AA153A1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 */; };
 		A3AA153D1A34C16B008520AE /* shuffling-cards-4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3AA153C1A34C16B008520AE /* shuffling-cards-4.mp3 */; };
+		A3EAA6161A38FF5500DBFBA0 /* AppMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3EAA6151A38FF5400DBFBA0 /* AppMusic.mp3 */; };
 		A69B2CE41A30FC270057EC09 /* CardFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B2CE31A30FC270057EC09 /* CardFunctions.swift */; };
 		A69DCDEF1A37A0A600FB5E18 /* RulesOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DCDEE1A37A0A600FB5E18 /* RulesOverviewController.swift */; };
 		A69DCDF11A37A1BF00FB5E18 /* RulesSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DCDF01A37A1BF00FB5E18 /* RulesSettingController.swift */; };
@@ -66,6 +67,7 @@
 		A3AA15381A34BAE7008520AE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A3AA153A1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Fleetwood Mac - Go Your Own Way (HQ).mp3"; sourceTree = "<group>"; };
 		A3AA153C1A34C16B008520AE /* shuffling-cards-4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "shuffling-cards-4.mp3"; sourceTree = "<group>"; };
+		A3EAA6151A38FF5400DBFBA0 /* AppMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AppMusic.mp3; sourceTree = "<group>"; };
 		A69B2CE31A30FC270057EC09 /* CardFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFunctions.swift; sourceTree = "<group>"; };
 		A69DCDEE1A37A0A600FB5E18 /* RulesOverviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesOverviewController.swift; sourceTree = "<group>"; };
 		A69DCDF01A37A1BF00FB5E18 /* RulesSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesSettingController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */,
 				A3AA15381A34BAE7008520AE /* AVFoundation.framework */,
 				A3AA15361A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 */,
+				A3EAA6151A38FF5400DBFBA0 /* AppMusic.mp3 */,
 				A330B58B1A37ABC400EF2A9F /* winGame.mp3 */,
 				A330B5891A37A90400EF2A9F /* winTrick.mp3 */,
 				A3AA153A1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 */,
@@ -259,6 +262,7 @@
 				A330B58A1A37A90400EF2A9F /* winTrick.mp3 in Resources */,
 				A3AA153B1A34BD6A008520AE /* Fleetwood Mac - Go Your Own Way (HQ).mp3 in Resources */,
 				A38A2B001A2B54B100C7A7A3 /* Images.xcassets in Resources */,
+				A3EAA6161A38FF5500DBFBA0 /* AppMusic.mp3 in Resources */,
 				A394C31C1A339FCA003FF188 /* Campanile.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
