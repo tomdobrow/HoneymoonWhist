@@ -105,11 +105,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="OVERVIEW OF THE GAME" textAlignment="center" id="rhI-km-DBS">
-                                <rect key="frame" x="16" y="20" width="343" height="589"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" id="rhI-km-DBS">
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <string key="text">THE GAME
+
+Honeymoon Whist is a two player trick-based card game.
+Gameplay is divided into three parts: 
+
+HAND SETTING
+
+BIDDING
+
+PLAYING THE HAND
+
+Swipe right to learn how to play.
+Swipe down to return to the main menu.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -135,20 +148,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Nht-7n-5we">
-                                <rect key="frame" x="0.0" y="20" width="375" height="704"/>
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Setting the hand
-Aim: to build as strong a hand as possible
-How it works:
--Players take turns choosing cards
--On your turn, you will be shown a card 
--Your choice:
+                                <string key="text">SETTING THE HAND
+
+AIM: to build as strong a hand as possible
+
+HOW IT WORKS:
+
+Players take turns choosing cards.
+
+On your turn, you will be shown a card.
+
+Your choice:
+
 1. Take it and discard the next one
 or
 2. Discard it and take the next one
--Turns continue until the deck runs out</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+
+Turns continue until the deck runs out.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -190,20 +210,29 @@ or
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Ppk-rC-TiK">
-                                <rect key="frame" x="0.0" y="20" width="375" height="667"/>
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Bidding
-Aim: to correctly predict how many tricks you will be able to win
-How it works:
--Players take turns bidding
--Players must choose to either bid higher than the opponent or pass
--Bids are made in terms of how many more tricks a player will make than 6
--For example, a bid of 1 says “I can take 7 of the 13 tricks”
-(The reasoning behind this system being that any bid of less than half the total tricks would be trivial)
--Bidding continues until a player passes
--The player who did not pass then gets to choose a suit to be trump</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <mutableString key="text">BIDDING
+
+AIM: to correctly predict how many tricks you will be able to win
+
+HOW IT WORKS:
+
+Players take turns bidding.
+
+Players must choose to either bid higher than the opponent or pass.
+
+Bids are made in terms of how many more tricks a player will make than 6.
+
+For example, a bid of 1 says “I can take 7 of the 13 tricks.”
+
+(The reasoning behind this system being that any bid of less than half the total tricks would be trivial).
+
+Bidding continues until a player passes.
+
+The player who did not pass then gets to choose a suit to be trump.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -227,25 +256,36 @@ How it works:
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="OjV-rJ-j3x">
-                                <rect key="frame" x="0.0" y="20" width="375" height="667"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PL0-IO-Yvj">
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Playing the hand
-Aim: To take as many tricks as possible
-How it works:
--The player who chose trump gets to lead the first card
--The second player then plays a card in response
--The player who responds must play a card of the same suit if possible
--Whoever wins the trick gets to lead the next one
--Play continues until all 13 tricks have been played
+                                <mutableString key="text">PLAYING THE HAND
 
-How do I know if I won the trick?
--If both your card and your opponent's card are of the same suit, then the higher card wins
--If your card and your opponent's card are of different suits:
-	-If either card is trump, then that card wins
-	-If neither card is trump, the whoever led the trick wins</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+AIM: To take as many tricks as possible
+
+HOW IT WORKS:
+
+The player who chose trump gets to lead the first card.
+
+The second player then plays a card in response.
+
+The player who responds must play a card of the same suit if possible.
+
+Whoever wins the trick gets to lead the next one.
+
+Play continues until all 13 tricks have been played.
+
+HOW DO I KNOW IF I WON THE TRICK
+If both your card and your opponent's card are of the same suit:
+
+The higher card wins.
+
+If your card and your opponent's card are of different suits:
+
+If either card is trump, then the trump card wins.
+If neither card is trump, the whoever led the trick wins.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>

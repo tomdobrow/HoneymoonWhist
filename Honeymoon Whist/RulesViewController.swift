@@ -14,7 +14,8 @@ class RulesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "tabletop.png")!)
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -43,22 +44,22 @@ class RulesViewController: UIViewController {
     //MARK: swipe gestures
     func rightSwiped()
     {
-        println("right swiped ")
+        //println("right swiped ")
     }
     
     func leftSwiped()
     {
-        println("left swiped ")
+        //println("left swiped ")
     }
     
     func downSwiped()
     {
-        println("down swiped ")
+        //println("down swiped ")
     }
     
     func upSwiped()
     {
-        println("Up swiped ")
+        //println("Up swiped ")
     }
     
     

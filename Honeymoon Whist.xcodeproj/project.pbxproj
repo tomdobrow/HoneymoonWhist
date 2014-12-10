@@ -60,7 +60,7 @@
 		A38A2B0D1A2B54B100C7A7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A38A2B0E1A2B54B100C7A7A3 /* Honeymoon_WhistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Honeymoon_WhistTests.swift; sourceTree = "<group>"; };
 		A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
-		A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RulesViewController.swift; path = "Honeymoon Whist/RulesViewController.swift"; sourceTree = "<group>"; };
 		A394C31B1A339FC9003FF188 /* Campanile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Campanile.ttf; path = "../Honeymoon Whist/Campanile.ttf"; sourceTree = "<group>"; };
 		A3AA15361A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "gangstagrass- dirty pickin.mp3"; sourceTree = "<group>"; };
 		A3AA15381A34BAE7008520AE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -102,6 +102,7 @@
 				A69DCDF21A37A56200FB5E18 /* RulesBiddingController.swift */,
 				A69DCDF01A37A1BF00FB5E18 /* RulesSettingController.swift */,
 				A69DCDEE1A37A0A600FB5E18 /* RulesOverviewController.swift */,
+				A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */,
 				A3AA15381A34BAE7008520AE /* AVFoundation.framework */,
 				A3AA15361A34BAC9008520AE /* gangstagrass- dirty pickin.mp3 */,
 				A330B58B1A37ABC400EF2A9F /* winGame.mp3 */,
@@ -134,7 +135,6 @@
 				A38A2AF61A2B54B100C7A7A3 /* Supporting Files */,
 				A38A2AFA1A2B54B100C7A7A3 /* SetViewController.swift */,
 				A38A2B181A2B7F3900C7A7A3 /* BidViewController.swift */,
-				A38A2B1A1A2C7AE600C7A7A3 /* RulesViewController.swift */,
 				A6EDAA8B1A2CF3B7009F574F /* PlayViewController.swift */,
 				A6EDAA8D1A2CFF06009F574F /* WhistPlayer.swift */,
 				A69B2CE31A30FC270057EC09 /* CardFunctions.swift */,
