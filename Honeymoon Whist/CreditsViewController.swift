@@ -32,5 +32,8 @@ class CreditsViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
+    @IBAction func doneButtonTap(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }
