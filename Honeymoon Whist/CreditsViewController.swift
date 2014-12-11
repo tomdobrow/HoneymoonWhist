@@ -18,9 +18,9 @@ class CreditsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollTextLeft.hidden = false
-        scrollTextLeft.text = "Chief Developers:\n\n\nChief Designers:\n\n\nDesign Support:\n\n\nSpecial Thanks:"
+        scrollTextLeft.text = "Chief Developers:\n\nChief Designers:\n\n\nDesign Support:"
         scrollTextRight.hidden = false
-        scrollTextRight.text = "Jack Reuter\nTom Dobrow\n\nTom Dobrow\nJack Reuter\n\nDaniel Sandoval\nDanny Dobrow\n\npixabay.com"
+        scrollTextRight.text = "Jack Reuter\nTom Dobrow\n\nTom Dobrow\nJack Reuter\n\nDaniel Sandoval\nDanny Dobrow"
         
         
     }

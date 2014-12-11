@@ -17,9 +17,9 @@ var deck = [Int]()
 var ai = WhistPlayer()
 var cf = CardFunctions()
 var trump = 0
-var slowAnimation = 0.0//0.3
-var fastAnimation = 0.0//0.2
-var dealAnimation = 0.0//0.4
+var slowAnimation = 0.3
+var fastAnimation = 0.2
+var dealAnimation = 0.4
 
 class SetViewController: UIViewController {
 
