@@ -122,7 +122,7 @@ class BidViewController: UIViewController {
                 }
             }
             else {
-                print("TOO LOW")
+                //print("TOO LOW")
                 hisBubble.hidden = false
                 yourBubble.hidden = false
                 hisBidLabel.text = "Too Low"

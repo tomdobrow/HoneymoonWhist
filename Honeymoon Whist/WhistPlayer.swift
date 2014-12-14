@@ -153,9 +153,8 @@ class WhistPlayer {
         //print(totalLosers)
         
         var myBid = Int(7 - ceil(totalLosers)) //Book
-        myBid--
 
-        println("\(myBid) \(currentBid)")
+        //println("\(myBid) \(currentBid)")
         if (myBid <= currentBid) {
             return 0
         } else { return myBid }
