@@ -34,7 +34,7 @@ class CardFunctions {
             if suit > maxLength {
                 longestSuit = index
                 maxLength = suit
-                println(longestSuit)
+                //println(longestSuit)
             }
         }
         return longestSuit
