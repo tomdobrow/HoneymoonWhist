@@ -17,7 +17,7 @@ var cf = CardFunctions()
 var trump = 0
 var slowAnimation = 0.3
 var fastAnimation = 0.2
-var dealAnimation = 0.4
+var dealAnimation = 0.2
 
 class SetViewController: UIViewController {
 
@@ -156,6 +156,7 @@ class SetViewController: UIViewController {
                 
                 if (cardNumber > 42) {
                     deckImage.image = nil
+                    //cardChoice2.image = UIImage(named: images[deck[self.cardNumber+1]])
                 }
                 
                 UIView.animateWithDuration(slowAnimation, delay:0.0, options:nil, animations: {
@@ -167,6 +168,7 @@ class SetViewController: UIViewController {
                     self.view.bringSubviewToFront(self.cardChoice2)
                     
                     self.cardChoice1.center = pic.center
+                    self.cardChoice2.image = UIImage(named: "b2fv")
                     self.cardChoice2.center = self.discardImage.center
                     self.cardChoice1.bounds = CGRectMake(0, 0, pic.bounds.width, pic.bounds.height)
                     
@@ -208,6 +210,14 @@ class SetViewController: UIViewController {
                                 self.dealtCard2.center = dealtCardCenter2
                                 
                                 self.cardChoice2.image = UIImage(named: "b2fv")
+                                if youPlayFirst == false {
+                                    if self.cardNumber > 42 {
+                                        if self.cardNumber < 49 {
+                                            self.cardChoice2.image = UIImage(named: images[deck[self.cardNumber+3]])
+                                        }
+                                    }
+                                }
+                                
                                 self.cardChoice1.userInteractionEnabled = true
                                 self.cardChoice2.userInteractionEnabled = true
                                 self.botsTurn()
@@ -248,6 +258,7 @@ class SetViewController: UIViewController {
                     self.view.bringSubviewToFront(self.cardChoice1)
                     self.view.bringSubviewToFront(self.cardChoice2)
                     
+                    self.cardChoice1.image = UIImage(named: "b2fv")
                     self.cardChoice1.center = self.discardImage.center
                     self.cardChoice2.center = pic.center
                     self.cardChoice2.bounds = CGRectMake(0, 0, pic.bounds.width, pic.bounds.height)
@@ -291,6 +302,13 @@ class SetViewController: UIViewController {
                                 self.dealtCard2.center = dealtCardCenter2
                                 
                                 self.cardChoice2.image = UIImage(named: "b2fv")
+                                if youPlayFirst == false {
+                                    if self.cardNumber > 42 {
+                                        if self.cardNumber < 49 {
+                                            self.cardChoice2.image = UIImage(named: images[deck[self.cardNumber+3]])
+                                        }
+                                    }
+                                }
                                 
                                 self.cardChoice1.userInteractionEnabled = true
                                 self.cardChoice2.userInteractionEnabled = true
@@ -367,6 +385,7 @@ class SetViewController: UIViewController {
             discardPileLabel.text = nil            
             sortButton.setTitle(nil, forState: nil)
             backButton.setTitle(nil, forState: nil)
+            backButton.alpha = 0
         }
         
 //        for card in ai.hand {

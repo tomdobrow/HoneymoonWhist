@@ -10,6 +10,7 @@ import Foundation
 
 class RulesPlayingController: RulesViewController {
     
+    
     override func rightSwiped() {
         self.navigationController?.popViewControllerAnimated(true)
     }

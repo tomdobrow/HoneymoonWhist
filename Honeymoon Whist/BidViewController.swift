@@ -54,6 +54,32 @@ class BidViewController: UIViewController {
         ai.hand = sorted(ai.hand)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        
+        if youPlayFirst == true {
+            self.bidBar.selectedSegmentIndex = ai.placeBid(self.currentBid)
+            self.currentBid = self.bidBar.selectedSegmentIndex
+            
+            if self.currentBid == 0 {
+                self.userLeads = true
+                self.hisBubble.hidden = false
+                self.yourBubble.hidden = true
+                self.hisBidLabel.text = "Pass"
+                self.yourBidLabel.text = ""
+                self.yourBubble.hidden = true
+                
+                self.endBidding(self.userLeads)
+                
+            } else {
+                self.hisBubble.hidden = false
+                self.hisBidLabel.text = NSString(format: "%.i", self.bidBar.selectedSegmentIndex )
+                self.highestBid = self.currentBid
+            }
+        }
+
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -317,10 +317,17 @@ class PlayViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "runItBack" {
+            
             playSong = true
             userHand = []
             deck = []
             ai.hand = []
+            if youPlayFirst {
+                youPlayFirst = false
+            }
+            else {
+                youPlayFirst = true
+            }
         }
     }
     /*

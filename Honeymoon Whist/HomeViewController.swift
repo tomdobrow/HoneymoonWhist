@@ -15,6 +15,7 @@ var isMuted = false
 var playbackTheme = true
 var playSong = true
 
+var youPlayFirst = true
 
 
 //var audioPlayer = AVAudioPlayer()
