@@ -9,7 +9,6 @@
 import UIKit
 
 import AVFoundation
-var soundPlayer = AVAudioPlayer()
 var soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
 
 class PlayViewController: UIViewController {
@@ -152,9 +151,11 @@ class PlayViewController: UIViewController {
         
         if userSuit == aiSuit {
             if userCard > aiCard {
-                soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
-                soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
-                soundPlayer.play()
+                if isMuted == false {
+                    soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
+                    soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                    soundPlayer.play()
+                }
                 return true
             }
             else {
@@ -166,14 +167,21 @@ class PlayViewController: UIViewController {
                     self.trashTalkLabel.text = ""
                     self.ttImageView.hidden = true
                 }
+                if isMuted == false {
+                    soundURL = NSBundle.mainBundle().URLForResource("robotNoise", withExtension: "mp3")
+                    soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                    soundPlayer.play()
+                }
                 return false
             }
             
         } else {
             if userSuit == trump {
-                soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
-                soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
-                soundPlayer.play()
+                if isMuted == false {
+                    soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
+                    soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                    soundPlayer.play()
+                }
                 return true
             }
             else if aiSuit == trump {
@@ -185,14 +193,20 @@ class PlayViewController: UIViewController {
                     self.trashTalkLabel.text = ""
                     self.ttImageView.hidden = true
                 }
-
+                if isMuted == false {
+                    soundURL = NSBundle.mainBundle().URLForResource("robotNoise", withExtension: "mp3")
+                    soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                    soundPlayer.play()
+                }
                 return false
             }
             else {
                 if userLeads {
-                    soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
-                    soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
-                    soundPlayer.play()
+                    if isMuted == false {
+                        soundURL = NSBundle.mainBundle().URLForResource("winTrick", withExtension: "mp3")
+                        soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                        soundPlayer.play()
+                    }
                     return true
                 }
                 else {
@@ -204,7 +218,11 @@ class PlayViewController: UIViewController {
                         self.trashTalkLabel.text = ""
                         self.ttImageView.hidden = true
                     }
-
+                    if isMuted == false {
+                        soundURL = NSBundle.mainBundle().URLForResource("robotNoise", withExtension: "mp3")
+                        soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                        soundPlayer.play()
+                    }
                     return false
                 }
             }
@@ -269,7 +287,7 @@ class PlayViewController: UIViewController {
         if userHand.count > 0 && ai.hand.count > 0 { nextTrick() }
         else {
             println("GAMEOVER")
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 2))
             dispatch_after(delayTime, dispatch_get_main_queue()){
                 self.userCardImage.image = nil
                 self.aiCardImage.image = nil
@@ -283,9 +301,11 @@ class PlayViewController: UIViewController {
             
             
             if (userIsOffense && (userTricksWon >= bid+6)) || (!userIsOffense && (aiTricksWon < bid+6)) {
-                soundURL = NSBundle.mainBundle().URLForResource("winGame", withExtension: "mp3")
-                soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
-                soundPlayer.play()
+                if isMuted == false {
+                    soundURL = NSBundle.mainBundle().URLForResource("winGame", withExtension: "mp3")
+                    soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                    soundPlayer.play()
+                }
                 println("YOU WIN")
             } else {
                 println("YOU LOSE")
@@ -297,7 +317,7 @@ class PlayViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "runItBack" {
-            
+            playSong = true
             userHand = []
             deck = []
             ai.hand = []

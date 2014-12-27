@@ -15,6 +15,7 @@ class RulesPlayingController: RulesViewController {
     }
     
     override func downSwiped() {
+        playSong = false
         self.dismissViewControllerAnimated(true, completion: nil)
 
     }

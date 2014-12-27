@@ -83,6 +83,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nvT-EP-MmZ">
+                                <rect key="frame" x="329" y="20" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="soundButtonTap:" destination="6TW-pZ-I1C" eventType="touchUpInside" id="cDj-sh-9TJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -91,6 +103,7 @@
                     <connections>
                         <outlet property="playButton" destination="lTy-y1-uJE" id="e5f-Ed-2ha"/>
                         <outlet property="rulesButton" destination="2WZ-lP-Hkz" id="tIr-wN-eRX"/>
+                        <outlet property="soundButton" destination="nvT-EP-MmZ" id="ZT3-Xj-HyP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BhO-Fd-Gtx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -105,7 +118,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" id="rhI-km-DBS">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" id="rhI-km-DBS">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,7 +160,7 @@ Swipe down to return to the main menu.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Nht-7n-5we">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="Nht-7n-5we">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -209,7 +222,7 @@ Turns continue until the deck runs out.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Ppk-rC-TiK">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="Ppk-rC-TiK">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -256,7 +269,7 @@ The player who did not pass then gets to choose a suit to be trump.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PL0-IO-Yvj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="PL0-IO-Yvj">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -369,7 +382,7 @@ If neither card is trump, the whoever led the trick wins.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discard Pile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JIs-bW-aqm">
-                                <rect key="frame" x="275" y="128" width="92" height="21"/>
+                                <rect key="frame" x="239" y="128" width="92" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -383,7 +396,7 @@ If neither card is trump, the whoever led the trick wins.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="RPG-AY-gmx">
-                                <rect key="frame" x="284" y="20" width="75" height="100"/>
+                                <rect key="frame" x="239" y="20" width="75" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="unp-GC-ZFE">
@@ -493,12 +506,23 @@ If neither card is trump, the whoever led the trick wins.</string>
                                 <rect key="frame" x="255" y="446" width="133" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vkR-nb-dsH">
+                                <rect key="frame" x="329" y="20" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="backButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KGa-9z-hdw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="backButton" destination="vkR-nb-dsH" id="F0T-5h-Tjd"/>
                         <outlet property="card10Image" destination="Odb-fg-sfP" id="zHu-py-srk"/>
                         <outlet property="card11Image" destination="79I-r0-nAQ" id="NsO-Kt-4HG"/>
                         <outlet property="card12Image" destination="gPU-uB-icM" id="SN7-bZ-RRA"/>
@@ -948,6 +972,7 @@ If neither card is trump, the whoever led the trick wins.</string>
     <resources>
         <image name="Screen Shot 2014-12-04 at 9.08.41 PM" width="703" height="127"/>
         <image name="Sillouette" width="750" height="1334"/>
+        <image name="backButton" width="128" height="128"/>
         <image name="download" width="241" height="209"/>
         <image name="download-1" width="241" height="209"/>
         <image name="human" width="182" height="217"/>

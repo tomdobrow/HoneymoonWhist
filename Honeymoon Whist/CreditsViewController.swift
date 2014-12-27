@@ -34,6 +34,7 @@ class CreditsViewController: UIViewController {
     }
     @IBAction func doneButtonTap(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        playSong = false
     }
     
 }

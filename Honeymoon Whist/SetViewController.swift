@@ -9,8 +9,6 @@
 import UIKit
 import AVFoundation
 
-var audioPlayerShuffle = AVAudioPlayer()
-
 var userHand = [Int]()
 var images = [String]()
 var deck = [Int]()
@@ -23,6 +21,7 @@ var dealAnimation = 0.4
 
 class SetViewController: UIViewController {
 
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var card1Image: UIImageView!
     @IBOutlet weak var card2Image: UIImageView!
     @IBOutlet weak var card3Image: UIImageView!
@@ -55,10 +54,11 @@ class SetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         setUpHand()
-        setUpDeck()
 
+    }
+    override func viewDidAppear(animated: Bool) {
+        setUpDeck()
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,9 +68,11 @@ class SetViewController: UIViewController {
     
     func setUpDeck () {
         
-        let soundURL = NSBundle.mainBundle().URLForResource("shuffling-cards-4", withExtension: "mp3")
-        soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
-        soundPlayer.play()
+        if isMuted == false {
+            let soundURL = NSBundle.mainBundle().URLForResource("shuffling-cards-4", withExtension: "mp3")
+            soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+            soundPlayer.play()
+        }
 
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Sillouette.png")!)
         
@@ -104,6 +106,7 @@ class SetViewController: UIViewController {
             
             self.cardChoice1.userInteractionEnabled = false
             self.cardChoice2.userInteractionEnabled = false
+            self.backButton.userInteractionEnabled = false
 
             self.view.bringSubviewToFront(self.dealtCard)
             self.view.bringSubviewToFront(self.dealtCard2)
@@ -122,6 +125,7 @@ class SetViewController: UIViewController {
              
                 self.cardChoice1.userInteractionEnabled = true
                 self.cardChoice2.userInteractionEnabled = true
+                self.backButton.userInteractionEnabled = true
                 
         })
         
@@ -321,6 +325,14 @@ class SetViewController: UIViewController {
             cardChoice1.image = UIImage(named: images[deck[cardNumber]])
         }
     }
+    @IBAction func backButtonTap(sender: AnyObject) {
+        
+        playbackTheme = true
+        userHand = []
+        deck = []
+        ai.hand = []
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func sortButtonTap(sender: AnyObject) {
         sortHand()
@@ -354,6 +366,7 @@ class SetViewController: UIViewController {
             choice2Label.text = nil
             discardPileLabel.text = nil            
             sortButton.setTitle(nil, forState: nil)
+            backButton.setTitle(nil, forState: nil)
         }
         
 //        for card in ai.hand {
