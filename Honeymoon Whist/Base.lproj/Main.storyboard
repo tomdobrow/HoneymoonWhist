@@ -717,7 +717,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="k7c-na-Kl1" userLabel="card1">
-                                <rect key="frame" x="0.0" y="497" width="130" height="170"/>
+                                <rect key="frame" x="-3" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -725,7 +725,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4vd-Cb-WLK" userLabel="card2">
-                                <rect key="frame" x="22" y="497" width="130" height="170"/>
+                                <rect key="frame" x="18" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -733,7 +733,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kiT-S8-vNI" userLabel="card3">
-                                <rect key="frame" x="44" y="497" width="130" height="170"/>
+                                <rect key="frame" x="39" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -741,7 +741,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3Fw-1v-5Dj" userLabel="card4">
-                                <rect key="frame" x="66" y="497" width="130" height="170"/>
+                                <rect key="frame" x="60" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -749,7 +749,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="IVJ-9A-jhI" userLabel="card5">
-                                <rect key="frame" x="88" y="497" width="130" height="170"/>
+                                <rect key="frame" x="81" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -757,7 +757,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3Ns-gX-esQ" userLabel="card6">
-                                <rect key="frame" x="110" y="497" width="130" height="170"/>
+                                <rect key="frame" x="102" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -765,7 +765,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="JkH-Xt-Tvz" userLabel="card7">
-                                <rect key="frame" x="132" y="497" width="130" height="170"/>
+                                <rect key="frame" x="123" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -773,7 +773,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="14x-SI-gwA" userLabel="card8">
-                                <rect key="frame" x="154" y="497" width="130" height="170"/>
+                                <rect key="frame" x="144" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -781,7 +781,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QmZ-gr-Pvx" userLabel="card9">
-                                <rect key="frame" x="176" y="497" width="130" height="170"/>
+                                <rect key="frame" x="165" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -789,7 +789,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="SRz-6W-aaQ" userLabel="card10">
-                                <rect key="frame" x="198" y="497" width="130" height="170"/>
+                                <rect key="frame" x="186" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -797,7 +797,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="6oW-3h-15S" userLabel="card11">
-                                <rect key="frame" x="220" y="497" width="130" height="170"/>
+                                <rect key="frame" x="207" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -805,7 +805,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Yve-xQ-OlM" userLabel="card12">
-                                <rect key="frame" x="242" y="497" width="130" height="170"/>
+                                <rect key="frame" x="228" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -813,7 +813,7 @@
                                 </connections>
                             </imageView>
                             <imageView tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nFH-Hx-xll" userLabel="card13">
-                                <rect key="frame" x="264" y="497" width="130" height="170"/>
+                                <rect key="frame" x="250" y="497" width="130" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -982,7 +982,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1000.5" y="120.5"/>
+            <point key="canvasLocation" x="1038.5" y="120.5"/>
         </scene>
     </scenes>
     <resources>
