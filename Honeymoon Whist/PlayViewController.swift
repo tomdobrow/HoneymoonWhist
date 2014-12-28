@@ -69,13 +69,11 @@ class PlayViewController: UIViewController {
         t = CATransform3DRotate(t, 45.0 * CGFloat(M_PI) / 180.0, 1, 0, 0)
         
         cardsOnTable.layer.transform = t
-
+        
         runItBackLabel.hidden = true
         //defaultVariables()
         loadHand()
         nextTrick()
-        //setUpHand()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -86,7 +84,7 @@ class PlayViewController: UIViewController {
     func defaultVariables() {
         ai.hand.append(0)
         userHand.append(0)
-
+        
         for i in 0...51 {
             deck.append(i)
             if cf.getValue(i) > 11 {
@@ -94,23 +92,17 @@ class PlayViewController: UIViewController {
                 userHand.append(i)
             }
         }
-
+        
         images = ["2c","3c","4c","5c","6c","7c","8c","9c","10c","jc","qc","kc","ac","2d","3d","4d","5d","6d","7d","8d","9d","10d","jd","qd","kd","ad","2s","3s","4s","5s","6s","7s","8s","9s","10s","js","qs","ks","as","2h","3h","4h","5h","6h","7h","8h","9h","10h","jh","qh","kh","ah"]
     }
-
+    
     //sets the image views for all the cards in the hand, nil for the rest
     func loadHand() {
         
-        //var center = CGPoint(x: 62, y: view.bounds.height-125)
         for i in 1...13 {
             var pic = view.viewWithTag(i) as UIImageView
-            //view.bringSubviewToFront(pic)
             if pic.userInteractionEnabled {
-                //view.bringSubviewToFront(pic)
                 pic.image = UIImage(named: images[userHand[i-1]])
-                
-                //pic.center = center
-                //center.x += 21
             } else {
                 pic.image = nil
             }
@@ -129,17 +121,6 @@ class PlayViewController: UIViewController {
             var pic = view.viewWithTag(i) as UIImageView
             pic.userInteractionEnabled = true
         }
-    }
-    
-    func setUpHand() {
-        var center = CGPoint(x: 62, y: view.bounds.height-85)
-        for i in 1...13 {
-            var pic = view.viewWithTag(i) as UIImageView
-            pic.center = center
-            center.x += 21
-            view.bringSubviewToFront(pic)
-        }
-        
     }
     
     //gets aiChoice and loads hand
@@ -162,7 +143,7 @@ class PlayViewController: UIViewController {
             self.enableInteraction()
         }
     }
-
+    
     func userWins(userCard: Int, aiCard: Int) -> Bool {
         
         let userSuit = cf.getSuit(userCard)
@@ -309,14 +290,14 @@ class PlayViewController: UIViewController {
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 2))
             dispatch_after(delayTime, dispatch_get_main_queue()){
                 self.userCardImage.image = nil
-                self.cardsOnTable.center.y -= 500
-                
                 self.aiCardImage.image = nil
                 self.userTricksImage.image = nil
                 self.aiTricksImage.image = nil
                 self.userTricksLabel.text = ""
                 self.aiTricksLabel.text = ""
+                //self.cardsOnTable.center.y += 500
                 self.runItBackLabel.hidden = false
+                self.view.bringSubviewToFront(self.runItBackLabel)
                 
             }
             
@@ -349,8 +330,6 @@ class PlayViewController: UIViewController {
             else {
                 youPlayFirst = true
             }
-            self.cardsOnTable.center.y += 500
-            
         }
     }
     /*
@@ -367,7 +346,7 @@ class PlayViewController: UIViewController {
     
     
     func respondToCardTap() {
-
+        
         if !userLeads && playIsValid(userChoice, aiCard: aiChoice) || userLeads {
             var picTapped = view.viewWithTag(userChoice+1) as UIImageView
             if picTapped.center.y >= handImageCenterY {
@@ -381,7 +360,7 @@ class PlayViewController: UIViewController {
                 
                 UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {
                     picTapped.center.y = self.handImageCenterY - 40
-                }, completion: nil)
+                    }, completion: nil)
                 
             } else {
                 
