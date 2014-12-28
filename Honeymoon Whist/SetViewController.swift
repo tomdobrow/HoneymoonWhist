@@ -133,11 +133,11 @@ class SetViewController: UIViewController {
     }
     
     func setUpHand() {
-        var center = CGPoint(x: 68, y: view.bounds.height-135)
+        var center = CGPoint(x: 62, y: view.bounds.height-135)
         for i in 1...13 {
             var pic = view.viewWithTag(i) as UIImageView
             pic.center = center
-            center.x += 20
+            center.x += 21
             view.bringSubviewToFront(pic)
         }
         

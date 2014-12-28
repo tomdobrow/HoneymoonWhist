@@ -74,6 +74,8 @@ class PlayViewController: UIViewController {
         //defaultVariables()
         loadHand()
         nextTrick()
+        //setUpHand()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,10 +101,16 @@ class PlayViewController: UIViewController {
     //sets the image views for all the cards in the hand, nil for the rest
     func loadHand() {
         
+        //var center = CGPoint(x: 62, y: view.bounds.height-125)
         for i in 1...13 {
             var pic = view.viewWithTag(i) as UIImageView
+            //view.bringSubviewToFront(pic)
             if pic.userInteractionEnabled {
+                //view.bringSubviewToFront(pic)
                 pic.image = UIImage(named: images[userHand[i-1]])
+                
+                //pic.center = center
+                //center.x += 21
             } else {
                 pic.image = nil
             }
@@ -121,6 +129,17 @@ class PlayViewController: UIViewController {
             var pic = view.viewWithTag(i) as UIImageView
             pic.userInteractionEnabled = true
         }
+    }
+    
+    func setUpHand() {
+        var center = CGPoint(x: 62, y: view.bounds.height-85)
+        for i in 1...13 {
+            var pic = view.viewWithTag(i) as UIImageView
+            pic.center = center
+            center.x += 21
+            view.bringSubviewToFront(pic)
+        }
+        
     }
     
     //gets aiChoice and loads hand
@@ -290,6 +309,8 @@ class PlayViewController: UIViewController {
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 2))
             dispatch_after(delayTime, dispatch_get_main_queue()){
                 self.userCardImage.image = nil
+                self.cardsOnTable.center.y -= 500
+                
                 self.aiCardImage.image = nil
                 self.userTricksImage.image = nil
                 self.aiTricksImage.image = nil
@@ -328,6 +349,8 @@ class PlayViewController: UIViewController {
             else {
                 youPlayFirst = true
             }
+            self.cardsOnTable.center.y += 500
+            
         }
     }
     /*
