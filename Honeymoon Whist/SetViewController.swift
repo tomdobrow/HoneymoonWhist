@@ -53,6 +53,8 @@ class SetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         // Do any additional setup after loading the view, typically from a nib.
         setUpHand()
 
@@ -345,11 +347,12 @@ class SetViewController: UIViewController {
     }
     @IBAction func backButtonTap(sender: AnyObject) {
         
+        backButton.userInteractionEnabled = false
         playbackTheme = true
         userHand = []
         deck = []
         ai.hand = []
-        self.dismissViewControllerAnimated(true, completion: nil)
+        //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func sortButtonTap(sender: AnyObject) {
@@ -387,6 +390,7 @@ class SetViewController: UIViewController {
             backButton.setTitle(nil, forState: nil)
             backButton.alpha = 0
         }
+        
         
 //        for card in ai.hand {
 //            print("\(images[card]) ")

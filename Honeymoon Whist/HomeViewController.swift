@@ -22,7 +22,12 @@ var youPlayFirst = true
 //var audioPlayer2 = AVAudioPlayer()
 
 class HomeViewController: UIViewController {
+    @IBOutlet weak var creditsButton: UIButton!
     
+    @IBOutlet weak var bestOf1: UIButton!
+    @IBOutlet weak var bestOf3: UIButton!
+    @IBOutlet weak var bestOf5: UIButton!
+    @IBOutlet weak var bestOf7: UIButton!
     @IBOutlet weak var rulesButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var soundButton: UIButton!
@@ -38,6 +43,12 @@ class HomeViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
+        bestOf1.hidden = true
+        bestOf3.hidden = true
+        bestOf5.hidden = true
+        bestOf7.hidden = true
+        
         if isMuted {
             let image = UIImage(named: "muteIcon")
             soundButton.setImage(image, forState: .Normal)
@@ -49,6 +60,12 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+//        bestOf1.hidden = true
+//        bestOf3.hidden = true
+//        bestOf5.hidden = true
+//        bestOf7.hidden = true
+
         playbackTheme = true
         
         if playSong {
@@ -87,11 +104,50 @@ class HomeViewController: UIViewController {
             soundPlayer.volume = 0.0
         }
     }
+    @IBAction func startGameButton(sender: AnyObject) {
+        playButton.setTitle("PLAY BEST OF SERIES:", forState: UIControlState.Normal)
+        playButton.userInteractionEnabled = false
+        view.bringSubviewToFront(playButton)
+        
+        creditsButton.userInteractionEnabled = false
+        creditsButton.alpha = 0.3
+        rulesButton.userInteractionEnabled = false
+        rulesButton.alpha = 0.3
+        
+        UIView.animateWithDuration(0.2, delay:0.0, options:nil,
+            animations: {
+                self.bestOf1.hidden = false
+                self.bestOf1.center.y += 50
+            },
+            completion: { (finished: Bool) in
+                UIView.animateWithDuration(0.2, delay:0.0, options:nil,
+                    animations: {
+                        self.bestOf3.hidden = false
+                        self.bestOf3.center.y += 100
+                    },
+                    completion: { (finished: Bool) in
+                        UIView.animateWithDuration(0.2, delay:0.0, options:nil,
+                            animations: {
+                                self.bestOf5.hidden = false
+                                self.bestOf5.center.y += 150
+                            },
+                            completion: { (finished: Bool) in
+                                UIView.animateWithDuration(0.2, delay:0.0, options:nil,
+                                    animations: {
+                                        self.bestOf7.hidden = false
+                                        self.bestOf7.center.y += 200
+                                    },
+                                    completion: nil)
+                            })
+                    })
+            })
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "playGame" {
             soundPlayer.stop()
             playbackTheme = false
+
         }
     }
     
