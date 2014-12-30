@@ -39,6 +39,10 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var ttImageView: UIImageView!
     @IBOutlet weak var trashTalkLabel: UILabel!
     @IBOutlet weak var runItBackLabel: UIButton!
+    @IBOutlet weak var nextMatchLabel: UIButton!
+    
+    @IBOutlet weak var hisScore: UILabel!
+    @IBOutlet weak var yourScore: UILabel!
     
     var userLeads = false
     var userIsOffense = false
@@ -71,6 +75,7 @@ class PlayViewController: UIViewController {
         cardsOnTable.layer.transform = t
         
         runItBackLabel.hidden = true
+        nextMatchLabel.hidden = true
         //defaultVariables()
         loadHand()
         nextTrick()
@@ -283,8 +288,11 @@ class PlayViewController: UIViewController {
         ai.hand.removeAtIndex(aiCard)
         
         loadHand()
+        
         //println("shiiit")
-        if userHand.count > 0 && ai.hand.count > 0 { nextTrick() }
+        if userHand.count > 0 && ai.hand.count > 0 {
+            nextTrick()
+        }
         else {
             println("GAMEOVER")
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 2))
@@ -296,11 +304,9 @@ class PlayViewController: UIViewController {
                 self.userTricksLabel.text = ""
                 self.aiTricksLabel.text = ""
                 //self.cardsOnTable.center.y += 500
-                self.runItBackLabel.hidden = false
-                self.view.bringSubviewToFront(self.runItBackLabel)
+                
                 
             }
-            
             
             if (userIsOffense && (userTricksWon >= bid+6)) || (!userIsOffense && (aiTricksWon < bid+6)) {
                 if isMuted == false {
@@ -308,10 +314,30 @@ class PlayViewController: UIViewController {
                     soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
                     soundPlayer.play()
                 }
+                yourWinCount += 1
                 println("YOU WIN")
             } else {
+                hisWinCount += 1
                 println("YOU LOSE")
             }
+            print(bestOf)
+            if bestOf > 1 {
+                self.nextMatchLabel.hidden = false
+                self.view.bringSubviewToFront(self.nextMatchLabel)
+                
+                //self.hisScore.hidden = false
+                self.view.bringSubviewToFront(self.hisScore)
+                self.yourScore.text = "Him: \(hisWinCount)"
+                
+                //self.yourScore.hidden = false
+                self.view.bringSubviewToFront(self.yourScore)
+                self.yourScore.text = "You: \(yourWinCount)"
+            }
+            else {
+                self.runItBackLabel.hidden = false
+                self.view.bringSubviewToFront(self.runItBackLabel)
+            }
+
         }
         
         
@@ -319,7 +345,8 @@ class PlayViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "runItBack" {
-            
+            print("I ran it back")
+            bestOf = 1
             playSong = true
             userHand = []
             deck = []
@@ -331,6 +358,22 @@ class PlayViewController: UIViewController {
                 youPlayFirst = true
             }
         }
+        if segue.identifier == "nextMatch" {
+            print("I trid to do next match")
+            bestOf -= 1
+            //playSong = true
+            userHand = []
+            deck = []
+            ai.hand = []
+            if youPlayFirst {
+                youPlayFirst = false
+            }
+            else {
+                youPlayFirst = true
+            }
+        }
+
+
     }
     /*
     // MARK: - Navigation
@@ -370,6 +413,9 @@ class PlayViewController: UIViewController {
                 
             }
         }
+    }
+    @IBAction func nextMatchButton(sender: AnyObject) {
+        self.performSegueWithIdentifier("nextMatch", sender: nil)
     }
     
     @IBAction func playAgainButton(sender: UIButton) {

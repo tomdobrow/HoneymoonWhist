@@ -15,7 +15,10 @@ var isMuted = false
 var playbackTheme = true
 var playSong = true
 
+var bestOf = 1
 var youPlayFirst = true
+var yourWinCount = 0
+var hisWinCount = 0
 
 
 //var audioPlayer = AVAudioPlayer()
@@ -144,10 +147,23 @@ class HomeViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "playGame" {
-            soundPlayer.stop()
-            playbackTheme = false
-
+        
+        soundPlayer.stop()
+        playbackTheme = false
+        
+        yourWinCount = 0
+        hisWinCount = 0
+        if segue.identifier == "bo1" {
+            bestOf = 1
+        }
+        if segue.identifier == "bo3" {
+            bestOf = 3
+        }
+        if segue.identifier == "bo5" {
+            bestOf = 5
+        }
+        if segue.identifier == "bo7" {
+            bestOf = 7
         }
     }
     

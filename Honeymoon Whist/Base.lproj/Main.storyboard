@@ -19,6 +19,9 @@
             <string>Campanile</string>
             <string>Campanile</string>
             <string>Campanile</string>
+            <string>Campanile</string>
+            <string>Campanile</string>
+            <string>Campanile</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -100,51 +103,51 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iDo-Y4-Kes">
-                                <rect key="frame" x="136" y="71" width="239" height="50"/>
+                                <rect key="frame" x="136" y="70" width="239" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="26"/>
                                 <state key="normal" title="    BEST OF ONE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="playGame" id="kfP-zJ-iKX"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="b01" id="kfP-zJ-iKX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bOD-ES-MdI">
                                 <rect key="frame" x="136" y="70" width="239" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="26"/>
                                 <state key="normal" title="    BEST OF THREE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="playGame" id="juw-lu-Mhq"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="bo3" id="juw-lu-Mhq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5Ie-Fd-qdE">
                                 <rect key="frame" x="136" y="70" width="239" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="26"/>
                                 <state key="normal" title="    BEST OF FIVE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="playGame" id="0ua-jq-Kfe"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="bo5" id="0ua-jq-Kfe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tun-3e-Qm0">
-                                <rect key="frame" x="131" y="70" width="239" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tun-3e-Qm0" userLabel="BEST OF SEVEN">
+                                <rect key="frame" x="136" y="70" width="239" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="26"/>
                                 <state key="normal" title="    BEST OF SEVEN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="playGame" id="7pr-Ue-9p1"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="b07" id="7pr-Ue-9p1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -879,7 +882,7 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="E4o-c4-l56">
-                                <rect key="frame" x="97" y="300" width="181" height="68"/>
+                                <rect key="frame" x="97" y="300" width="180" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="41"/>
@@ -891,6 +894,20 @@
                                     <action selector="playAgainButton:" destination="szO-gh-IB7" eventType="touchUpInside" id="gLC-uL-yud"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dHm-tp-ssZ" userLabel="yourScore">
+                                <rect key="frame" x="97" y="376" width="90" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z0r-xg-ViN" userLabel="hisScore">
+                                <rect key="frame" x="187" y="376" width="90" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" id="Lfb-oY-LME" userLabel="cardsOnTable">
                                 <rect key="frame" x="122" y="166" width="130" height="295"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -942,6 +959,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gm3-mk-4fL">
+                                <rect key="frame" x="97" y="300" width="180" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Campanile" family="Campanile" pointSize="41"/>
+                                <state key="normal" title="Next Match?">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextMatchButton:" destination="szO-gh-IB7" eventType="touchUpInside" id="BMY-ca-t8V"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="nextMatch" id="vgH-ey-NK0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -964,12 +994,15 @@
                         <outlet property="card8Image" destination="14x-SI-gwA" id="OlI-uS-7bx"/>
                         <outlet property="card9Image" destination="QmZ-gr-Pvx" id="DJd-D0-EGQ"/>
                         <outlet property="cardsOnTable" destination="Lfb-oY-LME" id="75T-cd-9q4"/>
+                        <outlet property="hisScore" destination="Z0r-xg-ViN" id="HYQ-o9-jb9"/>
+                        <outlet property="nextMatchLabel" destination="gm3-mk-4fL" id="ut5-u2-LVH"/>
                         <outlet property="runItBackLabel" destination="E4o-c4-l56" id="krj-nL-BQR"/>
                         <outlet property="trashTalkLabel" destination="pIh-wx-rzf" id="O5F-hl-u9U"/>
                         <outlet property="ttImageView" destination="naO-be-yEA" id="zem-ip-FG9"/>
                         <outlet property="userCardImage" destination="5ix-la-XdP" id="scd-E8-y5x"/>
                         <outlet property="userTricksImage" destination="beG-oa-Zqb" id="IFf-wa-ddy"/>
                         <outlet property="userTricksLabel" destination="4RY-Rn-heb" id="nRt-3j-3TN"/>
+                        <outlet property="yourScore" destination="dHm-tp-ssZ" id="RSc-lR-QAF"/>
                         <segue destination="6TW-pZ-I1C" kind="modal" identifier="runItBack" modalTransitionStyle="crossDissolve" id="jyd-qe-FOy"/>
                     </connections>
                 </viewController>
@@ -1040,7 +1073,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1038.5" y="120.5"/>
+            <point key="canvasLocation" x="1028.5" y="120.5"/>
         </scene>
     </scenes>
     <resources>
@@ -1059,7 +1092,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="JsM-y4-TBb"/>
-        <segue reference="7pr-Ue-9p1"/>
+        <segue reference="jyd-qe-FOy"/>
+        <segue reference="vgH-ey-NK0"/>
     </inferredMetricsTieBreakers>
 </document>
