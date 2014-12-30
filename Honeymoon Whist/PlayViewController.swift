@@ -44,6 +44,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var hisScore: UILabel!
     @IBOutlet weak var yourScore: UILabel!
     
+    @IBOutlet weak var congratulations: UILabel!
     var userLeads = false
     var userIsOffense = false
     var bid = Int()
@@ -60,6 +61,10 @@ class PlayViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         ttImageView.hidden = true
+        congratulations.hidden = true
+        yourScore.hidden = true
+        hisScore.hidden = true
+        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         userTricksImage.image = UIImage(named: "b2fv")
         aiTricksImage.image = UIImage(named: "b2fv")
@@ -294,19 +299,6 @@ class PlayViewController: UIViewController {
             nextTrick()
         }
         else {
-            println("GAMEOVER")
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 2))
-            dispatch_after(delayTime, dispatch_get_main_queue()){
-                self.userCardImage.image = nil
-                self.aiCardImage.image = nil
-                self.userTricksImage.image = nil
-                self.aiTricksImage.image = nil
-                self.userTricksLabel.text = ""
-                self.aiTricksLabel.text = ""
-                //self.cardsOnTable.center.y += 500
-                
-                
-            }
             
             if (userIsOffense && (userTricksWon >= bid+6)) || (!userIsOffense && (aiTricksWon < bid+6)) {
                 if isMuted == false {
@@ -315,29 +307,54 @@ class PlayViewController: UIViewController {
                     soundPlayer.play()
                 }
                 yourWinCount += 1
-                println("YOU WIN")
+                
+                
             } else {
                 hisWinCount += 1
                 println("YOU LOSE")
             }
-            print(bestOf)
-            if bestOf > 1 {
-                self.nextMatchLabel.hidden = false
-                self.view.bringSubviewToFront(self.nextMatchLabel)
+            
+            println("GAMEOVER")
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
+            dispatch_after(delayTime, dispatch_get_main_queue()){
+                self.userCardImage.image = nil
+                self.aiCardImage.image = nil
+                self.userTricksImage.image = nil
+                self.aiTricksImage.image = nil
+                self.userTricksLabel.text = ""
+                self.aiTricksLabel.text = ""
                 
-                //self.hisScore.hidden = false
                 self.view.bringSubviewToFront(self.hisScore)
-                self.yourScore.text = "Him: \(hisWinCount)"
+                self.hisScore.hidden = false
+                self.hisScore.text = "Him: \(hisWinCount)"
                 
                 //self.yourScore.hidden = false
                 self.view.bringSubviewToFront(self.yourScore)
+                self.yourScore.hidden = false
                 self.yourScore.text = "You: \(yourWinCount)"
-            }
-            else {
-                self.runItBackLabel.hidden = false
-                self.view.bringSubviewToFront(self.runItBackLabel)
+
+                if bestOf > 1 {
+                    self.nextMatchLabel.hidden = false
+                    self.view.bringSubviewToFront(self.nextMatchLabel)
+                }
+                else {
+                    self.congratulations.hidden = false
+                    self.view.bringSubviewToFront(self.congratulations)
+                    if yourWinCount > hisWinCount {
+                        self.congratulations.text = "Congratulations!"
+                    }
+                    else {
+                        self.congratulations.text = "You Lose!"
+                    }
+
+                    self.runItBackLabel.hidden = false
+                    self.view.bringSubviewToFront(self.runItBackLabel)
+                }
+                
+                
             }
 
+            
         }
         
         
