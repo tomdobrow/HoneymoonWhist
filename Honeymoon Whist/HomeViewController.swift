@@ -64,15 +64,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         
-//        bestOf1.hidden = true
-//        bestOf3.hidden = true
-//        bestOf5.hidden = true
-//        bestOf7.hidden = true
-
         playbackTheme = true
         
         if playSong {
-            playSong = true
+            
             let soundURL = NSBundle.mainBundle().URLForResource("AppMusic", withExtension: "mp3")
             soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
             
@@ -148,8 +143,9 @@ class HomeViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        soundPlayer.stop()
+        //soundPlayer.stop()
         playbackTheme = false
+        playSong = false
         
         yourWinCount = 0
         hisWinCount = 0

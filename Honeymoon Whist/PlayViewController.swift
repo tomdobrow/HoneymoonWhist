@@ -36,15 +36,17 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var userTricksLabel: UILabel!
     @IBOutlet weak var aiTricksLabel: UILabel!
     
+    @IBOutlet weak var WinLose: UILabel!
     @IBOutlet weak var ttImageView: UIImageView!
     @IBOutlet weak var trashTalkLabel: UILabel!
     @IBOutlet weak var runItBackLabel: UIButton!
     @IBOutlet weak var nextMatchLabel: UIButton!
     
+    @IBOutlet weak var scoreScoreLabel2: UILabel!
+    @IBOutlet weak var scoreScoreLabel: UILabel!
     @IBOutlet weak var hisScore: UILabel!
     @IBOutlet weak var yourScore: UILabel!
     
-    @IBOutlet weak var congratulations: UILabel!
     var userLeads = false
     var userIsOffense = false
     var bid = Int()
@@ -61,13 +63,10 @@ class PlayViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         ttImageView.hidden = true
-        congratulations.hidden = true
-        yourScore.hidden = true
-        hisScore.hidden = true
-        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
         userTricksImage.image = UIImage(named: "b2fv")
         aiTricksImage.image = UIImage(named: "b2fv")
+        view.bringSubviewToFront(aiTricksLabel)
         
         var cardImage = view.viewWithTag(1) as UIImageView
         handImageCenterY = cardImage.center.y
@@ -81,6 +80,9 @@ class PlayViewController: UIViewController {
         
         runItBackLabel.hidden = true
         nextMatchLabel.hidden = true
+        hisScore.hidden = true
+        yourScore.hidden = true
+        WinLose.hidden = true
         //defaultVariables()
         loadHand()
         nextTrick()
@@ -299,21 +301,6 @@ class PlayViewController: UIViewController {
             nextTrick()
         }
         else {
-            
-            if (userIsOffense && (userTricksWon >= bid+6)) || (!userIsOffense && (aiTricksWon < bid+6)) {
-                if isMuted == false {
-                    soundURL = NSBundle.mainBundle().URLForResource("winGame", withExtension: "mp3")
-                    soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
-                    soundPlayer.play()
-                }
-                yourWinCount += 1
-                
-                
-            } else {
-                hisWinCount += 1
-                println("YOU LOSE")
-            }
-            
             println("GAMEOVER")
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * 1))
             dispatch_after(delayTime, dispatch_get_main_queue()){
@@ -323,37 +310,54 @@ class PlayViewController: UIViewController {
                 self.aiTricksImage.image = nil
                 self.userTricksLabel.text = ""
                 self.aiTricksLabel.text = ""
+                self.scoreScoreLabel.text = ""
+                self.scoreScoreLabel2.text = ""
                 
-                self.view.bringSubviewToFront(self.hisScore)
-                self.hisScore.hidden = false
-                self.hisScore.text = "Him: \(hisWinCount)"
                 
-                //self.yourScore.hidden = false
-                self.view.bringSubviewToFront(self.yourScore)
-                self.yourScore.hidden = false
-                self.yourScore.text = "You: \(yourWinCount)"
-
-                if bestOf > 1 {
-                    self.nextMatchLabel.hidden = false
-                    self.view.bringSubviewToFront(self.nextMatchLabel)
+                if (self.userIsOffense && (self.userTricksWon >= self.bid+6)) || (!self.userIsOffense && (self.aiTricksWon < self.bid+6)) {
+                    if isMuted == false {
+                        soundURL = NSBundle.mainBundle().URLForResource("winGame", withExtension: "mp3")
+                        soundPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+                        soundPlayer.play()
+                    }
+                    yourWinCount += 1
+                } else {
+                    hisWinCount += 1
                 }
-                else {
-                    self.congratulations.hidden = false
-                    self.view.bringSubviewToFront(self.congratulations)
+                print(bestOf)
+                if (hisWinCount*2 > bestOf) || (yourWinCount*2 > bestOf){
+                    
+                    self.WinLose.hidden = false
+                    self.view.bringSubviewToFront(self.WinLose)
                     if yourWinCount > hisWinCount {
-                        self.congratulations.text = "Congratulations!"
+                        self.WinLose.text = "You Win!"
                     }
                     else {
-                        self.congratulations.text = "You Lose!"
+                        self.WinLose.text = "You Lose!"
                     }
-
                     self.runItBackLabel.hidden = false
                     self.view.bringSubviewToFront(self.runItBackLabel)
+                    
                 }
-                
-                
-            }
+                else {
+                    
+                    self.nextMatchLabel.hidden = false
+                    self.view.bringSubviewToFront(self.nextMatchLabel)
+                    
+                    //self.hisScore.hidden = false
+                    self.view.bringSubviewToFront(self.hisScore)
+                    self.hisScore.text = "Him: \(hisWinCount)"
+                    self.hisScore.hidden = false
+                    
+                    //self.yourScore.hidden = false
+                    self.view.bringSubviewToFront(self.yourScore)
+                    self.yourScore.text = "You: \(yourWinCount)"
+                    self.yourScore.hidden = false
 
+                }
+
+            }
+            
             
         }
         
@@ -377,7 +381,7 @@ class PlayViewController: UIViewController {
         }
         if segue.identifier == "nextMatch" {
             print("I trid to do next match")
-            bestOf -= 1
+            //bestOf -= 1
             //playSong = true
             userHand = []
             deck = []

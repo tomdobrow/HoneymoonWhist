@@ -349,6 +349,7 @@ class SetViewController: UIViewController {
         
         backButton.userInteractionEnabled = false
         playbackTheme = true
+        playSong = true
         userHand = []
         deck = []
         ai.hand = []
